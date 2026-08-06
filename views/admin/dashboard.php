@@ -14,14 +14,14 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <h1 class="dash-hero-title">Admin Command Center! 🛡️</h1>
       <p class="dash-hero-subtext">System Performance, Workspaces & Active User Overview</p>
     </div>
-    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+    <div class="dash-header-actions-group">
       
       <!-- Export Dropdown Expansion -->
-      <div class="dropdown-wrapper" style="position: relative;">
-        <button class="btn btn-secondary dropdown-toggle" style="background: white; color: var(--text-main); font-weight: 700; min-height: 40px;" data-toggle="dropdown">
+      <div class="dropdown-wrapper pos-relative">
+        <button class="btn btn-secondary dropdown-toggle bg-white text-main font-weight-700 min-height-40" data-toggle="dropdown">
           <i class="fa-solid fa-file-csv text-primary mr-6"></i> Export Report <i class="fa-solid fa-chevron-down font-size-11 ml-6"></i>
         </button>
-        <div class="dropdown-menu dropdown-menu-end" style="width: 240px; padding: 8px;">
+        <div class="dropdown-menu dropdown-menu-end width-240 p-8">
           <a href="#" class="dropdown-item" onclick="event.preventDefault(); alert('System Performance Report CSV downloaded!');">
             <i class="fa-solid fa-chart-line text-primary"></i> System Performance Report
           </a>
@@ -37,44 +37,41 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-task-completed-badge">
         <span>92% System Uptime & Goal Achieved</span>
         <div class="dash-progress-track-pill">
-          <div class="dash-progress-fill-pink" style="width: 92%;"></div>
+          <div class="dash-progress-fill-pink width-92-pc"></div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Quick Navigation Row -->
-  <div class="dash-quick-nav-row" style="display: flex; align-items: center; gap: 12px; overflow-x: auto; padding-bottom: 4px;">
-    <button class="btn btn-secondary btn-sm" style="background: white; border-radius: 20px; font-weight: 600; min-height: 40px; padding: 8px 16px; white-space: nowrap;" data-modal-target="create-user-modal">
+  <div class="dash-quick-nav-row dash-quick-nav-wrapper">
+    <button class="btn btn-secondary btn-sm dash-quick-nav-btn" data-modal-target="create-user-modal">
       <i class="fa-solid fa-user-plus text-primary mr-6"></i> Provision User
     </button>
-    <button class="btn btn-secondary btn-sm" style="background: white; border-radius: 20px; font-weight: 600; min-height: 40px; padding: 8px 16px; white-space: nowrap;" data-modal-target="create-workspace-modal">
+    <button class="btn btn-secondary btn-sm dash-quick-nav-btn" data-modal-target="create-workspace-modal">
       <i class="fa-solid fa-plus text-purple mr-6"></i> Create Workspace
     </button>
-    <button class="btn btn-secondary btn-sm" style="background: white; border-radius: 20px; font-weight: 600; min-height: 40px; padding: 8px 16px; white-space: nowrap;" data-modal-target="create-board-modal">
+    <button class="btn btn-secondary btn-sm dash-quick-nav-btn" data-modal-target="create-board-modal">
       <i class="fa-solid fa-table-columns text-warning mr-6"></i> Create Board
-    </button>
-    <button class="btn btn-secondary btn-sm" style="background: white; border-radius: 20px; font-weight: 600; min-height: 40px; padding: 8px 16px; white-space: nowrap;" onclick="window.location.href='<?= route('admin/all-boards') ?>';">
-      <i class="fa-solid fa-box-archive text-danger mr-6"></i> View Archived
     </button>
   </div>
 
   <!-- Inactive / Pending Accounts Alert Banner -->
-  <div class="dash-alert-banner" style="background: #FFFBEB; border: 1px solid #FCD34D; border-radius: var(--radius-md); padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-    <div style="display: flex; align-items: center; gap: 12px;">
+  <div class="dash-alert-banner">
+    <div class="flex-row items-center gap-12">
       <i class="fa-solid fa-triangle-exclamation text-warning font-size-18"></i>
-      <span style="font-size: 13.5px; font-weight: 600; color: #92400E;">
+      <span class="dash-alert-text">
         <strong>12 Inactive Accounts</strong> need review & security policy verification.
       </span>
     </div>
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <a href="<?= route('admin/users') ?>" class="btn btn-sm btn-warning" style="background: #F59E0B; color: white; border: none; font-weight: 700; padding: 6px 14px; border-radius: 16px;">View Accounts</a>
-      <button type="button" style="background: none; border: none; font-size: 18px; color: #92400E; cursor: pointer;" onclick="this.closest('.dash-alert-banner').remove();">&times;</button>
+    <div class="flex-row items-center gap-12">
+      <a href="<?= route('admin/users') ?>" class="btn btn-sm btn-warning font-weight-700 br-16">View Accounts</a>
+      <button type="button" class="dash-alert-close-btn" onclick="this.closest('.dash-alert-banner').remove();">&times;</button>
     </div>
   </div>
 
   <!-- Featured Hero Cards Grid (3 Tiles) -->
-  <div class="dash-hero-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+  <div class="dash-hero-cards-grid">
     <!-- Project Tile 1: Infrastructure Core -->
     <div class="dash-hero-tile-pink">
       <div class="dash-tile-top-flex">
@@ -85,48 +82,56 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <i class="fa-solid fa-ellipsis"></i>
         </button>
       </div>
-      <div class="dash-tile-title-text">
-        Infrastructure Core & Database Cluster Performance
+      <span class="badge badge-rose font-weight-700 font-size-11">System Node</span>
+      <div class="dash-tile-title-text mt-8">
+        Production Infrastructure
+        <div class="dash-tile-subtext">PHP 8.2 • MySQL PDO • Apache XAMPP</div>
       </div>
-      <div class="dash-tile-avatar-stack">
-        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80" alt="Admin System">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Mahad Bukhari">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sarah Connor">
+      <div class="dash-tile-footer mt-16">
+        <div class="dash-avatar-stack">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" class="avatar" alt="Dev">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="avatar" alt="Dev">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="avatar" alt="Dev">
+        </div>
+        <button class="btn btn-sm dash-hero-btn" onclick="window.location.href='<?= route('admin/workspaces') ?>';">Workspaces →</button>
       </div>
     </div>
 
-    <!-- Project Tile 2: Enterprise Security -->
+    <!-- Project Tile 2: User Security & Roles -->
     <div class="dash-hero-tile-purple">
       <div class="dash-tile-top-flex">
         <div class="dash-tile-icon-badge">
           <i class="fa-solid fa-shield-halved"></i>
         </div>
-        <div class="dash-tile-emoji-badge">⚡</div>
+        <span class="badge badge-purple font-weight-700 font-size-11">Security Core</span>
       </div>
-      <div class="dash-tile-title-text">
-        Enterprise Security & Role-Based Access Audit
+      <div class="dash-tile-title-text mt-8">
+        User Access & RBAC
+        <div class="dash-tile-subtext">254 Users • 3 Roles • Audit Logs</div>
       </div>
-      <div class="dash-tile-avatar-stack">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Alex Johnson">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Elena Rostova">
-        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80" alt="Admin System">
+      <div class="dash-tile-footer mt-16">
+        <div class="dash-avatar-stack">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" class="avatar" alt="Admin">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" class="avatar" alt="Admin">
+        </div>
+        <button class="btn btn-sm dash-hero-btn" onclick="window.location.href='<?= route('admin/users') ?>';">Manage Users →</button>
       </div>
     </div>
 
-    <!-- Project Tile 3: Archived Items Summary Tile -->
-    <div class="dash-hero-tile-amber" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); border-radius: 24px; padding: 28px; color: white; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.22); min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+    <!-- Project Tile 3: Active Sprints & Platform Health -->
+    <div class="dash-hero-emerald">
       <div class="dash-tile-top-flex">
-        <div class="dash-tile-icon-badge" style="background: rgba(255, 255, 255, 0.25);">
-          <i class="fa-solid fa-box-archive"></i>
+        <div class="dash-tile-icon-badge bg-white-25">
+          <i class="fa-solid fa-chart-line"></i>
         </div>
-        <span class="badge" style="background: rgba(255, 255, 255, 0.3); color: white; font-weight: 700; font-size: 11px;">Soft-Archived</span>
+        <span class="badge dash-hero-emerald-badge">Active Sprints</span>
       </div>
-      <div class="dash-tile-title-text" style="font-size: 20px;">
-        23 Archived Items
-        <div style="font-size: 13px; font-weight: 500; opacity: 0.9; margin-top: 4px;">18 Cards • 5 List Columns</div>
+      <div class="dash-tile-title-text font-size-20">
+        12 Active Workspaces
+        <div class="dash-tile-subtext opacity-9 mt-4">58 Boards • 1,240 Tasks Completed</div>
       </div>
-      <div style="display: flex; align-items: center; justify-content: space-between;">
-        <button class="btn btn-sm" style="background: white; color: #D97706; font-weight: 700; border-radius: 16px; padding: 6px 14px;" onclick="window.location.href='<?= route('admin/all-boards') ?>';">Review Panel →</button>
+      <div class="flex-row items-center justify-between">
+        <button class="btn btn-sm dash-hero-emerald-btn" onclick="window.location.href='<?= route('admin/all-boards') ?>';">View Boards →</button>
       </div>
     </div>
   </div>
@@ -135,7 +140,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
   <!-- ========================================== -->
   <!-- SECTION 2: SYSTEM MANAGEMENT WIDGETS -->
   <!-- ========================================== -->
-  <div class="dash-widget-grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+  <div class="dash-widget-grid-3">
 
     <!-- Widget 1: Administrative Actions -->
     <div class="dash-card-white">
@@ -179,34 +184,34 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </a>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 8px;">
+      <div class="dash-role-dist-wrapper">
         <div>
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px;">
+          <div class="flex-row justify-between font-size-13 font-weight-600 mb-4">
             <span><i class="fa-solid fa-circle text-info font-size-10 mr-6"></i> Standard Users</span>
             <span class="font-weight-700">112 (78%)</span>
           </div>
-          <div style="height: 8px; border-radius: 4px; background: #E2E8F0; overflow: hidden;">
-            <div style="height: 100%; width: 78%; background: #0284C7; border-radius: 4px;"></div>
+          <div class="dash-role-progress-track">
+            <div class="dash-role-progress-bar-blue"></div>
           </div>
         </div>
 
         <div>
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px;">
+          <div class="flex-row justify-between font-size-13 font-weight-600 mb-4">
             <span><i class="fa-solid fa-circle text-warning font-size-10 mr-6"></i> Board Managers</span>
             <span class="font-weight-700">18 (13%)</span>
           </div>
-          <div style="height: 8px; border-radius: 4px; background: #E2E8F0; overflow: hidden;">
-            <div style="height: 100%; width: 13%; background: #F59E0B; border-radius: 4px;"></div>
+          <div class="dash-role-progress-track">
+            <div class="dash-role-progress-bar-amber"></div>
           </div>
         </div>
 
         <div>
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px;">
+          <div class="flex-row justify-between font-size-13 font-weight-600 mb-4">
             <span><i class="fa-solid fa-circle text-purple font-size-10 mr-6"></i> Workspace Admins</span>
             <span class="font-weight-700">12 (9%)</span>
           </div>
-          <div style="height: 8px; border-radius: 4px; background: #E2E8F0; overflow: hidden;">
-            <div style="height: 100%; width: 9%; background: #8B5CF6; border-radius: 4px;"></div>
+          <div class="dash-role-progress-track">
+            <div class="dash-role-progress-bar-purple"></div>
           </div>
         </div>
       </div>
@@ -221,11 +226,11 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </a>
       </div>
 
-      <div class="dash-donut-container" style="height: 160px; position: relative;">
+      <div class="dash-chart-donut-box">
         <canvas id="projectsDonutChart"></canvas>
       </div>
 
-      <div class="dash-legend-row" style="margin-top: 12px;">
+      <div class="dash-legend-row mt-12">
         <span><i class="fa-solid fa-circle dot-orange"></i> Active Boards: 58</span>
         <span><i class="fa-solid fa-circle dot-blue"></i> Completed: 1,240</span>
       </div>
@@ -233,7 +238,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
     </div>
 
     <!-- Widget 4: System Load & Throughput (Line Chart.js) -->
-    <div class="dash-card-white" style="grid-column: 1 / -1;">
+    <div class="dash-card-white dash-card-full-width">
       <div class="dash-widget-header">
         <h3 class="dash-widget-title">System Load & Throughput</h3>
         <button class="dash-circle-btn" title="Performance Metrics">
@@ -241,7 +246,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </button>
       </div>
 
-      <div class="dash-chart-container" style="height: 200px; position: relative;">
+      <div class="dash-chart-line-box">
         <canvas id="incomeExpenseLineChart"></canvas>
       </div>
     </div>
@@ -252,13 +257,13 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
   <!-- ========================================== -->
   <!-- SECTION 3: PROJECT TEAMS WORKSPACES GRID -->
   <!-- ========================================== -->
-  <div style="margin-top: 8px;">
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-      <h3 style="font-size: 18px; font-weight: 800; margin: 0; color: #0F172A;">
+  <div class="mt-8">
+    <div class="dash-section-header-flex">
+      <h3 class="dash-section-title">
         <i class="fa-solid fa-briefcase text-primary mr-6"></i> Organization Workspaces
       </h3>
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <button class="btn btn-sm btn-primary" style="border-radius: 16px; font-weight: 600;" data-modal-target="create-workspace-modal">
+      <div class="flex-row items-center gap-12">
+        <button class="btn btn-sm btn-primary br-16 font-weight-600" data-modal-target="create-workspace-modal">
           <i class="fa-solid fa-plus mr-4"></i> Create Workspace
         </button>
         <a href="<?= route('admin/workspaces') ?>" class="text-primary font-weight-700 font-size-13 text-decoration-none">
@@ -278,14 +283,29 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <span class="dash-team-sub">8 Boards • 24 Cards</span>
             </div>
           </div>
-          <i class="fa-solid fa-ellipsis-vertical dash-team-options"></i>
+          <div class="dropdown-wrapper pos-relative">
+            <button class="dropdown-toggle dash-dropdown-toggle-btn" title="Workspace Options">
+              <i class="fa-solid fa-ellipsis-vertical dash-team-options"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end dash-dropdown-menu-sm">
+              <a href="#" class="dropdown-item" data-modal-target="manage-workspace-members-modal" onclick="event.preventDefault(); document.getElementById('workspace-name-manage-display').textContent = 'Engineering Team'; window.openModal('manage-workspace-members-modal', this);">
+                <i class="fa-solid fa-users text-primary mr-6"></i> Manage Members
+              </a>
+              <a href="<?= route('admin/workspaces') ?>" class="dropdown-item">
+                <i class="fa-solid fa-gear text-info mr-6"></i> Workspace Settings
+              </a>
+              <a href="<?= route('admin/all-boards') ?>" class="dropdown-item">
+                <i class="fa-solid fa-table-columns text-warning mr-6"></i> View All Boards
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="dash-tile-avatar-stack mb-12">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Avatar">
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Avatar">
           <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Avatar">
-          <div class="dash-avatar-add-btn">+</div>
+          <div class="dash-avatar-add-btn cursor-pointer" data-modal-target="manage-workspace-members-modal" onclick="document.getElementById('workspace-name-manage-display').textContent = 'Engineering Team'; window.openModal('manage-workspace-members-modal', this);">+</div>
         </div>
 
         <div class="dash-progress-meta-row">
@@ -293,7 +313,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <span class="text-primary-purple">88%</span>
         </div>
         <div class="dash-progress-bar-track">
-          <div class="progress-bar-fill-80" style="width: 88%;"></div>
+          <div class="progress-bar-fill-80 width-88-pc"></div>
         </div>
 
         <div class="dash-team-footer">
@@ -315,7 +335,22 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <span class="dash-team-sub">4 Boards • 18 Cards</span>
             </div>
           </div>
-          <i class="fa-solid fa-ellipsis-vertical dash-team-options"></i>
+          <div class="dropdown-wrapper pos-relative">
+            <button class="dropdown-toggle dash-dropdown-toggle-btn" title="Workspace Options">
+              <i class="fa-solid fa-ellipsis-vertical dash-team-options"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end dash-dropdown-menu-sm">
+              <a href="#" class="dropdown-item" data-modal-target="manage-workspace-members-modal" onclick="event.preventDefault(); document.getElementById('workspace-name-manage-display').textContent = 'Product Design'; window.openModal('manage-workspace-members-modal', this);">
+                <i class="fa-solid fa-users text-primary mr-6"></i> Manage Members
+              </a>
+              <a href="<?= route('admin/workspaces') ?>" class="dropdown-item">
+                <i class="fa-solid fa-gear text-info mr-6"></i> Workspace Settings
+              </a>
+              <a href="<?= route('admin/all-boards') ?>" class="dropdown-item">
+                <i class="fa-solid fa-table-columns text-warning mr-6"></i> View All Boards
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="dash-tile-avatar-stack mb-12">
@@ -329,7 +364,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <span class="text-primary-purple">92%</span>
         </div>
         <div class="dash-progress-bar-track">
-          <div class="progress-bar-fill-90" style="width: 92%;"></div>
+          <div class="progress-bar-fill-90 width-92-pc"></div>
         </div>
 
         <div class="dash-team-footer">
@@ -351,7 +386,22 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <span class="dash-team-sub">5 Boards • 14 Cards</span>
             </div>
           </div>
-          <i class="fa-solid fa-ellipsis-vertical dash-team-options"></i>
+          <div class="dropdown-wrapper pos-relative">
+            <button class="dropdown-toggle dash-dropdown-toggle-btn" title="Workspace Options">
+              <i class="fa-solid fa-ellipsis-vertical dash-team-options"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end dash-dropdown-menu-sm">
+              <a href="#" class="dropdown-item" data-modal-target="manage-workspace-members-modal" onclick="event.preventDefault(); document.getElementById('workspace-name-manage-display').textContent = 'Growth Marketing'; window.openModal('manage-workspace-members-modal', this);">
+                <i class="fa-solid fa-users text-primary mr-6"></i> Manage Members
+              </a>
+              <a href="<?= route('admin/workspaces') ?>" class="dropdown-item">
+                <i class="fa-solid fa-gear text-info mr-6"></i> Workspace Settings
+              </a>
+              <a href="<?= route('admin/all-boards') ?>" class="dropdown-item">
+                <i class="fa-solid fa-table-columns text-warning mr-6"></i> View All Boards
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="dash-tile-avatar-stack mb-12">
@@ -364,7 +414,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <span class="text-info-blue">75%</span>
         </div>
         <div class="dash-progress-bar-track">
-          <div class="progress-bar-fill-70" style="width: 75%;"></div>
+          <div class="progress-bar-fill-70 width-75-pc"></div>
         </div>
 
         <div class="dash-team-footer">
@@ -386,7 +436,22 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <span class="dash-team-sub">6 Boards • 9 Cards</span>
             </div>
           </div>
-          <i class="fa-solid fa-ellipsis-vertical dash-team-options"></i>
+          <div class="dropdown-wrapper pos-relative">
+            <button class="dropdown-toggle dash-dropdown-toggle-btn" title="Workspace Options">
+              <i class="fa-solid fa-ellipsis-vertical dash-team-options"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end dash-dropdown-menu-sm">
+              <a href="#" class="dropdown-item" data-modal-target="manage-workspace-members-modal" onclick="event.preventDefault(); document.getElementById('workspace-name-manage-display').textContent = 'Operations'; window.openModal('manage-workspace-members-modal', this);">
+                <i class="fa-solid fa-users text-primary mr-6"></i> Manage Members
+              </a>
+              <a href="<?= route('admin/workspaces') ?>" class="dropdown-item">
+                <i class="fa-solid fa-gear text-info mr-6"></i> Workspace Settings
+              </a>
+              <a href="<?= route('admin/all-boards') ?>" class="dropdown-item">
+                <i class="fa-solid fa-table-columns text-warning mr-6"></i> View All Boards
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="dash-tile-avatar-stack mb-12">
@@ -399,7 +464,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <span class="text-orange">65%</span>
         </div>
         <div class="dash-progress-bar-track">
-          <div class="progress-bar-fill-40" style="width: 65%;"></div>
+          <div class="progress-bar-fill-40 width-65-pc"></div>
         </div>
 
         <div class="dash-team-footer">
@@ -417,9 +482,9 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
   <!-- ========================================== -->
   <!-- SECTION 4: SPRINT WORK SCHEDULE TIMELINE -->
   <!-- ========================================== -->
-  <div class="dash-timeline-and-chat-grid" style="margin-top: 8px;">
+  <div class="dash-timeline-and-chat-grid mt-8">
     <div class="dash-card-white">
-      <div class="dash-timeline-header" style="flex-wrap: wrap; gap: 12px;">
+      <div class="dash-timeline-header flex-wrap gap-12">
         <div class="dash-timeline-title">
           <i class="fa-regular fa-calendar-days text-primary"></i> System Roadmap & Release Timeline • July 2026
         </div>
@@ -431,8 +496,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
       </div>
 
-      <div style="overflow-x: auto;">
-        <div style="min-width: 640px;">
+      <div class="overflow-x-auto">
+        <div class="min-width-640">
           <!-- Schedule Rows -->
           <div class="dash-timeline-row">
             <span class="dash-row-title-active">Core Architecture Sprint</span>
@@ -509,7 +574,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <div>
             <h4 class="dash-act-username">
               Admin System
-              <span class="badge" style="background: #FEF3C7; color: #D97706; font-weight: 700; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-left: 6px;">Bulk Action</span>
+              <span class="badge dash-badge-bulk">Bulk Action</span>
             </h4>
             <p class="dash-act-text">Executed bulk deactivation on <strong class="text-dark-slate">12 inactive user accounts</strong> for security policy compliance.</p>
           </div>
@@ -541,7 +606,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           </div>
           <div>
             <h4 class="dash-act-username">Mahad Bukhari</h4>
-            <p class="dash-act-text">Archived workspace board <strong class="text-dark-slate">"Q1 Legacy Architecture"</strong> in Engineering Team workspace.</p>
+            <p class="dash-act-text">Updated board settings for <strong class="text-dark-slate">"Q1 Legacy Architecture"</strong> in Engineering Team workspace.</p>
           </div>
         </div>
         <span class="dash-act-time">2 hours ago</span>

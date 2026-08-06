@@ -24,28 +24,28 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
   </div>
 
   <!-- Workspaces Grid Cards -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px;">
+  <div class="workspace-grid">
     <?php foreach ($workspaces as $ws): ?>
-      <div style="background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; transition: all 0.2s ease;">
+      <div class="workspace-card">
         <div>
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div style="background: linear-gradient(135deg, <?= $ws['color'] ?>, var(--accent-purple)); width: 44px; height: 44px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; box-shadow: var(--shadow-sm);">
+          <div class="workspace-card-header">
+            <div class="workspace-info-wrapper">
+              <div class="workspace-avatar-icon" style="background: linear-gradient(135deg, <?= $ws['color'] ?>, var(--accent-purple));">
                 <i class="fa-solid <?= $ws['icon'] ?>"></i>
               </div>
               <div>
-                <h3 style="margin: 0; font-size: 16px; font-weight: 700; color: var(--text-main);"><?= sanitize($ws['name']) ?></h3>
-                <span class="badge badge-info" style="font-size: 11px; margin-top: 4px; display: inline-flex; align-items: center; gap: 4px;">
+                <h3 class="workspace-card-title"><?= sanitize($ws['name']) ?></h3>
+                <span class="badge badge-info mt-4 gap-4" style="font-size: 11px;">
                   <i class="fa-solid fa-lock-open font-size-10"></i> <?= $ws['visibility'] ?>
                 </span>
               </div>
             </div>
           </div>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0 0 20px;"><?= sanitize($ws['description']) ?></p>
+          <p class="workspace-desc"><?= sanitize($ws['description']) ?></p>
         </div>
 
-        <div style="padding-top: 16px; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-          <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 10px;">
+        <div class="workspace-card-footer">
+          <div class="workspace-meta-stats">
             <span><i class="fa-solid fa-users text-primary mr-4"></i> <?= $ws['members_count'] ?> Members</span>
             <span>•</span>
             <span><i class="fa-solid fa-table-columns text-warning mr-4"></i> <?= $ws['boards_count'] ?> Boards</span>

@@ -11,20 +11,19 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <i class="fa-solid fa-star"></i>
     </button>
     <h1 class="board-title"><?= sanitize($board['title']) ?></h1>
-    <span class="badge badge-info badge-info-sm"><i class="fa-solid fa-layer-group"></i> <?= sanitize($board['workspace']) ?></span>
   </div>
 
   <div class="gap-16 flex-row">
     <!-- Enterprise Board View Tabs (Board, Calendar, List View) -->
     <div class="board-view-tabs board-view-tabs-bar">
       <button class="btn btn-sm btn-view-tab-active active-view-tab" data-view-target="board-view-container">
-        <i class="fa-solid fa-kanban icon-primary"></i> Board
+        <i class="fa-solid fa-table-columns mr-4"></i> Board
       </button>
       <button class="btn btn-sm btn-view-tab" data-view-target="calendar-view-container">
-        <i class="fa-regular fa-calendar-days"></i> Calendar
+        <i class="fa-regular fa-calendar mr-4"></i> Calendar
       </button>
       <button class="btn btn-sm btn-view-tab" data-view-target="list-view-container">
-        <i class="fa-solid fa-list-check"></i> List View
+        <i class="fa-solid fa-list-ul mr-4"></i> List View
       </button>
     </div>
 
@@ -34,10 +33,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <input type="text" id="board-search-input" class="board-search-input" placeholder="Filter cards...">
     </div>
 
-    <!-- Archived Items Drawer Toggle -->
-    <button class="btn btn-secondary btn-sm" id="archived-items-toggle-btn" onclick="toggleArchivedDrawer();" title="Archived Items">
-      <i class="fa-solid fa-box-archive text-warning"></i> Archived Items <span id="archived-count-badge" class="badge badge-warning font-weight-700" style="margin-left: 4px;">1</span>
-    </button>
+
 
     <!-- Board Member Avatars Stack (Far Right Corner) -->
     <div class="avatar-group avatar-group-stack">
@@ -165,7 +161,139 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
 </div>
 
 <!-- View 3: Flat Sortable List / Table View Container -->
-<?php require_once VIEWS_PATH . '/partials/board_list_view.php'; ?>
+<div id="list-view-container" class="view-container list-view-padding" style="display: none;">
+  <div class="table-card-box">
+    
+    <!-- Table Header Toolbar -->
+    <div class="table-header-toolbar">
+      <div class="table-header-left">
+        <div class="table-header-icon-badge">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+        <div>
+          <h3 class="table-header-title">Board Cards & Task Directory</h3>
+          <p class="table-header-subtext">Overview of all cards across active kanban columns</p>
+        </div>
+      </div>
+
+      <div class="table-header-right">
+        <div class="search-input-group search-input-sm">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="list-table-filter-input" placeholder="Search tasks..." class="table-filter-input">
+        </div>
+        <span class="badge badge-active-tasks">6 Active Tasks</span>
+      </div>
+    </div>
+
+    <!-- Data Table Container -->
+    <div class="table-desktop-fit-wrapper">
+      <table class="data-directory-table">
+        <thead>
+          <tr class="table-head-row">
+            <th class="col-title">Task & Card Title</th>
+            <th class="col-status">Column Status</th>
+            <th class="col-assignees">Assignees</th>
+            <th class="col-priority">Priority</th>
+            <th class="col-progress">Progress</th>
+            <th class="col-due">Due Date</th>
+            <th class="col-action">Action</th>
+          </tr>
+        </thead>
+        <tbody id="list-table-body">
+          <tr class="table-hover-row" onclick="window.openModal('card-detail-modal');">
+            <td class="cell-title">
+              <div class="task-title-flex">
+                <div class="task-folder-badge task-folder-indigo">
+                  <i class="fa-regular fa-folder"></i>
+                </div>
+                <div class="task-text-block">
+                  <div class="task-main-name" title="HTML5 Drag & Drop Card Physics">HTML5 Drag & Drop Card Physics</div>
+                  <div class="task-sub-desc" title="Implement draggable physics & container drop handlers">Implement draggable physics & container drop handlers</div>
+                </div>
+              </div>
+            </td>
+            <td class="cell-status">
+              <span class="badge-status-progress">
+                <i class="fa-solid fa-spinner font-size-10"></i> In Progress
+              </span>
+            </td>
+            <td class="cell-assignees">
+              <div class="assignees-avatar-flex">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="table-user-avatar" title="Sarah Connor">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="table-user-avatar table-user-avatar-overlap" title="Mahad Bukhari">
+              </div>
+            </td>
+            <td class="cell-priority">
+              <span class="badge-priority-high">
+                <i class="fa-solid fa-angle-up font-size-10"></i> High
+              </span>
+            </td>
+            <td class="cell-progress">
+              <div class="progress-cell-flex">
+                <div class="progress-track-sm">
+                  <div class="progress-fill-indigo" style="width: 50%;"></div>
+                </div>
+                <span class="progress-percentage-indigo">50%</span>
+              </div>
+            </td>
+            <td class="cell-date">
+              <span class="date-chip"><i class="fa-regular fa-calendar text-primary"></i> Oct 28, 2026</span>
+            </td>
+            <td class="cell-action">
+              <button class="btn btn-secondary btn-sm btn-view-card-table">
+                View Card <i class="fa-solid fa-arrow-right font-size-10 ml-2"></i>
+              </button>
+            </td>
+          </tr>
+          <tr class="table-hover-row" onclick="window.openModal('card-detail-modal');">
+            <td class="cell-title">
+              <div class="task-title-flex">
+                <div class="task-folder-badge task-folder-blue">
+                  <i class="fa-regular fa-folder"></i>
+                </div>
+                <div class="task-text-block">
+                  <div class="task-main-name" title="MySQL PDO Prepared Statements">MySQL PDO Prepared Statements</div>
+                  <div class="task-sub-desc" title="Write secure database query handlers & migrations">Write secure database query handlers & migrations</div>
+                </div>
+              </div>
+            </td>
+            <td class="cell-status">
+              <span class="badge-status-todo">
+                <i class="fa-regular fa-circle font-size-10"></i> To-Do
+              </span>
+            </td>
+            <td class="cell-assignees">
+              <div class="assignees-avatar-flex">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" class="table-user-avatar" title="Alex Johnson">
+              </div>
+            </td>
+            <td class="cell-priority">
+              <span class="badge-priority-medium">
+                <i class="fa-solid fa-minus font-size-10"></i> Medium
+              </span>
+            </td>
+            <td class="cell-progress">
+              <div class="progress-cell-flex">
+                <div class="progress-track-sm">
+                  <div class="progress-fill-blue" style="width: 25%;"></div>
+                </div>
+                <span class="progress-percentage-blue">25%</span>
+              </div>
+            </td>
+            <td class="cell-date">
+              <span class="date-chip"><i class="fa-regular fa-calendar text-info"></i> Nov 02, 2026</span>
+            </td>
+            <td class="cell-action">
+              <button class="btn btn-secondary btn-sm btn-view-card-table">
+                View Card <i class="fa-solid fa-arrow-right font-size-10 ml-2"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <!-- View 2: Enterprise Google Calendar / ClickUp Style Calendar Container -->
 <div id="calendar-view-container" class="view-container calendar-view-wrapper" style="display: none;">
@@ -174,12 +302,12 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
     <!-- Left Navigation & Title -->
     <div class="calendar-left-group">
       <h2 id="calendar-month-title" class="calendar-month-heading">
-        <i class="fa-regular fa-calendar-days icon-primary"></i> <span id="cal-month-text">July 2026</span>
+        <span id="cal-month-text">July 2026</span>
       </h2>
 
       <div class="calendar-nav-buttons">
+        <button id="cal-today-btn" class="btn btn-secondary btn-sm btn-cal-today" title="Jump to Today">Today</button>
         <button id="cal-prev-btn" class="btn btn-secondary btn-sm btn-cal-nav" title="Previous Month"><i class="fa-solid fa-chevron-left"></i></button>
-        <button id="cal-today-btn" class="btn btn-secondary btn-sm btn-cal-today">Today</button>
         <button id="cal-next-btn" class="btn btn-secondary btn-sm btn-cal-nav" title="Next Month"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
@@ -423,51 +551,9 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
   </div>
 </div>
 
-<!-- Slide-over Archived Items Drawer Panel -->
-<div id="archived-items-drawer" class="archived-drawer-overlay" style="display: none;">
-  <div class="archived-drawer-panel">
-    <div class="archived-drawer-header">
-      <h3><i class="fa-solid fa-box-archive text-warning"></i> Archived Items</h3>
-      <button class="modal-close-btn" onclick="toggleArchivedDrawer();">&times;</button>
-    </div>
-    <div class="archived-drawer-tabs">
-      <button class="btn btn-sm btn-view-tab-active active-arch-tab" id="arch-cards-tab-btn" onclick="switchArchivedTab('cards');">Archived Cards</button>
-      <button class="btn btn-sm btn-view-tab" id="arch-lists-tab-btn" onclick="switchArchivedTab('lists');">Archived Lists</button>
-    </div>
-    
-    <!-- Tab 1: Archived Cards -->
-    <div id="archived-cards-tab-content" class="archived-tab-content">
-      <div id="archived-cards-list-container" class="archived-cards-stack">
-        <div class="archived-item-card" data-archived-title="HTML5 Drag & Drop Card Physics">
-          <div class="archived-item-info">
-            <div class="archived-item-title">HTML5 Drag & Drop Card Physics</div>
-            <div class="archived-item-sub">Archived 2 hours ago • from To-Do</div>
-          </div>
-          <button class="btn btn-sm btn-secondary" onclick="restoreCard(this, 'HTML5 Drag & Drop Card Physics');"><i class="fa-solid fa-rotate-left"></i> Restore</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 2: Archived Lists -->
-    <div id="archived-lists-tab-content" class="archived-tab-content" style="display: none;">
-      <div id="archived-lists-list-container" class="archived-cards-stack">
-        <div class="archived-item-card" data-archived-list-title="Quality Assurance & Testing">
-          <div class="archived-item-info">
-            <div class="archived-item-title">Quality Assurance & Testing</div>
-            <div class="archived-item-sub">Archived 1 day ago • 3 cards</div>
-          </div>
-          <button class="btn btn-sm btn-secondary" onclick="restoreList(this, 'Quality Assurance & Testing');"><i class="fa-solid fa-rotate-left"></i> Restore</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Modal Dialog Components -->
 <?php require_once VIEWS_PATH . '/partials/modals/add_card_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/add_list_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/card_detail_modal.php'; ?>
-<?php require_once VIEWS_PATH . '/partials/modals/archive_card_modal.php'; ?>
-<?php require_once VIEWS_PATH . '/partials/modals/archive_list_modal.php'; ?>
 
 <?php require_once VIEWS_PATH . '/layouts/user/footer.php'; ?>

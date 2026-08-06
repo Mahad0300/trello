@@ -17,7 +17,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
     <div class="dash-task-completed-badge">
       <span>78% Sprint Goal Achieved</span>
       <div class="dash-progress-track-pill">
-        <div class="dash-progress-fill-pink" style="width: 78%;"></div>
+        <div class="dash-progress-fill-pink dash-progress-fill-pink-78"></div>
       </div>
     </div>
   </div>

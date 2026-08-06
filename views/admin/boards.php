@@ -5,13 +5,13 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
 ?>
 
 <!-- Official Trello-Style All Boards Hub Container -->
-<div class="notif-center-wrapper">
+<div class="notif-center-wrapper boards-hub">
 
   <!-- Boards Hub Top Header Toolbar -->
   <div class="notif-header-toolbar mb-24">
     <div class="notif-header-left">
-      <div class="notif-icon-badge notif-icon-badge-gradient">
-        <i class="fa-solid fa-table-columns icon-primary"></i>
+      <div class="notif-icon-badge boards-hub-badge">
+        <i class="fa-solid fa-table-columns"></i>
       </div>
       <div>
         <h1 class="notif-main-title">All Boards</h1>
@@ -26,7 +26,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <input type="text" id="admin-board-search-input" class="board-search-input" placeholder="Filter boards by title...">
       </div>
 
-      <button class="btn btn-primary btn-create-board-action" data-modal-target="create-board-modal">
+      <button class="btn btn-primary btn-create-board-action boards-hub-create-btn" data-modal-target="create-board-modal">
         <i class="fa-solid fa-plus mr-6"></i> Create Board
       </button>
     </div>
@@ -60,36 +60,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
     </div>
   <?php endif; ?>
 
-  <!-- SECTION 2: Recently Viewed Boards -->
-  <?php if (!empty($recentBoards)): ?>
-    <div class="workspace-block-margin mb-36">
-      <div class="notif-group-title mb-16">
-        <i class="fa-regular fa-clock icon-primary-sm"></i>
-        <span class="section-header-title-text">Recently Viewed</span>
-        <div class="notif-divider-line"></div>
-      </div>
-
-      <div class="boards-grid">
-        <?php foreach ($recentBoards as $b): ?>
-          <?php $isStarred = !empty($b['starred']) || !empty($b['is_starred']); ?>
-          <a href="<?= route('admin/board-detail') ?>" class="trello-board-tile board-card-link" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%), url('<?= $b['cover_image'] ?>');">
-            <div class="tile-top-row">
-              <span class="tile-title"><?= sanitize($b['title']) ?></span>
-              <span class="star-board-btn <?= $isStarred ? 'active' : '' ?>" title="<?= $isStarred ? 'Unstar Board' : 'Star Board' ?>" onclick="toggleBoardStar(this, event);">
-                <i class="<?= $isStarred ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star' ?>"></i>
-              </span>
-            </div>
-            <div class="tile-bottom-row">
-              <span><i class="fa-regular fa-rectangle-list"></i> <?= $b['cards_count'] ?> Cards</span>
-              <span><i class="fa-solid fa-users"></i> <?= $b['members_count'] ?> Members</span>
-            </div>
-          </a>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  <?php endif; ?>
-
-  <!-- SECTION 3: Trello Workspaces List -->
+  <!-- SECTION 2: Trello Workspaces List -->
   <div class="workspace-block-margin mb-36">
     <div class="notif-group-title mb-20">
       <i class="fa-solid fa-briefcase icon-primary-sm"></i>
@@ -103,16 +74,11 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <!-- Workspace Header Bar -->
           <div class="mb-16">
             <div class="workspace-header-bar mb-0">
-              <div class="workspace-icon-badge workspace-icon-badge-dynamic" style="background: linear-gradient(135deg, <?= $ws['color'] ?>, var(--accent-purple));">
+              <div class="workspace-icon-badge workspace-icon-badge-dynamic">
                 <i class="fa-solid <?= $ws['icon'] ?>"></i>
               </div>
               <div>
-                <div class="gap-10 flex-row">
-                  <h2 class="workspace-title workspace-title-heading"><?= sanitize($ws['name']) ?></h2>
-                  <span class="badge badge-visibility-pill">
-                    <i class="fa-solid fa-lock-open font-size-10"></i> <?= $ws['visibility'] ?>
-                  </span>
-                </div>
+                <h2 class="workspace-title workspace-title-heading"><?= sanitize($ws['name']) ?></h2>
                 <p class="workspace-desc workspace-desc-text"><?= sanitize($ws['description']) ?></p>
               </div>
             </div>

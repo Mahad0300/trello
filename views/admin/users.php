@@ -15,7 +15,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <p class="notif-subtext">Manage registered team members, roles, permissions, and active status.</p>
       </div>
     </div>
-    <div class="notif-header-right" style="display: flex; gap: 10px;">
+    <div class="notif-header-right users-table-header-group">
       <button class="btn btn-secondary" onclick="alert('User Activity Audit CSV downloaded!');">
         <i class="fa-solid fa-file-csv text-primary mr-6"></i> Export Audit
       </button>
@@ -37,25 +37,25 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
     <table class="data-table">
       <thead>
         <tr>
-          <th style="width: 40px; text-align: center;"><input type="checkbox" id="select-all-users-checkbox" onchange="toggleSelectAllUsers(this);"></th>
+          <th class="text-center" style="width: 40px;"><input type="checkbox" id="select-all-users-checkbox" onchange="toggleSelectAllUsers(this);"></th>
           <th>User Details</th>
           <th>Role</th>
           <th>Status</th>
           <th>Boards Joined</th>
           <th>Joined Date</th>
-          <th style="text-align: right;">Actions</th>
+          <th class="text-right">Actions</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($users as $user): ?>
           <tr>
-            <td style="text-align: center;"><input type="checkbox" class="user-row-checkbox" onchange="onUserRowCheckboxChange();"></td>
+            <td class="text-center"><input type="checkbox" class="user-row-checkbox" onchange="onUserRowCheckboxChange();"></td>
             <td>
-              <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="users-user-cell">
                 <img src="<?= $user['avatar'] ?>" class="avatar" alt="Avatar">
                 <div>
-                  <div style="font-weight: 600; font-size: 14px;"><?= sanitize($user['name']) ?></div>
-                  <div style="font-size: 12px; color: var(--text-muted);"><?= sanitize($user['email']) ?></div>
+                  <div class="users-user-name"><?= sanitize($user['name']) ?></div>
+                  <div class="users-user-email"><?= sanitize($user['email']) ?></div>
                 </div>
               </div>
             </td>
@@ -69,9 +69,9 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
                 <?= $user['status'] ?>
               </span>
             </td>
-            <td style="font-weight: 600;"><?= $user['boards'] ?> Boards</td>
-            <td style="font-size: 12px; color: var(--text-muted);"><?= $user['joined'] ?></td>
-            <td style="text-align: right;">
+            <td class="font-weight-600"><?= $user['boards'] ?> Boards</td>
+            <td class="font-size-12 text-muted"><?= $user['joined'] ?></td>
+            <td class="text-right">
               <button class="btn btn-secondary btn-sm" onclick="editUser(this);">Edit</button>
               <button class="btn btn-danger btn-sm" onclick="deleteUser(this);">Remove</button>
             </td>

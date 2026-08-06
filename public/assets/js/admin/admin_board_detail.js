@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const targetContainer = document.getElementById(targetId);
       if (targetContainer) {
-        targetContainer.style.display = 'block';
+        targetContainer.style.display = (targetId === 'board-view-container') ? 'flex' : 'block';
         targetContainer.classList.remove('display-none');
       }
     }
@@ -193,8 +193,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  let currentCalMode = 'month';
+
+  const calModeBtns = document.querySelectorAll('.cal-mode-btn');
+  calModeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      calModeBtns.forEach(b => {
+        b.classList.remove('active-cal-mode');
+        b.classList.add('cal-mode-btn-inactive');
+      });
+      btn.classList.add('active-cal-mode');
+      btn.classList.remove('cal-mode-btn-inactive');
+      currentCalMode = btn.getAttribute('data-cal-mode') || 'month';
+      updateCalendarHeader();
+    });
+  });
+
   function renderCalendarGrid(year, monthIdx) {
     const calGrid = document.querySelector('.cal-month-grid');
+    const calHeaderRow = document.querySelector('.cal-header-row');
     if (!calGrid) return;
 
     calGrid.innerHTML = '';
@@ -204,10 +222,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevMonthDays = new Date(year, monthIdx, 0).getDate();
     const tasksMap = sampleTasksByMonth[monthIdx] || sampleTasksByMonth.default;
 
-    let dayCount = 1;
+    if (currentCalMode === 'day') {
+      if (calHeaderRow) calHeaderRow.style.display = 'none';
+      calGrid.style.gridTemplateColumns = '1fr';
+      
+      const cellEl = document.createElement('div');
+      cellEl.className = 'cal-day-cell cal-day-cell-active-day';
+      cellEl.style.minHeight = '340px';
+      cellEl.style.padding = '24px';
+
+      let innerHtml = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px;">
+        <h4 style="margin:0; font-size:16px; font-weight:800; color:#0F172A;"><i class="fa-regular fa-calendar-day text-primary mr-6"></i> ${months[monthIdx]} 21, ${year} - Daily Agenda</h4>
+        <span class="badge badge-info" style="font-weight:700;">2 Active Tasks</span>
+      </div>`;
+
+      const todayTasks = tasksMap[21] || [
+        { text: 'Sprint Kickoff & Core Architecture Review', cls: 'cal-pill-purple', icon: 'fa-layer-group' },
+        { text: 'API Endpoint Refactoring & Integration Tests', cls: 'cal-pill-blue', icon: 'fa-rotate' }
+      ];
+
+      todayTasks.forEach(t => {
+        const iconHtml = t.icon ? `<span class="cal-icon-circle"><i class="fa-solid ${t.icon}"></i></span> ` : '';
+        innerHtml += `<div class="cal-event-pill ${t.cls}" style="padding: 12px 16px; font-size: 13.5px; margin-bottom: 10px; border-radius: 10px;" data-modal-target="card-detail-modal">${iconHtml}<strong>${t.text}</strong></div>`;
+      });
+
+      cellEl.innerHTML = innerHtml;
+      calGrid.appendChild(cellEl);
+      return;
+    }
+
+    if (calHeaderRow) calHeaderRow.style.display = 'grid';
+    calGrid.style.gridTemplateColumns = 'repeat(7, 1fr)';
+
+    let cellCount = currentCalMode === 'week' ? 7 : 35;
+    let dayCount = currentCalMode === 'week' ? 20 : 1;
     let nextMonthDay = 1;
 
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < cellCount; i++) {
       const col = i % 7;
       const isWeekend = (col === 0 || col === 6);
       const cellEl = document.createElement('div');
@@ -217,22 +268,27 @@ document.addEventListener('DOMContentLoaded', () => {
       let dayNumber = 0;
       let isCurrentMonth = false;
 
-      if (i < firstDay) {
-        dayNumber = prevMonthDays - firstDay + 1 + i;
-        cellEl.style.opacity = '0.4';
-      } else if (dayCount <= totalDaysInMonth) {
-        dayNumber = dayCount;
+      if (currentCalMode === 'week') {
+        dayNumber = 20 + i;
         isCurrentMonth = true;
-        dayCount++;
       } else {
-        dayNumber = nextMonthDay;
-        nextMonthDay++;
-        cellEl.style.opacity = '0.4';
+        if (i < firstDay) {
+          dayNumber = prevMonthDays - firstDay + 1 + i;
+          cellEl.style.opacity = '0.4';
+        } else if (dayCount <= totalDaysInMonth) {
+          dayNumber = dayCount;
+          isCurrentMonth = true;
+          dayCount++;
+        } else {
+          dayNumber = nextMonthDay;
+          nextMonthDay++;
+          cellEl.style.opacity = '0.4';
+        }
       }
 
       let innerHtml = `<div class="cal-day-num">${dayNumber}</div>`;
 
-      if (isCurrentMonth && !isWeekend && tasksMap[dayNumber]) {
+      if (isCurrentMonth && (!isWeekend || currentCalMode === 'week') && tasksMap[dayNumber]) {
         tasksMap[dayNumber].forEach(t => {
           const iconHtml = t.icon ? `<span class="cal-icon-circle"><i class="fa-solid ${t.icon}"></i></span> ` : '';
           const styleAttr = t.style ? ` style="${t.style}"` : '';

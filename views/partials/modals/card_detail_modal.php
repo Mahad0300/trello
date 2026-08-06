@@ -157,9 +157,7 @@
           <button class="btn btn-secondary btn-sm btn-start" data-modal-target="add-card-modal">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-          <button class="btn btn-warning btn-sm btn-start" style="background: #f59e0b; color: #fff; border: none;" onclick="window.closeModal('card-detail-modal'); window.openModal('archive-card-modal', this);">
-            <i class="fa-solid fa-box-archive"></i> Archive Card
-          </button>
+
         </div>
       </div>
     </div>
