@@ -1,10 +1,9 @@
 <?php
-$page_title = 'Workspace Management - Trello Admin';
-$page_js = 'admin_common.js';
+$page_title = 'Workspace Management - Richmondtech';
 require_once VIEWS_PATH . '/layouts/admin/header.php';
 ?>
 
-<div class="notif-center-wrapper">
+<div class="notif-center-wrapper workspaces-hub">
   <!-- Header Toolbar (Consistent with Admin Panel) -->
   <div class="notif-header-toolbar mb-24">
     <div class="notif-header-left">
@@ -17,7 +16,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       </div>
     </div>
     <div class="notif-header-right">
-      <button class="btn btn-primary" data-modal-target="create-workspace-modal" onclick="window.openModal('create-workspace-modal', this);">
+      <button type="button" class="btn btn-primary boards-hub-create-btn" data-modal-target="create-workspace-modal">
         <i class="fa-solid fa-plus mr-6"></i> Create Workspace
       </button>
     </div>
@@ -30,13 +29,22 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <div>
           <div class="workspace-card-header">
             <div class="workspace-info-wrapper">
-              <div class="workspace-avatar-icon" style="background: linear-gradient(135deg, <?= $ws['color'] ?>, var(--accent-purple));">
+              <div class="workspace-avatar-icon">
                 <i class="fa-solid <?= $ws['icon'] ?>"></i>
               </div>
               <div>
                 <h3 class="workspace-card-title"><?= sanitize($ws['name']) ?></h3>
-                <span class="badge badge-info mt-4 gap-4" style="font-size: 11px;">
-                  <i class="fa-solid fa-lock-open font-size-10"></i> <?= $ws['visibility'] ?>
+                <?php
+                  $visibility = strtolower((string) $ws['visibility']);
+                  $visibilityIcon = 'fa-briefcase';
+                  if ($visibility === 'public') {
+                    $visibilityIcon = 'fa-globe';
+                  } elseif ($visibility === 'private') {
+                    $visibilityIcon = 'fa-lock';
+                  }
+                ?>
+                <span class="badge workspace-visibility-badge">
+                  <i class="fa-solid <?= $visibilityIcon ?>"></i> <?= sanitize($ws['visibility']) ?>
                 </span>
               </div>
             </div>
@@ -50,7 +58,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
             <span>•</span>
             <span><i class="fa-solid fa-table-columns text-warning mr-4"></i> <?= $ws['boards_count'] ?> Boards</span>
           </div>
-          <button class="btn btn-secondary btn-sm font-weight-600" data-modal-target="manage-workspace-members-modal" onclick="document.getElementById('workspace-name-manage-display').textContent = '<?= sanitize($ws['name']) ?>'; window.openModal('manage-workspace-members-modal', this);">
+          <button type="button" class="btn btn-sm users-hub-btn-edit" data-modal-target="manage-workspace-members-modal" onclick="document.getElementById('workspace-name-manage-display').textContent = '<?= sanitize($ws['name']) ?>'; window.openModal('manage-workspace-members-modal', this);">
             Manage Members
           </button>
         </div>
@@ -59,8 +67,6 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
   </div>
 </div>
 
-<!-- Modal Dialog Components -->
-<?php require_once VIEWS_PATH . '/partials/modals/create_workspace_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/manage_workspace_members_modal.php'; ?>
 
 <?php require_once VIEWS_PATH . '/layouts/admin/footer.php'; ?>

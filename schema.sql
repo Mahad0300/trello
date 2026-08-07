@@ -188,10 +188,10 @@ CREATE TABLE IF NOT EXISTS `system_settings` (
 -- ==========================================
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `role`, `status`) VALUES
-(1, 'Admin User', 'admin@trello.com', '$2y$10$e9H6c0z...hashed', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80', 'admin', 'active'),
-(2, 'Mahad Bukhari', 'mahad@trello.com', '$2y$10$e9H6c0z...hashed', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80', 'user', 'active'),
-(3, 'Sarah Connor', 'sarah@trello.com', '$2y$10$e9H6c0z...hashed', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80', 'user', 'active'),
-(4, 'Alex Johnson', 'alex@trello.com', '$2y$10$e9H6c0z...hashed', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80', 'user', 'active');
+(1, 'Admin User', 'admin@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/avatar_admin.svg', 'admin', 'active'),
+(2, 'Chris Parker', 'chris@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/avatar_chris.svg', 'user', 'active'),
+(3, 'Sarah Connor', 'sarah@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/avatar_sarah.svg', 'user', 'active'),
+(4, 'Alex Johnson', 'alex@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/avatar_alex.svg', 'user', 'active');
 
 INSERT INTO `workspaces` (`id`, `name`, `description`, `owner_id`) VALUES
 (1, 'Engineering Team', 'Core product development and API integrations workspace.', 1),
@@ -218,7 +218,7 @@ INSERT INTO `lists` (`id`, `board_id`, `title`, `position`) VALUES
 INSERT INTO `cards` (`id`, `list_id`, `title`, `description`, `position`, `due_date`, `is_completed`, `created_by`) VALUES
 (1, 1, 'Design System & CSS Variables', 'Implement core enterprise color palette, Inter font, and layout structure.', 1, '2026-07-28 17:00:00', 0, 1),
 (2, 1, 'Database Schema Blueprint', 'Write full SQL DDL script covering all 16 tables and relations.', 2, '2026-07-25 12:00:00', 1, 1),
-(3, 2, 'Drag-and-Drop Card Functionality', 'Implement plain HTML5 drag events in user.js for board card reordering.', 1, '2026-07-30 18:00:00', 0, 2),
+(3, 2, 'Drag-and-Drop Card Functionality', 'Implement plain HTML5 drag events in board_detail.js for board card reordering.', 1, '2026-07-30 18:00:00', 0, 2),
 (4, 2, 'Card Detail Modal & Tabs', 'Build interactive modal with checklists, comments timeline, and labels.', 2, '2026-07-29 15:00:00', 0, 3),
 (5, 3, 'Admin Panel Metrics Table', 'Display platform stats, active boards, and user management tables.', 1, '2026-08-01 10:00:00', 0, 1),
 (6, 4, 'Custom Router & Controller Framework', 'Lightweight core PHP MVC architecture setup without database layer.', 1, '2026-07-23 20:00:00', 1, 2);
@@ -253,7 +253,7 @@ INSERT INTO `comments` (`id`, `card_id`, `user_id`, `comment_text`) VALUES
 (2, 3, 3, 'Awesome! Modal triggers are working smoothly alongside card clicks.');
 
 INSERT INTO `system_settings` (`setting_key`, `setting_value`) VALUES
-('app_title', 'Trello SaaS Workspaces'),
+('app_title', 'Richmondtech Workspaces'),
 ('max_boards_per_workspace', '25'),
 ('allow_public_registration', 'true'),
 ('theme_mode', 'light');

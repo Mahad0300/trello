@@ -1,10 +1,10 @@
 <?php
-$page_title = 'All Boards - Trello Admin';
+$page_title = 'All Boards - Richmondtech';
 $page_js = 'admin_boards.js';
 require_once VIEWS_PATH . '/layouts/admin/header.php';
 ?>
 
-<!-- Official Trello-Style All Boards Hub Container -->
+<!-- All Boards Hub Container -->
 <div class="notif-center-wrapper boards-hub">
 
   <!-- Boards Hub Top Header Toolbar -->
@@ -21,7 +21,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
 
     <!-- Header Right Filter & Create Action -->
     <div class="notif-header-right">
-      <div class="board-search-wrapper board-search-wrapper-sm">
+      <div class="board-search-wrapper board-search-wrapper-sm hub-search">
         <i class="fa-solid fa-magnifying-glass board-search-icon"></i>
         <input type="text" id="admin-board-search-input" class="board-search-input" placeholder="Filter boards by title...">
       </div>
@@ -43,24 +43,23 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
 
       <div class="boards-grid" id="starred-boards-grid">
         <?php foreach ($starredBoards as $b): ?>
-          <a href="<?= route('admin/board-detail') ?>" class="trello-board-tile board-card-link" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%), url('<?= $b['cover_image'] ?>');">
+          <?php $isStarred = true; $boardDesc = $b['description'] ?? ''; ?>
+          <div class="trello-board-tile board-card-link is-starred" role="link" tabindex="0" data-board-href="<?= route('admin/board-detail') ?>" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" data-board-name="<?= sanitize($b['title']) ?>" data-board-description="<?= sanitize($boardDesc) ?>" data-cover="<?= sanitize($b['cover_image']) ?>" onclick="openBoardTile(this, event);">
             <div class="tile-top-row">
               <span class="tile-title"><?= sanitize($b['title']) ?></span>
-              <span class="star-board-btn active" title="Unstar Board" onclick="toggleBoardStar(this, event);">
-                <i class="fa-solid fa-star text-warning"></i>
-              </span>
+              <?php require VIEWS_PATH . '/partials/board_tile_actions.php'; ?>
             </div>
             <div class="tile-bottom-row">
               <span><i class="fa-regular fa-rectangle-list"></i> <?= $b['cards_count'] ?> Cards</span>
               <span><i class="fa-solid fa-users"></i> <?= $b['members_count'] ?> Members</span>
             </div>
-          </a>
+          </div>
         <?php endforeach; ?>
       </div>
     </div>
   <?php endif; ?>
 
-  <!-- SECTION 2: Trello Workspaces List -->
+  <!-- SECTION 2: Workspaces List -->
   <div class="workspace-block-margin mb-36">
     <div class="notif-group-title mb-20">
       <i class="fa-solid fa-briefcase icon-primary-sm"></i>
@@ -87,19 +86,17 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <!-- Workspace Boards Grid -->
           <div class="boards-grid">
             <?php foreach ($ws['boards'] as $b): ?>
-              <?php $isStarred = !empty($b['starred']) || !empty($b['is_starred']); ?>
-              <a href="<?= route('admin/board-detail') ?>" class="trello-board-tile board-card-link" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%), url('<?= $b['cover_image'] ?>');">
+              <?php $isStarred = !empty($b['starred']) || !empty($b['is_starred']); $boardDesc = $b['description'] ?? ''; ?>
+              <div class="trello-board-tile board-card-link <?= $isStarred ? 'is-starred' : '' ?>" role="link" tabindex="0" data-board-href="<?= route('admin/board-detail') ?>" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" data-board-name="<?= sanitize($b['title']) ?>" data-board-description="<?= sanitize($boardDesc) ?>" data-cover="<?= sanitize($b['cover_image']) ?>" onclick="openBoardTile(this, event);">
                 <div class="tile-top-row">
                   <span class="tile-title"><?= sanitize($b['title']) ?></span>
-                  <span class="star-board-btn <?= $isStarred ? 'active' : '' ?>" title="<?= $isStarred ? 'Unstar Board' : 'Star Board' ?>" onclick="toggleBoardStar(this, event);">
-                    <i class="<?= $isStarred ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star' ?>"></i>
-                  </span>
+                  <?php require VIEWS_PATH . '/partials/board_tile_actions.php'; ?>
                 </div>
                 <div class="tile-bottom-row">
                   <span><i class="fa-regular fa-rectangle-list"></i> <?= $b['cards_count'] ?> Cards</span>
                   <span><i class="fa-solid fa-users"></i> <?= $b['members_count'] ?> Members</span>
                 </div>
-              </a>
+              </div>
             <?php endforeach; ?>
 
             <!-- Create New Board Tile -->
@@ -118,7 +115,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
 
 </div>
 
-<!-- Modal Dialog Partial Component -->
-<?php require_once VIEWS_PATH . '/partials/modals/create_board_modal.php'; ?>
+<?php require_once VIEWS_PATH . '/partials/modals/edit_board_modal.php'; ?>
+<?php require_once VIEWS_PATH . '/partials/modals/delete_board_modal.php'; ?>
 
 <?php require_once VIEWS_PATH . '/layouts/admin/footer.php'; ?>

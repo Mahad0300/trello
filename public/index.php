@@ -1,7 +1,7 @@
 <?php
 /**
  * Single Entry Point
- * Trello SaaS UI Only Project
+ * Richmondtech UI Only Project
  */
 
 // Load Configuration

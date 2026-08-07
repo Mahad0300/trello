@@ -9,7 +9,7 @@ $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
 $baseUrl = rtrim($scriptDir, '/');
 
 define('BASE_URL', $baseUrl !== '' ? $baseUrl : '/trello/public');
-define('APP_NAME', 'Trello SaaS');
+define('APP_NAME', 'Richmondtech');
 define('APP_VERSION', '1.0.0');
 
 // Paths

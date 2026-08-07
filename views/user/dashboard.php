@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Dashboard - Trello SaaS';
+$page_title = 'Dashboard - Richmondtech';
 $page_js = 'dashboard.js';
 require_once VIEWS_PATH . '/layouts/user/header.php';
 ?>
@@ -11,7 +11,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
   <!-- ========================================== -->
   <div class="dash-hero-header">
     <div>
-      <h1 class="dash-hero-title">Hi Mahad! 👋</h1>
+      <h1 class="dash-hero-title">Hi Chris!</h1>
       <p class="dash-hero-subtext">Sprint 24 Command Center & Progress Tracking</p>
     </div>
     <div class="dash-task-completed-badge">
@@ -38,9 +38,9 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
         Fintech Core API & Mobile App Architecture
       </div>
       <div class="dash-tile-avatar-stack">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Team Member">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Team Member">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Team Member">
+        <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" alt="Team Member">
+        <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" alt="Team Member">
+        <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" alt="Team Member">
       </div>
     </div>
 
@@ -51,16 +51,16 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <div class="dash-tile-emoji-badge">
-          👌
+          <i class="fa-regular fa-thumbs-up" aria-hidden="true"></i>
         </div>
       </div>
       <div class="dash-tile-title-text">
         Enterprise SSO & OAuth Authentication Flow
       </div>
       <div class="dash-tile-avatar-stack">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80" alt="Team Member">
-        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&q=80" alt="Team Member">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Team Member">
+        <img src="<?= asset('images/avatars/avatar_default.svg') ?>" alt="Team Member">
+        <img src="<?= asset('images/avatars/avatar_default.svg') ?>" alt="Team Member">
+        <img src="<?= asset('images/avatars/avatar_alex.svg') ?>" alt="Team Member">
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-task-peach-tile">
         <div class="dash-task-card-top">
           <div class="dash-icon-fox" title="Framer Design Token">
-            🦊
+            <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>
           </div>
           <div class="dash-check-badge" title="In Review">
             <i class="fa-solid fa-check"></i>
@@ -163,7 +163,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-team-header">
         <div class="dash-team-left-flex">
           <div class="dash-team-icon-clover">
-            🍀
+            <i class="fa-solid fa-leaf" aria-hidden="true"></i>
           </div>
           <div>
             <h4 class="dash-team-name">Core API Team</h4>
@@ -174,9 +174,9 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
 
       <div class="dash-tile-avatar-stack mb-12">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Avatar">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Avatar">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" alt="Avatar">
         <div class="dash-avatar-add-btn">+</div>
       </div>
 
@@ -189,10 +189,10 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
 
       <div class="dash-team-footer">
-        <span class="dash-time-pill-purple">🕒 1 Week Left</span>
+        <span class="dash-time-pill-purple"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1 Week Left</span>
         <div class="gap-8 flex-row">
-          <span>💬 12</span>
-          <span>📎 7</span>
+          <span><i class="fa-regular fa-comments" aria-hidden="true"></i> 12</span>
+          <span><i class="fa-solid fa-paperclip" aria-hidden="true"></i> 7</span>
         </div>
       </div>
     </div>
@@ -202,7 +202,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-team-header">
         <div class="dash-team-left-flex">
           <div class="dash-team-icon-palette">
-            🎨
+            <i class="fa-solid fa-palette" aria-hidden="true"></i>
           </div>
           <div>
             <h4 class="dash-team-name">UI/UX Product Design</h4>
@@ -213,9 +213,9 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
 
       <div class="dash-tile-avatar-stack mb-12">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80" alt="Avatar">
-        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&q=80" alt="Avatar">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_default.svg') ?>" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_default.svg') ?>" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_alex.svg') ?>" alt="Avatar">
       </div>
 
       <div class="dash-progress-meta-row">
@@ -227,10 +227,10 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
 
       <div class="dash-team-footer">
-        <span class="dash-time-pill-purple">🕒 5 Days Left</span>
+        <span class="dash-time-pill-purple"><i class="fa-regular fa-clock" aria-hidden="true"></i> 5 Days Left</span>
         <div class="gap-8 flex-row">
-          <span>💬 14</span>
-          <span>📎 4</span>
+          <span><i class="fa-regular fa-comments" aria-hidden="true"></i> 14</span>
+          <span><i class="fa-solid fa-paperclip" aria-hidden="true"></i> 4</span>
         </div>
       </div>
     </div>
@@ -240,7 +240,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-team-header">
         <div class="dash-team-left-flex">
           <div class="dash-team-icon-laptop">
-            💻
+            <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
           </div>
           <div>
             <h4 class="dash-team-name">Frontend Web Apps</h4>
@@ -251,8 +251,8 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
 
       <div class="dash-tile-avatar-stack mb-12">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Avatar">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" alt="Avatar">
       </div>
 
       <div class="dash-progress-meta-row">
@@ -264,10 +264,10 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
 
       <div class="dash-team-footer">
-        <span class="dash-time-pill-blue">🕒 2 Weeks Left</span>
+        <span class="dash-time-pill-blue"><i class="fa-regular fa-clock" aria-hidden="true"></i> 2 Weeks Left</span>
         <div class="gap-8 flex-row">
-          <span>💬 8</span>
-          <span>📎 6</span>
+          <span><i class="fa-regular fa-comments" aria-hidden="true"></i> 8</span>
+          <span><i class="fa-solid fa-paperclip" aria-hidden="true"></i> 6</span>
         </div>
       </div>
     </div>
@@ -277,7 +277,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-team-header">
         <div class="dash-team-left-flex">
           <div class="dash-team-icon-cloud">
-            ☁️
+            <i class="fa-solid fa-cloud" aria-hidden="true"></i>
           </div>
           <div>
             <h4 class="dash-team-name">DevOps & Infra</h4>
@@ -288,8 +288,8 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
 
       <div class="dash-tile-avatar-stack mb-12">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Avatar">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" alt="Avatar">
+        <img src="<?= asset('images/avatars/avatar_alex.svg') ?>" alt="Avatar">
       </div>
 
       <div class="dash-progress-meta-row">
@@ -301,10 +301,10 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
 
       <div class="dash-team-footer">
-        <span class="dash-time-pill-orange">🕒 1 Week Left</span>
+        <span class="dash-time-pill-orange"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1 Week Left</span>
         <div class="gap-8 flex-row">
-          <span>💬 19</span>
-          <span>📎 10</span>
+          <span><i class="fa-regular fa-comments" aria-hidden="true"></i> 19</span>
+          <span><i class="fa-solid fa-paperclip" aria-hidden="true"></i> 10</span>
         </div>
       </div>
     </div>
@@ -318,7 +318,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
     <div class="dash-card-white">
       <div class="dash-timeline-header">
         <div class="dash-timeline-title">
-          <i class="fa-regular fa-calendar-days text-primary"></i> Sprint 24 Timeline • 11 July, 2026
+          <i class="fa-regular fa-calendar-days text-primary"></i> Sprint 24 Timeline &bull; 11 July, 2026
         </div>
         <div class="dash-timeline-filters">
           <span class="dash-filter-active">Daily</span>
@@ -335,8 +335,8 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
         <div class="dash-timeline-bar-purple">
           <div class="align-center gap-6 flex-row">
             <div class="dash-tile-avatar-stack">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80">
+              <img src="<?= asset('images/avatars/avatar_elena.svg') ?>">
+              <img src="<?= asset('images/avatars/avatar_chris.svg') ?>">
             </div>
             <span>Core Endpoint Review</span>
           </div>
@@ -350,7 +350,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
         <div class="flex-center">
           <div class="dash-timeline-bar-green w-280">
             <div class="align-center gap-6 flex-row">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="avatar-sm">
+              <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="avatar-sm">
               <span>Final QA Test</span>
             </div>
             <span class="dash-pct-pill">60%</span>
@@ -365,8 +365,8 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           <div class="dash-timeline-bar-vibrant-green w-320">
             <div class="align-center gap-6 flex-row">
               <div class="dash-tile-avatar-stack">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80">
-                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&q=80">
+                <img src="<?= asset('images/avatars/avatar_default.svg') ?>">
+                <img src="<?= asset('images/avatars/avatar_default.svg') ?>">
               </div>
               <span>Wireframe Approval</span>
             </div>
@@ -381,7 +381,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
         <div class="timeline-pr-60">
           <div class="dash-timeline-bar-pink w-280">
             <div class="align-center gap-6 flex-row">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="avatar-sm">
+              <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="avatar-sm">
               <span>Staging Deploy</span>
             </div>
             <span class="dash-pct-pill text-danger">55%</span>
@@ -396,8 +396,8 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           <div class="dash-timeline-bar-orange w-360">
             <div class="align-center gap-6 flex-row">
               <div class="dash-tile-avatar-stack">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80">
+                <img src="<?= asset('images/avatars/avatar_elena.svg') ?>">
+                <img src="<?= asset('images/avatars/avatar_alex.svg') ?>">
               </div>
               <span>Client Review & Retrospective</span>
             </div>
@@ -432,7 +432,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-green"></div>
           </div>
           <div>
@@ -447,7 +447,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-orange"></div>
           </div>
           <div>
@@ -462,7 +462,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_alex.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-orange"></div>
           </div>
           <div>
@@ -477,7 +477,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_default.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-green"></div>
           </div>
           <div>
@@ -492,12 +492,12 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_default.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-orange"></div>
           </div>
           <div>
             <h4 class="dash-act-username">Jacob Jones</h4>
-            <p class="dash-act-text">Assigned 4 new backlog cards to <strong class="text-dark-slate">Mahad Bukhari</strong> in Sprint 24 Architecture.</p>
+            <p class="dash-act-text">Assigned 4 new backlog cards to <strong class="text-dark-slate">Chris Parker</strong> in Sprint 24 Architecture.</p>
           </div>
         </div>
         <span class="dash-act-time">8 hours ago</span>

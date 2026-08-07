@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= sanitize($pageTitle ?? 'Admin Panel - Trello SaaS') ?></title>
+  <title><?= sanitize($pageTitle ?? 'Admin Panel - Richmondtech') ?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
@@ -18,8 +18,8 @@
       <a href="<?= route('admin/dashboard') ?>" class="header-logo">
         <span class="header-logo-icon header-logo-icon--admin"><i class="fa-solid fa-layer-group"></i></span>
         <span class="header-logo-copy">
-          <span class="header-logo-name">Trello Admin</span>
-          <span class="header-logo-tag">Command center</span>
+          <span class="header-logo-name">Richmondtech</span>
+          <span class="header-logo-tag">Workspace</span>
         </span>
       </a>
     </div>
@@ -27,8 +27,8 @@
     <div class="topbar-center">
       <div class="search-input-group topbar-search">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="global-header-search-input" placeholder="Search users, boards, workspaces..." oninput="handleGlobalHeaderSearch(this, true);">
-        <div id="global-search-dropdown" class="global-search-dropdown-results" style="display: none;"></div>
+        <input type="text" id="global-header-search-input" placeholder="Search users, boards, workspaces..." data-global-search data-search-admin="1">
+        <div id="global-search-dropdown" class="global-search-dropdown-results display-none"></div>
       </div>
     </div>
 
@@ -43,13 +43,13 @@
         <span class="notification-dot"></span>
       </a>
 
-      <div class="topbar-profile">
-        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80" class="avatar topbar-avatar" alt="Admin System">
+      <a href="<?= route('admin/profile') ?>" class="topbar-profile topbar-profile--link">
+        <img src="<?= asset('images/avatars/avatar_admin.svg') ?>" class="avatar topbar-avatar" alt="Admin System">
         <span class="topbar-profile-meta">
           <span class="topbar-profile-name">Admin System</span>
-          <span class="topbar-profile-email">admin@trello.com</span>
+          <span class="topbar-profile-email">admin@richmondtech.com</span>
         </span>
-      </div>
+      </a>
     </div>
   </header>
 

@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Admin Dashboard - Trello SaaS';
+$page_title = 'Admin Dashboard - Richmondtech';
 $page_js = 'admin_dashboard.js';
 require_once VIEWS_PATH . '/layouts/admin/header.php';
 ?>
@@ -11,7 +11,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
   <!-- ========================================== -->
   <div class="dash-hero-header">
     <div>
-      <h1 class="dash-hero-title">Admin Command Center! 🛡️</h1>
+      <h1 class="dash-hero-title">Admin Command Center! <i class="fa-solid fa-shield-halved" aria-hidden="true"></i></h1>
       <p class="dash-hero-subtext">System Performance, Workspaces & Active User Overview</p>
     </div>
     <div class="dash-header-actions-group">
@@ -22,13 +22,13 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <i class="fa-solid fa-file-csv text-primary mr-6"></i> Export Report <i class="fa-solid fa-chevron-down font-size-11 ml-6"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-end width-240 p-8">
-          <a href="#" class="dropdown-item" onclick="event.preventDefault(); alert('System Performance Report CSV downloaded!');">
+          <a href="#" class="dropdown-item" onclick="event.preventDefault();">
             <i class="fa-solid fa-chart-line text-primary"></i> System Performance Report
           </a>
-          <a href="#" class="dropdown-item" onclick="event.preventDefault(); alert('User Activity Audit CSV downloaded!');">
+          <a href="#" class="dropdown-item" onclick="event.preventDefault();">
             <i class="fa-solid fa-users text-info"></i> User Activity Audit
           </a>
-          <a href="#" class="dropdown-item" onclick="event.preventDefault(); alert('Workspace Metrics CSV downloaded!');">
+          <a href="#" class="dropdown-item" onclick="event.preventDefault();">
             <i class="fa-solid fa-briefcase text-warning"></i> Workspace Metrics
           </a>
         </div>
@@ -48,8 +48,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
     <button class="btn btn-secondary btn-sm dash-quick-nav-btn" data-modal-target="create-user-modal">
       <i class="fa-solid fa-user-plus text-primary mr-6"></i> Provision User
     </button>
-    <button class="btn btn-secondary btn-sm dash-quick-nav-btn" data-modal-target="create-workspace-modal">
-      <i class="fa-solid fa-plus text-purple mr-6"></i> Create Workspace
+    <button type="button" class="btn btn-secondary btn-sm dash-quick-nav-btn" data-modal-target="create-workspace-modal">
+      <i class="fa-solid fa-plus text-primary mr-6"></i> Create Workspace
     </button>
     <button class="btn btn-secondary btn-sm dash-quick-nav-btn" data-modal-target="create-board-modal">
       <i class="fa-solid fa-table-columns text-warning mr-6"></i> Create Board
@@ -85,15 +85,15 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <span class="badge badge-rose font-weight-700 font-size-11">System Node</span>
       <div class="dash-tile-title-text mt-8">
         Production Infrastructure
-        <div class="dash-tile-subtext">PHP 8.2 • MySQL PDO • Apache XAMPP</div>
+        <div class="dash-tile-subtext">PHP 8.2 &bull; MySQL PDO &bull; Apache XAMPP</div>
       </div>
       <div class="dash-tile-footer mt-16">
         <div class="dash-avatar-stack">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" class="avatar" alt="Dev">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="avatar" alt="Dev">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="avatar" alt="Dev">
+          <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" class="avatar" alt="Dev">
+          <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="avatar" alt="Dev">
+          <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="avatar" alt="Dev">
         </div>
-        <button class="btn btn-sm dash-hero-btn" onclick="window.location.href='<?= route('admin/workspaces') ?>';">Workspaces →</button>
+        <button class="btn btn-sm dash-hero-btn" onclick="window.location.href='<?= route('admin/workspaces') ?>';">Workspaces &rarr;</button>
       </div>
     </div>
 
@@ -107,14 +107,14 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       </div>
       <div class="dash-tile-title-text mt-8">
         User Access & RBAC
-        <div class="dash-tile-subtext">254 Users • 3 Roles • Audit Logs</div>
+        <div class="dash-tile-subtext">254 Users &bull; 3 Roles &bull; Audit Logs</div>
       </div>
       <div class="dash-tile-footer mt-16">
         <div class="dash-avatar-stack">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" class="avatar" alt="Admin">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" class="avatar" alt="Admin">
+          <img src="<?= asset('images/avatars/avatar_alex.svg') ?>" class="avatar" alt="Admin">
+          <img src="<?= asset('images/avatars/avatar_maya.svg') ?>" class="avatar" alt="Admin">
         </div>
-        <button class="btn btn-sm dash-hero-btn" onclick="window.location.href='<?= route('admin/users') ?>';">Manage Users →</button>
+        <button class="btn btn-sm dash-hero-btn" onclick="window.location.href='<?= route('admin/users') ?>';">Manage Users &rarr;</button>
       </div>
     </div>
 
@@ -128,10 +128,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       </div>
       <div class="dash-tile-title-text font-size-20">
         12 Active Workspaces
-        <div class="dash-tile-subtext opacity-9 mt-4">58 Boards • 1,240 Tasks Completed</div>
+        <div class="dash-tile-subtext opacity-9 mt-4">58 Boards &bull; 1,240 Tasks Completed</div>
       </div>
       <div class="flex-row items-center justify-between">
-        <button class="btn btn-sm dash-hero-emerald-btn" onclick="window.location.href='<?= route('admin/all-boards') ?>';">View Boards →</button>
+        <button class="btn btn-sm dash-hero-emerald-btn" onclick="window.location.href='<?= route('admin/all-boards') ?>';">View Boards &rarr;</button>
       </div>
     </div>
   </div>
@@ -165,7 +165,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <!-- Active Task Tile -->
       <div class="dash-task-peach-tile">
         <div class="dash-task-card-top">
-          <div class="dash-icon-fox" title="System Provisioning">🛡️</div>
+          <div class="dash-icon-fox" title="System Provisioning"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
           <div class="dash-check-badge" title="Active Status"><i class="fa-solid fa-check"></i></div>
         </div>
         <h4 class="dash-task-title">User Account Provisioning & Audit</h4>
@@ -263,11 +263,11 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <i class="fa-solid fa-briefcase text-primary mr-6"></i> Organization Workspaces
       </h3>
       <div class="flex-row items-center gap-12">
-        <button class="btn btn-sm btn-primary br-16 font-weight-600" data-modal-target="create-workspace-modal">
+        <button type="button" class="btn btn-primary boards-hub-create-btn" data-modal-target="create-workspace-modal">
           <i class="fa-solid fa-plus mr-4"></i> Create Workspace
         </button>
         <a href="<?= route('admin/workspaces') ?>" class="text-primary font-weight-700 font-size-13 text-decoration-none">
-          Manage Workspaces →
+          Manage Workspaces &rarr;
         </a>
       </div>
     </div>
@@ -277,10 +277,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-team-card dash-team-card-active">
         <div class="dash-team-header">
           <div class="dash-team-left-flex">
-            <div class="dash-team-icon-clover">🍀</div>
+            <div class="dash-team-icon-clover"><i class="fa-solid fa-leaf" aria-hidden="true"></i></div>
             <div>
               <h4 class="dash-team-name">Engineering Team</h4>
-              <span class="dash-team-sub">8 Boards • 24 Cards</span>
+              <span class="dash-team-sub">8 Boards &bull; 24 Cards</span>
             </div>
           </div>
           <div class="dropdown-wrapper pos-relative">
@@ -302,9 +302,9 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="dash-tile-avatar-stack mb-12">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Avatar">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Avatar">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" alt="Avatar">
           <div class="dash-avatar-add-btn cursor-pointer" data-modal-target="manage-workspace-members-modal" onclick="document.getElementById('workspace-name-manage-display').textContent = 'Engineering Team'; window.openModal('manage-workspace-members-modal', this);">+</div>
         </div>
 
@@ -317,10 +317,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="dash-team-footer">
-          <span class="dash-time-pill-purple">🕒 Active Workspace</span>
+          <span class="dash-time-pill-purple"><i class="fa-regular fa-clock" aria-hidden="true"></i> Active Workspace</span>
           <div class="gap-8 flex-row">
-            <span>👥 8</span>
-            <span>📋 24</span>
+            <span><i class="fa-solid fa-users" aria-hidden="true"></i> 8</span>
+            <span><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> 24</span>
           </div>
         </div>
       </div>
@@ -329,10 +329,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-team-card">
         <div class="dash-team-header">
           <div class="dash-team-left-flex">
-            <div class="dash-team-icon-palette">🎨</div>
+            <div class="dash-team-icon-palette"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
             <div>
               <h4 class="dash-team-name">Product Design</h4>
-              <span class="dash-team-sub">4 Boards • 18 Cards</span>
+              <span class="dash-team-sub">4 Boards &bull; 18 Cards</span>
             </div>
           </div>
           <div class="dropdown-wrapper pos-relative">
@@ -354,9 +354,9 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="dash-tile-avatar-stack mb-12">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80" alt="Avatar">
-          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&q=80" alt="Avatar">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_default.svg') ?>" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_default.svg') ?>" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_alex.svg') ?>" alt="Avatar">
         </div>
 
         <div class="dash-progress-meta-row">
@@ -368,10 +368,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="dash-team-footer">
-          <span class="dash-time-pill-purple">🕒 Active Workspace</span>
+          <span class="dash-time-pill-purple"><i class="fa-regular fa-clock" aria-hidden="true"></i> Active Workspace</span>
           <div class="gap-8 flex-row">
-            <span>👥 4</span>
-            <span>📋 18</span>
+            <span><i class="fa-solid fa-users" aria-hidden="true"></i> 4</span>
+            <span><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> 18</span>
           </div>
         </div>
       </div>
@@ -380,10 +380,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-team-card">
         <div class="dash-team-header">
           <div class="dash-team-left-flex">
-            <div class="dash-team-icon-laptop">💻</div>
+            <div class="dash-team-icon-laptop"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
             <div>
               <h4 class="dash-team-name">Growth Marketing</h4>
-              <span class="dash-team-sub">5 Boards • 14 Cards</span>
+              <span class="dash-team-sub">5 Boards &bull; 14 Cards</span>
             </div>
           </div>
           <div class="dropdown-wrapper pos-relative">
@@ -405,8 +405,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="dash-tile-avatar-stack mb-12">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Avatar">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" alt="Avatar">
         </div>
 
         <div class="dash-progress-meta-row">
@@ -418,10 +418,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="dash-team-footer">
-          <span class="dash-time-pill-blue">🕒 Active Workspace</span>
+          <span class="dash-time-pill-blue"><i class="fa-regular fa-clock" aria-hidden="true"></i> Active Workspace</span>
           <div class="gap-8 flex-row">
-            <span>👥 5</span>
-            <span>📋 14</span>
+            <span><i class="fa-solid fa-users" aria-hidden="true"></i> 5</span>
+            <span><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> 14</span>
           </div>
         </div>
       </div>
@@ -430,10 +430,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-team-card">
         <div class="dash-team-header">
           <div class="dash-team-left-flex">
-            <div class="dash-team-icon-cloud">☁️</div>
+            <div class="dash-team-icon-cloud"><i class="fa-solid fa-cloud" aria-hidden="true"></i></div>
             <div>
               <h4 class="dash-team-name">Operations</h4>
-              <span class="dash-team-sub">6 Boards • 9 Cards</span>
+              <span class="dash-team-sub">6 Boards &bull; 9 Cards</span>
             </div>
           </div>
           <div class="dropdown-wrapper pos-relative">
@@ -455,8 +455,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="dash-tile-avatar-stack mb-12">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Avatar">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" alt="Avatar">
+          <img src="<?= asset('images/avatars/avatar_alex.svg') ?>" alt="Avatar">
         </div>
 
         <div class="dash-progress-meta-row">
@@ -468,10 +468,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="dash-team-footer">
-          <span class="dash-time-pill-orange">🕒 Active Workspace</span>
+          <span class="dash-time-pill-orange"><i class="fa-regular fa-clock" aria-hidden="true"></i> Active Workspace</span>
           <div class="gap-8 flex-row">
-            <span>👥 6</span>
-            <span>📋 9</span>
+            <span><i class="fa-solid fa-users" aria-hidden="true"></i> 6</span>
+            <span><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> 9</span>
           </div>
         </div>
       </div>
@@ -486,7 +486,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
     <div class="dash-card-white">
       <div class="dash-timeline-header flex-wrap gap-12">
         <div class="dash-timeline-title">
-          <i class="fa-regular fa-calendar-days text-primary"></i> System Roadmap & Release Timeline • July 2026
+          <i class="fa-regular fa-calendar-days text-primary"></i> System Roadmap & Release Timeline &bull; July 2026
         </div>
         <div class="dash-timeline-filters">
           <span class="dash-filter-active">Daily</span>
@@ -504,8 +504,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
             <div class="dash-timeline-bar-purple">
               <div class="align-center gap-6 flex-row">
                 <div class="dash-tile-avatar-stack">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80">
+                  <img src="<?= asset('images/avatars/avatar_elena.svg') ?>">
+                  <img src="<?= asset('images/avatars/avatar_chris.svg') ?>">
                 </div>
                 <span>Core Endpoint Review</span>
               </div>
@@ -518,7 +518,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
             <div class="flex-center">
               <div class="dash-timeline-bar-green w-280">
                 <div class="align-center gap-6 flex-row">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="avatar-sm">
+                  <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="avatar-sm">
                   <span>Security Audit Pass</span>
                 </div>
                 <span class="dash-pct-pill">70%</span>
@@ -532,8 +532,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <div class="dash-timeline-bar-vibrant-green w-320">
                 <div class="align-center gap-6 flex-row">
                   <div class="dash-tile-avatar-stack">
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80">
-                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&q=80">
+                    <img src="<?= asset('images/avatars/avatar_default.svg') ?>">
+                    <img src="<?= asset('images/avatars/avatar_default.svg') ?>">
                   </div>
                   <span>Token Approval</span>
                 </div>
@@ -568,7 +568,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_admin.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-orange"></div>
           </div>
           <div>
@@ -586,12 +586,12 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_admin.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-green"></div>
           </div>
           <div>
             <h4 class="dash-act-username">Admin System</h4>
-            <p class="dash-act-text">Provisioned new active user account <strong class="text-dark-slate">"David Chen (david@trello.com)"</strong> with Standard User role.</p>
+            <p class="dash-act-text">Provisioned new active user account <strong class="text-dark-slate">"David Chen (david@richmondtech.com)"</strong> with Standard User role.</p>
           </div>
         </div>
         <span class="dash-act-time">25 mins ago</span>
@@ -601,11 +601,11 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-orange"></div>
           </div>
           <div>
-            <h4 class="dash-act-username">Mahad Bukhari</h4>
+            <h4 class="dash-act-username">Chris Parker</h4>
             <p class="dash-act-text">Updated board settings for <strong class="text-dark-slate">"Q1 Legacy Architecture"</strong> in Engineering Team workspace.</p>
           </div>
         </div>
@@ -616,7 +616,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-green"></div>
           </div>
           <div>
@@ -631,7 +631,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       <div class="dash-act-item">
         <div class="dash-act-left-flex">
           <div class="pos-relative">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" class="dash-act-avatar">
+            <img src="<?= asset('images/avatars/avatar_alex.svg') ?>" class="dash-act-avatar">
             <div class="dash-act-dot-orange"></div>
           </div>
           <div>
@@ -645,11 +645,6 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
   </div>
 
 </div>
-
-<!-- Modal Dialog Components -->
-<?php require_once VIEWS_PATH . '/partials/modals/create_user_modal.php'; ?>
-<?php require_once VIEWS_PATH . '/partials/modals/create_board_modal.php'; ?>
-<?php require_once VIEWS_PATH . '/partials/modals/create_workspace_modal.php'; ?>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {

@@ -8,12 +8,13 @@
       </div>
       <h3 id="bulk-modal-heading" class="modal-title-heading mb-8">Perform Bulk Action</h3>
       <p class="modal-subtitle-lh">
-        Are you sure you want to <strong id="bulk-action-type-display" class="text-dark">perform action</strong> on <strong id="bulk-selected-count-display" class="text-primary">0 selected users</strong>?
+        Are you sure you want to <strong id="bulk-action-type-display" class="text-dark">perform action</strong>
+        <strong id="bulk-selected-count-display" class="text-dark">0 selected users</strong>?
       </p>
     </div>
     <div class="modal-footer-actions modal-footer-center">
       <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
-      <button type="button" id="confirm-bulk-action-btn" class="btn btn-primary" onclick="executeBulkAction();">Confirm Action</button>
+      <button type="button" id="confirm-bulk-action-btn" class="btn btn-primary" onclick="confirmBulkUserAction();">Confirm Action</button>
     </div>
   </div>
 </div>

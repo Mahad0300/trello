@@ -8,8 +8,8 @@ class UserController extends Controller {
                 'description' => 'Core product architecture, API services, and microservices.',
                 'boards' => [
                     ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'color' => '#4f46e5', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
-                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'color' => '#0284c7', 'cover_image' => 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&q=80', 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
-                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'color' => '#d97706', 'cover_image' => 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80', 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
+                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'color' => '#0284c7', 'cover_image' => asset('images/images.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
+                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'color' => '#d97706', 'cover_image' => asset('images/images1.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
                 ]
             ],
             [
@@ -17,7 +17,7 @@ class UserController extends Controller {
                 'description' => 'UI/UX design system, brand assets, and growth experiments.',
                 'boards' => [
                     ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'color' => '#059669', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
-                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'color' => '#7c3aed', 'cover_image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80', 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
+                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'color' => '#7c3aed', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
                 ]
             ]
         ];
@@ -36,10 +36,10 @@ class UserController extends Controller {
         ];
 
         $activities = [
-            ['user' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80', 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'time' => '15 mins ago'],
-            ['user' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80', 'action' => 'created board', 'target' => 'Q4 Product Marketing Launch', 'board' => 'Product Design & Marketing', 'time' => '1 hour ago'],
-            ['user' => 'Alex Johnson', 'avatar' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80', 'action' => 'attached file', 'target' => 'architecture_v2_diagram.pdf', 'board' => 'Sprint 24 - Core Architecture', 'time' => '3 hours ago'],
-            ['user' => 'Elena Rostova', 'avatar' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80', 'action' => 'completed checklist in', 'target' => 'Design System Tokens & CSS Variables', 'board' => 'Design System 2.0 Tokens', 'time' => '5 hours ago'],
+            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg'), 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'time' => '15 mins ago'],
+            ['user' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg'), 'action' => 'created board', 'target' => 'Q4 Product Marketing Launch', 'board' => 'Product Design & Marketing', 'time' => '1 hour ago'],
+            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/avatar_alex.svg'), 'action' => 'attached file', 'target' => 'architecture_v2_diagram.pdf', 'board' => 'Sprint 24 - Core Architecture', 'time' => '3 hours ago'],
+            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/avatar_elena.svg'), 'action' => 'completed checklist in', 'target' => 'Design System Tokens & CSS Variables', 'board' => 'Design System 2.0 Tokens', 'time' => '5 hours ago'],
         ];
 
         $this->view('user/dashboard', [
@@ -55,15 +55,16 @@ class UserController extends Controller {
         $board = [
             'id' => 1,
             'title' => 'Sprint 24 - Core Architecture',
+            'description' => 'Core product architecture, API services, microservices, and database schemas.',
             'workspace' => 'Engineering Team',
             'color' => '#4f46e5',
-            'background_image' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80',
+            'background_image' => asset('images/board_cover_engineering.png'),
             'is_starred' => true,
             'members' => [
-                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80', 'role' => 'Owner'],
-                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80', 'role' => 'Admin'],
-                ['name' => 'Alex Johnson', 'avatar' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80', 'role' => 'Member'],
-                ['name' => 'Elena Rostova', 'avatar' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80', 'role' => 'Member']
+                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg'), 'role' => 'Owner'],
+                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg'), 'role' => 'Admin'],
+                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/avatar_alex.svg'), 'role' => 'Member'],
+                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/avatar_elena.svg'), 'role' => 'Member']
             ],
             'lists' => [
                 [
@@ -84,15 +85,15 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ],
                         [
                             'id' => 'card-2',
                             'title' => 'Develop API for User Profiles',
                             'description' => 'Integrate Third-Party API Services',
-                            'cover_image' => 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&q=80',
+                            'cover_image' => asset('images/card_cover_architecture.png'),
                             'labels' => [
                                 ['name' => 'Low Priority', 'bg' => '#F3E8FF', 'color' => '#9333EA'],
                                 ['name' => 'In Progress', 'bg' => '#FFEDD5', 'color' => '#EA580C']
@@ -101,8 +102,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ],
                         [
@@ -118,8 +119,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ]
                     ]
@@ -142,8 +143,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ],
                         [
@@ -159,8 +160,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ],
                         [
@@ -176,8 +177,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ]
                     ]
@@ -191,7 +192,7 @@ class UserController extends Controller {
                             'id' => 'card-7',
                             'title' => 'Deploy API to Production Environment',
                             'description' => 'Build API for Notifications System',
-                            'cover_image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
+                            'cover_image' => asset('images/card_cover_dragdrop.png'),
                             'labels' => [
                                 ['name' => 'In Progress', 'bg' => '#FFEDD5', 'color' => '#EA580C']
                             ],
@@ -199,8 +200,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ],
                         [
@@ -215,8 +216,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ]
                     ]
@@ -239,8 +240,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ],
                         [
@@ -256,8 +257,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ]
                     ]
@@ -273,19 +274,20 @@ class UserController extends Controller {
 
     public function profile() {
         $user = [
-            'name' => 'Mahad Bukhari',
-            'email' => 'mahad@trello.com',
+            'name' => 'Chris Parker',
+            'email' => 'chris@richmondtech.com',
             'role' => 'Senior Frontend Lead',
-            'bio' => 'Building modern enterprise web applications & high-performance UI systems.',
-            'location' => 'Lahore, Pakistan',
-            'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80',
+            'department' => 'Engineering',
+            'avatar' => asset('images/avatars/avatar_chris.svg'),
             'joined' => 'March 2026',
+            'status_label' => 'Active Member',
+            'kicker' => 'My Profile',
             'boards_count' => 12,
             'cards_completed' => 84
         ];
 
         $this->view('user/profile', [
-            'pageTitle' => 'My Profile - Trello SaaS',
+            'pageTitle' => 'My Profile - Richmondtech',
             'user' => $user
         ]);
     }
@@ -295,11 +297,11 @@ class UserController extends Controller {
             [
                 'id' => 1,
                 'user' => 'Sarah Connor',
-                'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+                'avatar' => asset('images/avatars/avatar_sarah.svg'),
                 'action' => 'mentioned you in a comment on',
                 'target' => 'HTML5 Drag & Drop Card Physics',
                 'board' => 'Sprint 24 - Core Architecture',
-                'comment' => '@Mahad Bukhari please review the updated physics constraints when dragging cards between lists.',
+                'comment' => '@Chris Parker please review the updated physics constraints when dragging cards between lists.',
                 'type' => 'mention',
                 'is_unread' => true,
                 'time' => '10 mins ago',
@@ -308,7 +310,7 @@ class UserController extends Controller {
             [
                 'id' => 2,
                 'user' => 'Alex Johnson',
-                'avatar' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
+                'avatar' => asset('images/avatars/avatar_alex.svg'),
                 'action' => 'assigned you to the card',
                 'target' => 'Define MySQL 16-Table Schema Blueprint',
                 'board' => 'Sprint 24 - Core Architecture',
@@ -321,7 +323,7 @@ class UserController extends Controller {
             [
                 'id' => 3,
                 'user' => 'Elena Rostova',
-                'avatar' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80',
+                'avatar' => asset('images/avatars/avatar_elena.svg'),
                 'action' => 'attached file architecture_v2.pdf to',
                 'target' => 'Card Detail Modal & Cover Banners',
                 'board' => 'Sprint 24 - Core Architecture',
@@ -334,7 +336,7 @@ class UserController extends Controller {
             [
                 'id' => 4,
                 'user' => 'System Automation',
-                'avatar' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&q=80',
+                'avatar' => asset('images/avatars/avatar_default.svg'),
                 'action' => 'Card due date approaching for',
                 'target' => 'Custom Router & Controller MVC Skeleton',
                 'board' => 'Sprint 24 - Core Architecture',
@@ -347,7 +349,7 @@ class UserController extends Controller {
             [
                 'id' => 5,
                 'user' => 'Sarah Connor',
-                'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+                'avatar' => asset('images/avatars/avatar_sarah.svg'),
                 'action' => 'moved card from Backlog to In Progress',
                 'target' => 'Design System Tokens & CSS Variables',
                 'board' => 'Design System 2.0 Tokens',
@@ -360,11 +362,11 @@ class UserController extends Controller {
             [
                 'id' => 6,
                 'user' => 'Alex Johnson',
-                'avatar' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
+                'avatar' => asset('images/avatars/avatar_alex.svg'),
                 'action' => 'mentioned you in a comment on',
                 'target' => 'API Endpoint Authentication & JWT Token',
                 'board' => 'API v3 Migration Roadmap',
-                'comment' => '@Mahad Bukhari JWT secret key rotation schema is ready for review.',
+                'comment' => '@Chris Parker JWT secret key rotation schema is ready for review.',
                 'type' => 'mention',
                 'is_unread' => false,
                 'time' => 'Jul 20 at 11:00 AM',
@@ -373,7 +375,7 @@ class UserController extends Controller {
         ];
 
         $this->view('user/notifications', [
-            'pageTitle' => 'Notification Center - Trello SaaS',
+            'pageTitle' => 'Notification Center - Richmondtech',
             'notifications' => $notifications
         ]);
     }
@@ -394,7 +396,7 @@ class UserController extends Controller {
                 'id' => 3,
                 'title' => 'API v3 Migration Roadmap',
                 'workspace' => 'Engineering Team',
-                'cover_image' => 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80',
+                'cover_image' => asset('images/images1.png'),
                 'cards_count' => 9,
                 'members_count' => 5,
                 'is_starred' => true,
@@ -426,7 +428,7 @@ class UserController extends Controller {
                 'id' => 2,
                 'title' => 'Bug Triage & Hotfixes',
                 'workspace' => 'Engineering Team',
-                'cover_image' => 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&q=80',
+                'cover_image' => asset('images/images.png'),
                 'cards_count' => 12,
                 'members_count' => 4,
                 'is_starred' => false
@@ -435,7 +437,7 @@ class UserController extends Controller {
                 'id' => 5,
                 'title' => 'Q4 Product Marketing Launch',
                 'workspace' => 'Product Design & Marketing',
-                'cover_image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80',
+                'cover_image' => asset('images/board_cover_design.png'),
                 'cards_count' => 14,
                 'members_count' => 3,
                 'is_starred' => false
@@ -453,9 +455,9 @@ class UserController extends Controller {
                 'description' => 'Core product architecture, API services, microservices, and database schemas.',
                 'boards' => [
                     ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
-                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'cover_image' => 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&q=80', 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
-                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'cover_image' => 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80', 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
-                    ['id' => 6, 'title' => 'DevOps & CI/CD Pipelines', 'cover_image' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80', 'starred' => false, 'cards_count' => 7, 'members_count' => 3],
+                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'cover_image' => asset('images/images.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
+                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'cover_image' => asset('images/images1.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
+                    ['id' => 6, 'title' => 'DevOps & CI/CD Pipelines', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => false, 'cards_count' => 7, 'members_count' => 3],
                 ]
             ],
             [
@@ -468,8 +470,8 @@ class UserController extends Controller {
                 'description' => 'UI/UX design system tokens, brand identity, landing page, and growth campaigns.',
                 'boards' => [
                     ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
-                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'cover_image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80', 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
-                    ['id' => 7, 'title' => 'User Feedback & Usability Tests', 'cover_image' => 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&q=80', 'starred' => false, 'cards_count' => 11, 'members_count' => 5],
+                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
+                    ['id' => 7, 'title' => 'User Feedback & Usability Tests', 'cover_image' => asset('images/card_cover_architecture.png'), 'starred' => false, 'cards_count' => 11, 'members_count' => 5],
                 ]
             ]
         ];
@@ -479,7 +481,7 @@ class UserController extends Controller {
         ];
 
         $this->view('user/all_boards', [
-            'pageTitle' => 'All Boards - Official Trello Workspaces',
+            'pageTitle' => 'All Boards - Richmondtech Workspaces',
             'starredBoards' => $starredBoards,
             'recentBoards' => $recentBoards,
             'workspaces' => $workspaces,

@@ -3,13 +3,13 @@
 class AuthController extends Controller {
     public function login() {
         $this->view('auth/login', [
-            'pageTitle' => 'Sign In - Trello SaaS'
+            'pageTitle' => 'Sign In - Richmondtech'
         ]);
     }
 
     public function register() {
         $this->view('auth/register', [
-            'pageTitle' => 'Create Account - Trello SaaS'
+            'pageTitle' => 'Create Account - Richmondtech'
         ]);
     }
 }

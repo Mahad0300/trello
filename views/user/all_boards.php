@@ -1,10 +1,10 @@
 <?php
-$page_title = 'All Boards - Trello SaaS';
+$page_title = 'All Boards - Richmondtech';
 $page_js = 'all_boards.js';
 require_once VIEWS_PATH . '/layouts/user/header.php';
 ?>
 
-<!-- Official Trello-Style All Boards Hub Container -->
+<!-- All Boards Hub Container -->
 <div class="notif-center-wrapper boards-hub">
 
   <!-- Boards Hub Top Header Toolbar -->
@@ -21,12 +21,12 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
 
     <!-- Header Right Filter & Create Action -->
     <div class="notif-header-right">
-      <div class="board-search-wrapper board-search-wrapper-sm">
+      <div class="board-search-wrapper board-search-wrapper-sm hub-search">
         <i class="fa-solid fa-magnifying-glass board-search-icon"></i>
         <input type="text" id="all-boards-search-input" class="board-search-input" placeholder="Filter boards by title...">
       </div>
 
-      <button class="btn btn-primary btn-create-board-action boards-hub-create-btn" data-modal-target="user-create-board-modal">
+      <button class="btn btn-primary btn-create-board-action boards-hub-create-btn" data-modal-target="create-board-modal">
         <i class="fa-solid fa-plus"></i> Create Board
       </button>
     </div>
@@ -43,24 +43,23 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
 
       <div class="boards-grid" id="starred-boards-grid">
         <?php foreach ($starredBoards as $b): ?>
-          <a href="<?= route('user/board-detail') ?>" class="trello-board-tile board-card-link" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%), url('<?= $b['cover_image'] ?>');">
+          <?php $isStarred = true; $boardDesc = $b['description'] ?? ''; ?>
+          <div class="trello-board-tile board-card-link is-starred" role="link" tabindex="0" data-board-href="<?= route('user/board-detail') ?>" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" data-board-name="<?= sanitize($b['title']) ?>" data-board-description="<?= sanitize($boardDesc) ?>" data-cover="<?= sanitize($b['cover_image']) ?>" onclick="openBoardTile(this, event);">
             <div class="tile-top-row">
               <span class="tile-title"><?= sanitize($b['title']) ?></span>
-              <span class="star-board-btn active" title="Unstar Board" onclick="toggleBoardStar(this, event);">
-                <i class="fa-solid fa-star text-warning"></i>
-              </span>
+              <?php require VIEWS_PATH . '/partials/board_tile_actions.php'; ?>
             </div>
             <div class="tile-bottom-row">
               <span><i class="fa-regular fa-rectangle-list"></i> <?= $b['cards_count'] ?> Cards</span>
               <span><i class="fa-solid fa-users"></i> <?= $b['members_count'] ?> Members</span>
             </div>
-          </a>
+          </div>
         <?php endforeach; ?>
       </div>
     </div>
   <?php endif; ?>
 
-  <!-- SECTION 2: Trello Workspaces List -->
+  <!-- SECTION 2: Workspaces List -->
   <div class="workspace-block-margin">
     <div class="notif-group-title mb-20">
       <i class="fa-solid fa-briefcase icon-primary-sm"></i>
@@ -87,23 +86,21 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           <!-- Workspace Boards Grid -->
           <div class="boards-grid">
             <?php foreach ($ws['boards'] as $b): ?>
-              <?php $isStarred = !empty($b['starred']) || !empty($b['is_starred']); ?>
-              <a href="<?= route('user/board-detail') ?>" class="trello-board-tile board-card-link" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%), url('<?= $b['cover_image'] ?>');">
+              <?php $isStarred = !empty($b['starred']) || !empty($b['is_starred']); $boardDesc = $b['description'] ?? ''; ?>
+              <div class="trello-board-tile board-card-link <?= $isStarred ? 'is-starred' : '' ?>" role="link" tabindex="0" data-board-href="<?= route('user/board-detail') ?>" data-board-title="<?= strtolower(sanitize($b['title'])) ?>" data-board-name="<?= sanitize($b['title']) ?>" data-board-description="<?= sanitize($boardDesc) ?>" data-cover="<?= sanitize($b['cover_image']) ?>" onclick="openBoardTile(this, event);">
                 <div class="tile-top-row">
                   <span class="tile-title"><?= sanitize($b['title']) ?></span>
-                  <span class="star-board-btn <?= $isStarred ? 'active' : '' ?>" title="<?= $isStarred ? 'Unstar Board' : 'Star Board' ?>" onclick="toggleBoardStar(this, event);">
-                    <i class="<?= $isStarred ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star' ?>"></i>
-                  </span>
+                  <?php require VIEWS_PATH . '/partials/board_tile_actions.php'; ?>
                 </div>
                 <div class="tile-bottom-row">
                   <span><i class="fa-regular fa-rectangle-list"></i> <?= $b['cards_count'] ?> Cards</span>
                   <span><i class="fa-solid fa-users"></i> <?= $b['members_count'] ?> Members</span>
                 </div>
-              </a>
+              </div>
             <?php endforeach; ?>
 
             <!-- Create New Board Tile -->
-            <div class="create-board-tile" data-modal-target="user-create-board-modal">
+            <div class="create-board-tile" data-modal-target="create-board-modal">
               <i class="fa-solid fa-plus create-board-tile-icon"></i>
               <span class="create-board-tile-text">Create new board</span>
             </div>
@@ -114,30 +111,6 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
     </div>
   </div>
 
-
-
 </div>
-
-<!-- Filter Search JS Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const searchInput = document.getElementById('all-boards-search-input');
-  if (searchInput) {
-    searchInput.addEventListener('input', function(e) {
-      const term = e.target.value.toLowerCase().trim();
-      const boardLinks = document.querySelectorAll('.board-card-link');
-      
-      boardLinks.forEach(link => {
-        const title = link.getAttribute('data-board-title') || '';
-        if (!term || title.includes(term)) {
-          link.style.display = 'flex';
-        } else {
-          link.style.display = 'none';
-        }
-      });
-    });
-  }
-});
-</script>
 
 <?php require_once VIEWS_PATH . '/layouts/user/footer.php'; ?>

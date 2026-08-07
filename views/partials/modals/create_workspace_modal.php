@@ -1,5 +1,5 @@
 <!-- Modal Dialog: Create Workspace -->
-<div class="modal-overlay" id="user-create-workspace-modal">
+<div class="modal-overlay" id="create-workspace-modal">
   <div class="modal-container modal-container-md">
     <button class="modal-close-btn" data-modal-close>&times;</button>
     <h3 class="modal-title-heading">Create Workspace</h3>

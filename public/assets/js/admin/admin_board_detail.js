@@ -4,8 +4,6 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Admin Board Detail JS Loaded');
-
   // =========================================================
   // 1. HTML5 Drag & Drop Implementation for Trello Cards
   // =========================================================
@@ -105,14 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
       viewTabBtn.classList.remove('btn-view-tab');
 
       document.querySelectorAll('.view-container').forEach(container => {
-        container.style.display = 'none';
         container.classList.add('display-none');
+        container.classList.remove('view-container-flex', 'view-container-block');
       });
 
       const targetContainer = document.getElementById(targetId);
       if (targetContainer) {
-        targetContainer.style.display = (targetId === 'board-view-container') ? 'flex' : 'block';
         targetContainer.classList.remove('display-none');
+        targetContainer.classList.add(targetId === 'board-view-container' ? 'view-container-flex' : 'view-container-block');
       }
     }
   });

@@ -10,10 +10,10 @@ class AdminController extends Controller {
         ];
 
         $recentUsers = [
-            ['id' => 1, 'name' => 'Sarah Connor', 'email' => 'sarah@trello.com', 'role' => 'user', 'status' => 'Active', 'joined' => '2026-07-20', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-            ['id' => 2, 'name' => 'Mahad Bukhari', 'email' => 'mahad@trello.com', 'role' => 'user', 'status' => 'Active', 'joined' => '2026-07-18', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80'],
-            ['id' => 3, 'name' => 'Alex Johnson', 'email' => 'alex@trello.com', 'role' => 'admin', 'status' => 'Active', 'joined' => '2026-07-15', 'avatar' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80'],
-            ['id' => 4, 'name' => 'Elena Rostova', 'email' => 'elena@trello.com', 'role' => 'user', 'status' => 'Inactive', 'joined' => '2026-07-10', 'avatar' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80'],
+            ['id' => 1, 'name' => 'Sarah Connor', 'email' => 'sarah@richmondtech.com', 'role' => 'user', 'status' => 'Active', 'joined' => '2026-07-20', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+            ['id' => 2, 'name' => 'Chris Parker', 'email' => 'chris@richmondtech.com', 'role' => 'user', 'status' => 'Active', 'joined' => '2026-07-18', 'avatar' => asset('images/avatars/avatar_chris.svg')],
+            ['id' => 3, 'name' => 'Alex Johnson', 'email' => 'alex@richmondtech.com', 'role' => 'admin', 'status' => 'Active', 'joined' => '2026-07-15', 'avatar' => asset('images/avatars/avatar_alex.svg')],
+            ['id' => 4, 'name' => 'Elena Rostova', 'email' => 'elena@richmondtech.com', 'role' => 'user', 'status' => 'Inactive', 'joined' => '2026-07-10', 'avatar' => asset('images/avatars/avatar_elena.svg')],
         ];
 
         $recentBoards = [
@@ -30,19 +30,99 @@ class AdminController extends Controller {
         ]);
     }
 
-    public function users() {
-        $users = [
-            ['id' => 1, 'name' => 'Admin User', 'email' => 'admin@trello.com', 'role' => 'admin', 'status' => 'Active', 'boards' => 14, 'joined' => '2026-01-01', 'avatar' => 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80'],
-            ['id' => 2, 'name' => 'Mahad Bukhari', 'email' => 'mahad@trello.com', 'role' => 'user', 'status' => 'Active', 'boards' => 6, 'joined' => '2026-03-15', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80'],
-            ['id' => 3, 'name' => 'Sarah Connor', 'email' => 'sarah@trello.com', 'role' => 'user', 'status' => 'Active', 'boards' => 4, 'joined' => '2026-04-10', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-            ['id' => 4, 'name' => 'Alex Johnson', 'email' => 'alex@trello.com', 'role' => 'user', 'status' => 'Active', 'boards' => 9, 'joined' => '2026-05-22', 'avatar' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80'],
-            ['id' => 5, 'name' => 'Elena Rostova', 'email' => 'elena@trello.com', 'role' => 'user', 'status' => 'Inactive', 'boards' => 2, 'joined' => '2026-06-01', 'avatar' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80'],
-            ['id' => 6, 'name' => 'David Chen', 'email' => 'david@trello.com', 'role' => 'user', 'status' => 'Active', 'boards' => 11, 'joined' => '2026-06-18', 'avatar' => 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&q=80'],
+    private function getSystemUsers() {
+        return [
+            [
+                'id' => 1,
+                'name' => 'Admin User',
+                'email' => 'admin@richmondtech.com',
+                'role' => 'admin',
+                'role_label' => 'Platform Administrator',
+                'status' => 'Active',
+                'status_label' => 'Super Admin',
+                'department' => 'Operations',
+                'boards' => 14,
+                'joined' => '2026-01-01',
+                'joined_label' => 'January 2026',
+                'avatar' => asset('images/avatars/avatar_admin.svg'),
+            ],
+            [
+                'id' => 2,
+                'name' => 'Chris Parker',
+                'email' => 'chris@richmondtech.com',
+                'role' => 'user',
+                'role_label' => 'Senior Frontend Lead',
+                'status' => 'Active',
+                'status_label' => 'Active Member',
+                'department' => 'Engineering',
+                'boards' => 6,
+                'joined' => '2026-03-15',
+                'joined_label' => 'March 2026',
+                'avatar' => asset('images/avatars/avatar_chris.svg'),
+            ],
+            [
+                'id' => 3,
+                'name' => 'Sarah Connor',
+                'email' => 'sarah@richmondtech.com',
+                'role' => 'user',
+                'role_label' => 'Product Designer',
+                'status' => 'Active',
+                'status_label' => 'Active Member',
+                'department' => 'Product Design',
+                'boards' => 4,
+                'joined' => '2026-04-10',
+                'joined_label' => 'April 2026',
+                'avatar' => asset('images/avatars/avatar_sarah.svg'),
+            ],
+            [
+                'id' => 4,
+                'name' => 'Alex Johnson',
+                'email' => 'alex@richmondtech.com',
+                'role' => 'user',
+                'role_label' => 'Backend Engineer',
+                'status' => 'Active',
+                'status_label' => 'Active Member',
+                'department' => 'Engineering',
+                'boards' => 9,
+                'joined' => '2026-05-22',
+                'joined_label' => 'May 2026',
+                'avatar' => asset('images/avatars/avatar_alex.svg'),
+            ],
+            [
+                'id' => 5,
+                'name' => 'Elena Rostova',
+                'email' => 'elena@richmondtech.com',
+                'role' => 'user',
+                'role_label' => 'QA Specialist',
+                'status' => 'Inactive',
+                'status_label' => 'Inactive',
+                'department' => 'Quality Assurance',
+                'boards' => 2,
+                'joined' => '2026-06-01',
+                'joined_label' => 'June 2026',
+                'avatar' => asset('images/avatars/avatar_elena.svg'),
+            ],
+            [
+                'id' => 6,
+                'name' => 'David Chen',
+                'email' => 'david@richmondtech.com',
+                'role' => 'user',
+                'role_label' => 'Growth Marketer',
+                'status' => 'Active',
+                'status_label' => 'Active Member',
+                'department' => 'Marketing',
+                'boards' => 11,
+                'joined' => '2026-06-18',
+                'joined_label' => 'June 2026',
+                'avatar' => asset('images/avatars/avatar_david.svg'),
+            ],
         ];
+    }
 
+    public function users() {
         $this->view('admin/users', [
             'pageTitle' => 'User Management',
-            'users' => $users
+            'users' => $this->getSystemUsers()
         ]);
     }
 
@@ -61,7 +141,7 @@ class AdminController extends Controller {
                 'id' => 3,
                 'title' => 'API v3 Migration Roadmap',
                 'workspace' => 'Engineering Team',
-                'cover_image' => 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80',
+                'cover_image' => asset('images/images1.png'),
                 'cards_count' => 9,
                 'members_count' => 5,
                 'is_starred' => true
@@ -91,7 +171,7 @@ class AdminController extends Controller {
                 'id' => 2,
                 'title' => 'Bug Triage & Hotfixes',
                 'workspace' => 'Engineering Team',
-                'cover_image' => 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&q=80',
+                'cover_image' => asset('images/images.png'),
                 'cards_count' => 12,
                 'members_count' => 4,
                 'is_starred' => false
@@ -100,7 +180,7 @@ class AdminController extends Controller {
                 'id' => 5,
                 'title' => 'Q4 Product Marketing Launch',
                 'workspace' => 'Product Design & Marketing',
-                'cover_image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80',
+                'cover_image' => asset('images/board_cover_design.png'),
                 'cards_count' => 14,
                 'members_count' => 3,
                 'is_starred' => false
@@ -118,9 +198,9 @@ class AdminController extends Controller {
                 'description' => 'Core product architecture, API services, microservices, and database schemas.',
                 'boards' => [
                     ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
-                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'cover_image' => 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&q=80', 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
-                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'cover_image' => 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80', 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
-                    ['id' => 6, 'title' => 'DevOps & CI/CD Pipelines', 'cover_image' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80', 'starred' => false, 'cards_count' => 7, 'members_count' => 3],
+                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'cover_image' => asset('images/images.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
+                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'cover_image' => asset('images/images1.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
+                    ['id' => 6, 'title' => 'DevOps & CI/CD Pipelines', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => false, 'cards_count' => 7, 'members_count' => 3],
                 ]
             ],
             [
@@ -133,8 +213,8 @@ class AdminController extends Controller {
                 'description' => 'UI/UX design system tokens, brand identity, landing page, and growth campaigns.',
                 'boards' => [
                     ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
-                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'cover_image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80', 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
-                    ['id' => 7, 'title' => 'User Feedback & Usability Tests', 'cover_image' => 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&q=80', 'starred' => false, 'cards_count' => 11, 'members_count' => 5],
+                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
+                    ['id' => 7, 'title' => 'User Feedback & Usability Tests', 'cover_image' => asset('images/card_cover_architecture.png'), 'starred' => false, 'cards_count' => 11, 'members_count' => 5],
                 ]
             ]
         ];
@@ -146,13 +226,13 @@ class AdminController extends Controller {
         $boards = [
             ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'workspace' => 'Engineering', 'color' => '#4f46e5', 'created_by' => 'Admin User', 'members' => 8, 'cards' => 24, 'created_at' => '2026-07-01'],
             ['id' => 2, 'title' => 'Q4 Growth Marketing', 'workspace' => 'Marketing', 'color' => '#059669', 'created_by' => 'Sarah Connor', 'members' => 5, 'cards' => 14, 'created_at' => '2026-07-05'],
-            ['id' => 3, 'title' => 'Bug Triage & Polish', 'workspace' => 'Engineering', 'color' => '#0284c7', 'created_by' => 'Mahad Bukhari', 'members' => 12, 'cards' => 31, 'created_at' => '2026-07-10'],
+            ['id' => 3, 'title' => 'Bug Triage & Polish', 'workspace' => 'Engineering', 'color' => '#0284c7', 'created_by' => 'Chris Parker', 'members' => 12, 'cards' => 31, 'created_at' => '2026-07-10'],
             ['id' => 4, 'title' => 'Design System 2.0', 'workspace' => 'Product Design', 'color' => '#d97706', 'created_by' => 'Alex Johnson', 'members' => 4, 'cards' => 18, 'created_at' => '2026-07-12'],
             ['id' => 5, 'title' => 'Customer Onboarding Flow', 'workspace' => 'Operations', 'color' => '#7c3aed', 'created_by' => 'Admin User', 'members' => 6, 'cards' => 9, 'created_at' => '2026-07-15'],
         ];
 
         $this->view('admin/boards', [
-            'pageTitle' => 'All Boards - Trello Admin',
+            'pageTitle' => 'All Boards - Richmondtech',
             'starredBoards' => $starredBoards,
             'recentBoards' => $recentBoards,
             'workspaces' => $workspaces,
@@ -168,7 +248,7 @@ class AdminController extends Controller {
                 'name' => 'Engineering Team',
                 'description' => 'Core SaaS platform architecture, backend API microservices, database migrations, and CI/CD deployment pipelines.',
                 'visibility' => 'Workspace',
-                'color' => '#6366f1',
+                'color' => '#0d9488',
                 'icon' => 'fa-laptop-code',
                 'members_count' => 8,
                 'boards_count' => 3
@@ -178,7 +258,7 @@ class AdminController extends Controller {
                 'name' => 'Product Design & Marketing',
                 'description' => 'UX design system 2.0, brand asset illustrations, user research interviews, and Q4 growth marketing campaigns.',
                 'visibility' => 'Public',
-                'color' => '#ec4899',
+                'color' => '#0d9488',
                 'icon' => 'fa-palette',
                 'members_count' => 6,
                 'boards_count' => 2
@@ -188,7 +268,7 @@ class AdminController extends Controller {
                 'name' => 'Operations & Customer Success',
                 'description' => 'Customer onboarding flows, SLA support desk tracking, SOC2 compliance audits, and HR team recruitment hiring.',
                 'visibility' => 'Private',
-                'color' => '#10b981',
+                'color' => '#0d9488',
                 'icon' => 'fa-chart-line',
                 'members_count' => 5,
                 'boards_count' => 2
@@ -196,7 +276,7 @@ class AdminController extends Controller {
         ];
 
         $this->view('admin/workspaces', [
-            'pageTitle' => 'Workspace Management - Trello Admin',
+            'pageTitle' => 'Workspace Management - Richmondtech',
             'workspaces' => $workspaces
         ]);
     }
@@ -206,7 +286,7 @@ class AdminController extends Controller {
             [
                 'id' => 1,
                 'title' => 'New User Provisioned',
-                'message' => 'Admin System provisioned a new active user account for David Chen (david@trello.com).',
+                'message' => 'Admin System provisioned a new active user account for David Chen (david@richmondtech.com).',
                 'type' => 'user',
                 'unread' => true,
                 'starred' => false,
@@ -215,7 +295,7 @@ class AdminController extends Controller {
             [
                 'id' => 2,
                 'title' => 'Workspace Board Archived',
-                'message' => 'Mahad Bukhari archived board "Q1 Legacy Architecture" in Engineering Team workspace.',
+                'message' => 'Chris Parker archived board "Q1 Legacy Architecture" in Engineering Team workspace.',
                 'type' => 'board',
                 'unread' => false,
                 'starred' => true,
@@ -247,19 +327,70 @@ class AdminController extends Controller {
         ]);
     }
 
+    public function profile() {
+        $users = $this->getSystemUsers();
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        $selected = null;
+
+        if ($id > 0) {
+            foreach ($users as $row) {
+                if ((int) $row['id'] === $id) {
+                    $selected = $row;
+                    break;
+                }
+            }
+        }
+
+        if ($selected) {
+            $user = [
+                'id' => $selected['id'],
+                'name' => $selected['name'],
+                'email' => $selected['email'],
+                'role' => $selected['role_label'],
+                'department' => $selected['department'],
+                'avatar' => $selected['avatar'],
+                'joined' => $selected['joined_label'],
+                'status' => $selected['status'],
+                'status_label' => $selected['status_label'],
+                'is_own' => false,
+            ];
+            $pageTitle = $selected['name'] . ' - Profile';
+        } else {
+            $user = [
+                'id' => 0,
+                'name' => 'Admin System',
+                'email' => 'admin@richmondtech.com',
+                'role' => 'Platform Administrator',
+                'department' => 'Operations',
+                'avatar' => asset('images/avatars/avatar_admin.svg'),
+                'joined' => 'January 2026',
+                'status' => 'Active',
+                'status_label' => 'Super Admin',
+                'is_own' => true,
+            ];
+            $pageTitle = 'My Profile - Richmondtech';
+        }
+
+        $this->view('admin/profile', [
+            'pageTitle' => $pageTitle,
+            'user' => $user
+        ]);
+    }
+
     public function boardDetail() {
         $board = [
             'id' => 1,
             'title' => 'Sprint 24 - Core Architecture',
+            'description' => 'Core product architecture, API services, microservices, and database schemas.',
             'workspace' => 'Engineering Team',
             'color' => '#4f46e5',
-            'background_image' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80',
+            'background_image' => asset('images/board_cover_engineering.png'),
             'is_starred' => true,
             'members' => [
-                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80', 'role' => 'Owner'],
-                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80', 'role' => 'Admin'],
-                ['name' => 'Alex Johnson', 'avatar' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80', 'role' => 'Member'],
-                ['name' => 'Elena Rostova', 'avatar' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80', 'role' => 'Member']
+                ['id' => 2, 'name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg'), 'role' => 'Owner'],
+                ['id' => 3, 'name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg'), 'role' => 'Admin'],
+                ['id' => 4, 'name' => 'Alex Johnson', 'avatar' => asset('images/avatars/avatar_alex.svg'), 'role' => 'Member'],
+                ['id' => 5, 'name' => 'Elena Rostova', 'avatar' => asset('images/avatars/avatar_elena.svg'), 'role' => 'Member']
             ],
             'lists' => [
                 [
@@ -280,15 +411,15 @@ class AdminController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ],
                         [
                             'id' => 'card-2',
                             'title' => 'Develop API for User Profiles',
                             'description' => 'Integrate Third-Party API Services',
-                            'cover_image' => 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&q=80',
+                            'cover_image' => asset('images/card_cover_architecture.png'),
                             'labels' => [
                                 ['name' => 'Low Priority', 'bg' => '#F3E8FF', 'color' => '#9333EA'],
                                 ['name' => 'In Progress', 'bg' => '#FFEDD5', 'color' => '#EA580C']
@@ -297,8 +428,8 @@ class AdminController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'],
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ]
                     ]
@@ -312,7 +443,7 @@ class AdminController extends Controller {
                             'id' => 'card-4',
                             'title' => 'Design System Tokens & Variables',
                             'description' => 'Build reusable component primitives',
-                            'cover_image' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80',
+                            'cover_image' => asset('images/card_cover_architecture.png'),
                             'labels' => [
                                 ['name' => 'Feature', 'bg' => '#E0F2FE', 'color' => '#0284C7']
                             ],
@@ -320,7 +451,7 @@ class AdminController extends Controller {
                             'comments_count' => 5,
                             'attachments_count' => 2,
                             'assignees' => [
-                                ['name' => 'Mahad Bukhari', 'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80']
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
                             ]
                         ]
                     ]
@@ -342,7 +473,7 @@ class AdminController extends Controller {
                             'comments_count' => 18,
                             'attachments_count' => 1,
                             'assignees' => [
-                                ['name' => 'Alex Johnson', 'avatar' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80']
+                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/avatar_alex.svg')]
                             ]
                         ]
                     ]

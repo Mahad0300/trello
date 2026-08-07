@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= sanitize($pageTitle ?? 'Sign In - Trello SaaS') ?></title>
+  <title><?= sanitize($pageTitle ?? 'Sign In - Richmondtech') ?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
         </a>
 
         <h1 class="auth-visual-headline">Boards that keep every team in motion.</h1>
-        <p class="auth-visual-sub">Plan, track, and ship work from one shared workspace — without the noise.</p>
+        <p class="auth-visual-sub">Plan, track, and ship work from one shared workspace - without the noise.</p>
       </div>
     </aside>
 
@@ -52,7 +52,7 @@
                 name="email"
                 class="form-control auth-input"
                 placeholder="name@company.com"
-                value="mahad@trello.com"
+                value="chris@richmondtech.com"
                 autocomplete="email"
                 required
               >
@@ -71,7 +71,7 @@
                 id="password"
                 name="password"
                 class="form-control auth-input"
-                value="••••••••"
+                placeholder="Enter your password"
                 autocomplete="current-password"
                 required
               >
@@ -93,7 +93,7 @@
         </form>
 
         <p class="auth-switch">
-          Don’t have an account?
+          Don't have an account?
           <a href="<?= route('register') ?>">Create account</a>
         </p>
 

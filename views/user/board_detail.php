@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Board Detail - Trello SaaS';
+$page_title = 'Board Detail - Richmondtech';
 $page_js = 'board_detail.js';
 require_once VIEWS_PATH . '/layouts/user/header.php';
 ?>
@@ -10,7 +10,10 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
     <button class="star-btn <?= $board['is_starred'] ? 'starred' : '' ?>" title="Star Board">
       <i class="fa-solid fa-star"></i>
     </button>
-    <h1 class="board-title"><?= sanitize($board['title']) ?></h1>
+    <h1 class="board-title" id="board-title-text"><?= sanitize($board['title']) ?></h1>
+    <button type="button" class="board-edit-btn" title="Edit Board" data-modal-target="edit-board-modal" data-board-name="<?= sanitize($board['title']) ?>" data-board-description="<?= sanitize($board['description'] ?? 'Core product architecture, API services, microservices, and database schemas.') ?>">
+      <i class="fa-solid fa-pen"></i>
+    </button>
   </div>
 
   <div class="gap-16 flex-row">
@@ -52,7 +55,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
         <!-- List Header Bar -->
         <div class="list-header-bar">
           <div class="list-title-text">
-            <div class="list-status-pill-line" style="background: <?= $list['status_color'] ?? '#94A3B8' ?>;"></div>
+            <div class="list-status-pill-line" data-bg="<?= sanitize($list['status_color'] ?? '#94A3B8') ?>"></div>
             <span contenteditable="false"><?= sanitize($list['title']) ?></span>
             <span class="list-card-count-badge"><?= count($list['cards']) ?></span>
           </div>
@@ -106,7 +109,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
               <?php if (!empty($card['labels'])): ?>
                 <div class="card-label-badges-row">
                   <?php foreach ($card['labels'] as $label): ?>
-                    <span class="pastel-label-chip" style="background: <?= $label['bg'] ?? '#FFEDD5' ?>; color: <?= $label['color'] ?? '#EA580C' ?>;">
+                    <span class="pastel-label-chip" data-bg="<?= sanitize($label['bg'] ?? '#FFEDD5') ?>" data-fg="<?= sanitize($label['color'] ?? '#EA580C') ?>">
                       <?= sanitize($label['name']) ?>
                     </span>
                   <?php endforeach; ?>
@@ -120,7 +123,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
                   <span><?= $card['progress'] ?? 0 ?>%</span>
                 </div>
                 <div class="progress-track-line">
-                  <div class="progress-fill-line" style="width: <?= $card['progress'] ?? 0 ?>%;"></div>
+                  <div class="progress-fill-line" data-progress="<?= (int)($card['progress'] ?? 0) ?>"></div>
                 </div>
               </div>
 
@@ -161,7 +164,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
 </div>
 
 <!-- View 3: Flat Sortable List / Table View Container -->
-<div id="list-view-container" class="view-container list-view-padding" style="display: none;">
+<div id="list-view-container" class="view-container list-view-padding display-none">
   <div class="table-card-box">
     
     <!-- Table Header Toolbar -->
@@ -219,8 +222,8 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
             </td>
             <td class="cell-assignees">
               <div class="assignees-avatar-flex">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="table-user-avatar" title="Sarah Connor">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="table-user-avatar table-user-avatar-overlap" title="Mahad Bukhari">
+                <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="table-user-avatar" title="Sarah Connor">
+                <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="table-user-avatar table-user-avatar-overlap" title="Chris Parker">
               </div>
             </td>
             <td class="cell-priority">
@@ -231,7 +234,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
             <td class="cell-progress">
               <div class="progress-cell-flex">
                 <div class="progress-track-sm">
-                  <div class="progress-fill-indigo" style="width: 50%;"></div>
+                  <div class="progress-fill-indigo progress-w-50"></div>
                 </div>
                 <span class="progress-percentage-indigo">50%</span>
               </div>
@@ -264,7 +267,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
             </td>
             <td class="cell-assignees">
               <div class="assignees-avatar-flex">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" class="table-user-avatar" title="Alex Johnson">
+                <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" class="table-user-avatar" title="Alex Johnson">
               </div>
             </td>
             <td class="cell-priority">
@@ -275,7 +278,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
             <td class="cell-progress">
               <div class="progress-cell-flex">
                 <div class="progress-track-sm">
-                  <div class="progress-fill-blue" style="width: 25%;"></div>
+                  <div class="progress-fill-blue progress-w-25"></div>
                 </div>
                 <span class="progress-percentage-blue">25%</span>
               </div>
@@ -296,7 +299,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
 </div>
 
 <!-- View 2: Enterprise Google Calendar / ClickUp Style Calendar Container -->
-<div id="calendar-view-container" class="view-container calendar-view-wrapper" style="display: none;">
+<div id="calendar-view-container" class="view-container calendar-view-wrapper display-none">
   <!-- Header Toolbar -->
   <div class="calendar-toolbar">
     <!-- Left Navigation & Title -->
@@ -551,9 +554,10 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
   </div>
 </div>
 
-<!-- Modal Dialog Components -->
-<?php require_once VIEWS_PATH . '/partials/modals/add_card_modal.php'; ?>
-<?php require_once VIEWS_PATH . '/partials/modals/add_list_modal.php'; ?>
-<?php require_once VIEWS_PATH . '/partials/modals/card_detail_modal.php'; ?>
+<!-- Card-only modals (shared board/list/card modals load from user footer) -->
+<?php require_once VIEWS_PATH . '/partials/modals/card_members_modal.php'; ?>
+<?php require_once VIEWS_PATH . '/partials/modals/card_labels_modal.php'; ?>
+<?php require_once VIEWS_PATH . '/partials/modals/card_attachment_modal.php'; ?>
+<?php require_once VIEWS_PATH . '/partials/modals/card_move_modal.php'; ?>
 
 <?php require_once VIEWS_PATH . '/layouts/user/footer.php'; ?>

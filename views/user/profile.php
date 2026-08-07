@@ -1,99 +1,114 @@
 <?php
-$page_title = 'Profile - Trello SaaS';
+$page_title = 'Profile - Richmondtech';
 $page_js = 'profile.js';
 require_once VIEWS_PATH . '/layouts/user/header.php';
+
+$statusLabel = $user['status_label'] ?? 'Active Member';
+$statusClass = ($user['status'] ?? 'Active') === 'Inactive' ? 'badge-danger' : 'badge-success';
 ?>
 
-<div class="notif-center-wrapper">
-
-  <!-- Page Header Toolbar (Consistent with All Boards Hub & Notifications) -->
+<div class="notif-center-wrapper profile-page">
   <div class="notif-header-toolbar mb-24">
     <div class="notif-header-left">
       <div class="notif-icon-badge notif-icon-badge-gradient">
-        <i class="fa-solid fa-user icon-primary"></i>
+        <i class="fa-solid fa-user"></i>
       </div>
       <div>
         <h1 class="notif-main-title">Account & Profile Settings</h1>
-        <p class="notif-subtext">Manage your public profile, notification preferences, and password.</p>
+        <p class="notif-subtext">Manage your personal details and password for Richmondtech.</p>
       </div>
     </div>
   </div>
 
   <div class="profile-layout-grid">
-    <!-- Left Profile Card -->
-    <div>
-      <div class="table-card profile-card-center">
-        <img src="<?= $user['avatar'] ?>" class="profile-avatar-img">
+    <aside class="profile-side-col">
+      <div class="table-card profile-identity-card">
+        <div class="profile-avatar-wrap">
+          <img src="<?= $user['avatar'] ?>" id="avatar-preview-img" class="profile-avatar-img" alt="<?= sanitize($user['name']) ?>">
+          <label class="profile-avatar-edit" for="avatar-upload-input" title="Change photo">
+            <i class="fa-solid fa-camera"></i>
+          </label>
+          <input type="file" id="avatar-upload-input" class="display-none" accept="image/*">
+        </div>
         <h3 class="profile-user-name"><?= sanitize($user['name']) ?></h3>
         <p class="profile-user-role"><?= sanitize($user['role']) ?></p>
-        <span class="badge badge-success">Active Member</span>
+        <span class="badge <?= $statusClass ?> profile-status-badge"><?= sanitize($statusLabel) ?></span>
 
         <div class="profile-info-block">
           <div class="profile-meta-item">
-            <i class="fa-solid fa-location-dot profile-icon-primary"></i> <?= sanitize($user['location']) ?>
+            <i class="fa-solid fa-building profile-icon-primary"></i>
+            <span><?= sanitize($user['department']) ?></span>
           </div>
           <div class="profile-meta-item">
-            <i class="fa-regular fa-calendar-check profile-icon-primary"></i> Joined <?= sanitize($user['joined']) ?>
+            <i class="fa-regular fa-envelope profile-icon-primary"></i>
+            <span><?= sanitize($user['email']) ?></span>
           </div>
           <div class="profile-meta-item-last">
-            <i class="fa-solid fa-kanban profile-icon-primary"></i> <?= $user['boards_count'] ?> Active Boards
+            <i class="fa-regular fa-calendar-check profile-icon-primary"></i>
+            <span>Joined <?= sanitize($user['joined']) ?></span>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
 
-    <!-- Right Forms Column -->
-    <div>
-      <!-- Personal Information Form -->
-      <div class="table-card profile-card-padded">
-        <h3 class="section-title">Personal Information</h3>
-        <form onsubmit="event.preventDefault(); alert('Static UI Preview: Profile Updated');">
-          <div class="form-grid-2col">
+    <div class="profile-forms-col">
+      <div class="table-card profile-form-card">
+        <div class="profile-section-head">
+          <span class="profile-section-icon"><i class="fa-solid fa-id-card"></i></span>
+          <div>
+            <h3 class="profile-section-title">Personal Information</h3>
+            <p class="profile-section-sub">Update your name, email, and department.</p>
+          </div>
+        </div>
+
+        <form id="profile-settings-form" onsubmit="event.preventDefault();">
+          <div class="form-grid-3col">
             <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" class="form-control" value="<?= sanitize($user['name']) ?>">
+              <label for="profile-full-name">Full Name</label>
+              <input type="text" id="profile-full-name" class="form-control" value="<?= sanitize($user['name']) ?>" placeholder="Your full name">
             </div>
             <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" class="form-control" value="<?= sanitize($user['email']) ?>">
+              <label for="profile-email">Email Address</label>
+              <input type="email" id="profile-email" class="form-control" value="<?= sanitize($user['email']) ?>" placeholder="name@richmondtech.com">
+            </div>
+            <div class="form-group">
+              <label for="profile-department">Department</label>
+              <input type="text" id="profile-department" class="form-control" value="<?= sanitize($user['department']) ?>" placeholder="e.g. Engineering">
             </div>
           </div>
-
-          <div class="form-group">
-            <label>Bio / Headline</label>
-            <textarea class="form-control no-resize" rows="2"><?= sanitize($user['bio']) ?></textarea>
+          <div class="profile-form-actions">
+            <button type="submit" class="btn btn-primary">Save Profile Changes</button>
           </div>
-
-          <div class="form-group">
-            <label>Location</label>
-            <input type="text" class="form-control" value="<?= sanitize($user['location']) ?>">
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-mt-sm">Save Profile Changes</button>
         </form>
       </div>
 
-      <!-- Password Update Form -->
-      <div class="table-card profile-card-plain">
-        <h3 class="section-title">Update Password</h3>
-        <form onsubmit="event.preventDefault(); alert('Static UI Preview: Password Changed');">
-          <div class="form-group">
-            <label>Current Password</label>
-            <input type="password" class="form-control" placeholder="••••••••">
+      <div class="table-card profile-form-card profile-password-card">
+        <div class="profile-section-head">
+          <span class="profile-section-icon profile-section-icon--lock"><i class="fa-solid fa-lock"></i></span>
+          <div>
+            <h3 class="profile-section-title">Update Password</h3>
+            <p class="profile-section-sub">Choose a strong password to keep your account secure.</p>
           </div>
+        </div>
 
+        <form id="profile-password-form" onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label for="profile-current-password">Current Password</label>
+            <input type="password" id="profile-current-password" class="form-control" placeholder="Enter current password" autocomplete="current-password">
+          </div>
           <div class="form-grid-2col">
             <div class="form-group">
-              <label>New Password</label>
-              <input type="password" class="form-control" placeholder="••••••••">
+              <label for="profile-new-password">New Password</label>
+              <input type="password" id="profile-new-password" class="form-control" placeholder="Enter new password" autocomplete="new-password">
             </div>
             <div class="form-group">
-              <label>Confirm New Password</label>
-              <input type="password" class="form-control" placeholder="••••••••">
+              <label for="profile-confirm-password">Confirm New Password</label>
+              <input type="password" id="profile-confirm-password" class="form-control" placeholder="Confirm new password" autocomplete="new-password">
             </div>
           </div>
-
-          <button type="submit" class="btn btn-secondary btn-mt-sm">Update Password</button>
+          <div class="profile-form-actions">
+            <button type="submit" class="btn btn-primary">Update Password</button>
+          </div>
         </form>
       </div>
     </div>

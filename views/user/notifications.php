@@ -1,6 +1,5 @@
 <?php
-$page_title = 'Notifications - Trello SaaS';
-$page_js = 'notifications.js';
+$page_title = 'Notifications - Richmondtech';
 require_once VIEWS_PATH . '/layouts/user/header.php';
 ?>
 
@@ -9,20 +8,26 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
   <!-- Main Notification Card Wrapper -->
   <div class="notif-ref-card">
 
-    <!-- Page Header Toolbar (Consistent with All Boards Hub) -->
-    <div class="notif-header-toolbar mb-24">
+    <!-- Page Header: title left · search + options right (single row) -->
+    <div class="notif-header-toolbar notif-header-aligned">
       <div class="notif-header-left">
         <div class="notif-icon-badge notif-icon-badge-gradient">
-          <i class="fa-solid fa-bell icon-primary"></i>
+          <i class="fa-solid fa-bell"></i>
         </div>
         <div>
           <h1 class="notif-main-title">List Notification</h1>
           <p class="notif-subtext">Manage, view, and stay updated with all your team notifications.</p>
+          <p class="notif-summary-count notif-summary-inline">
+            <span id="notif-total-count-text">188</span> Notification
+          </p>
         </div>
       </div>
 
-      <!-- Working Options Dropdown Menu -->
       <div class="notif-header-right">
+        <div class="notif-search-box-pill">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="notif-search-input" placeholder="Search notifications...">
+        </div>
         <div class="dropdown-wrapper">
           <button class="dropdown-toggle btn btn-secondary btn-sm" title="Notification Options">
             <i class="fa-solid fa-ellipsis"></i> Options
@@ -47,28 +52,23 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       </div>
     </div>
 
-    <!-- Sub Toolbar Row -->
-    <div class="notif-sub-toolbar-row">
-      <div class="notif-summary-count">
-        <span id="notif-total-count-text">188</span> Notification
-      </div>
-      <div class="notif-search-box-pill">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="notif-search-input" placeholder="Search by Name Product...">
-      </div>
-    </div>
-
     <!-- Filter Tabs Row -->
     <div class="notif-tabs-header-row">
       <button class="notif-tab-item active" data-tab="all">
-        <span class="notif-tab-badge-pink" id="count-badge-all">20</span> All
-      </button>
-      <button class="notif-tab-item" data-tab="archive">
-        <span class="notif-tab-badge-grey" id="count-badge-archive">10</span> Archive
+        <span class="notif-tab-badge-active" id="count-badge-all">20</span> All
       </button>
       <button class="notif-tab-item" data-tab="favorite">
         <span class="notif-tab-badge-grey" id="count-badge-favorite">17</span> Favorite
       </button>
+    </div>
+
+    <!-- Empty state (shown when no notifications) -->
+    <div class="notif-empty-state is-hidden" id="notif-empty-state" aria-live="polite">
+      <div class="notif-empty-icon">
+        <img src="<?= asset('images/notification.png') ?>" alt="No notifications" class="notif-empty-img">
+      </div>
+      <h3 class="notif-empty-title">No notifications yet</h3>
+      <p class="notif-empty-subtext">When a new update arrives — board activity, mentions, or alerts — it will show up here.</p>
     </div>
 
     <!-- Notification Rows Stack -->
@@ -115,7 +115,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
         </div>
 
         <div class="notif-row-right-meta">
-          <span class="notif-timestamp-text">30 menit ago</span>
+          <span class="notif-timestamp-text">30 mins ago</span>
           <button class="notif-delete-trash-btn" title="Delete Notification" onclick="deleteNotifRow(this);">
             <i class="fa-regular fa-trash-can"></i>
           </button>
@@ -342,6 +342,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.notif-tab-item');
   const rows = document.querySelectorAll('.notif-row-tile');
 
+  // User side: no Archive tab — hide archived-only rows by default
+  rows.forEach(row => {
+    if (row.getAttribute('data-category') === 'archive') {
+      row.style.display = 'none';
+    }
+  });
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => {
@@ -355,21 +362,23 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.classList.add('active');
       const activeBadge = tab.querySelector('span');
       if (activeBadge) {
-        activeBadge.className = 'notif-tab-badge-pink';
+        activeBadge.className = 'notif-tab-badge-active';
       }
 
       const targetCategory = tab.getAttribute('data-tab');
       rows.forEach(row => {
         if (targetCategory === 'all') {
-          row.style.display = 'flex';
-        } else if (targetCategory === 'archive') {
-          row.style.display = row.getAttribute('data-category') === 'archive' ? 'flex' : 'none';
+          // Hide archived-only demo rows from main All feed
+          row.style.display = row.getAttribute('data-category') === 'archive' ? 'none' : 'flex';
         } else if (targetCategory === 'favorite') {
           row.style.display = row.getAttribute('data-starred') === '1' ? 'flex' : 'none';
         }
       });
+      refreshNotifEmptyState();
     });
   });
+
+  refreshNotifEmptyState();
 
   // 3. Search Filter Handler
   const searchInput = document.getElementById('notif-search-input');
@@ -384,6 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
           row.style.display = 'none';
         }
       });
+      refreshNotifEmptyState();
     });
   }
 });
@@ -407,11 +417,48 @@ function favoriteAllNotifs() {
   });
 }
 
+function getVisibleNotifRows() {
+  return Array.from(document.querySelectorAll('#notif-items-container .notif-row-tile')).filter((row) => {
+    return row.style.display !== 'none';
+  });
+}
+
+function refreshNotifEmptyState() {
+  const emptyState = document.getElementById('notif-empty-state');
+  const list = document.getElementById('notif-items-container');
+  const visible = getVisibleNotifRows();
+  const hasVisible = visible.length > 0;
+
+  if (emptyState) {
+    emptyState.classList.toggle('is-hidden', hasVisible);
+    const title = emptyState.querySelector('.notif-empty-title');
+    const sub = emptyState.querySelector('.notif-empty-subtext');
+    const activeTab = document.querySelector('.notif-tab-item.active');
+    const tab = activeTab ? activeTab.getAttribute('data-tab') : 'all';
+
+    if (title && sub) {
+      if (tab === 'favorite') {
+        title.textContent = 'No favorite notifications';
+        sub.textContent = 'Star a notification and it will appear in your Favorite list here.';
+      } else {
+        title.textContent = 'No notifications yet';
+        sub.textContent = 'When a new update arrives — board activity, mentions, or alerts — it will show up here.';
+      }
+    }
+  }
+
+  if (list) {
+    list.style.display = hasVisible ? 'flex' : 'none';
+  }
+
+  updateTotalCount();
+}
+
 function clearAllNotifs() {
   const container = document.getElementById('notif-items-container');
   if (container) {
-    container.innerHTML = '<div class="notif-empty-state">No notifications available.</div>';
-    updateTotalCount();
+    container.innerHTML = '';
+    refreshNotifEmptyState();
   }
 }
 
@@ -424,15 +471,24 @@ function deleteNotifRow(btn) {
     row.style.transform = 'translateX(20px)';
     setTimeout(() => {
       row.remove();
-      updateTotalCount();
+      refreshNotifEmptyState();
     }, 250);
   }
 }
 
 function updateTotalCount() {
-  const remaining = document.querySelectorAll('.notif-row-tile').length;
+  const remaining = getVisibleNotifRows().length;
   const countText = document.getElementById('notif-total-count-text');
   if (countText) countText.textContent = remaining;
+
+  const allBadge = document.getElementById('count-badge-all');
+  const favBadge = document.getElementById('count-badge-favorite');
+  if (allBadge) {
+    allBadge.textContent = document.querySelectorAll('#notif-items-container .notif-row-tile:not([data-category="archive"])').length;
+  }
+  if (favBadge) {
+    favBadge.textContent = document.querySelectorAll('#notif-items-container .notif-row-tile[data-starred="1"]').length;
+  }
 }
 </script>
 

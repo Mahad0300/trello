@@ -1,5 +1,5 @@
 <?php
-$page_js = 'admin_notifications.js';
+$page_title = 'Notifications - Richmondtech';
 require_once VIEWS_PATH . '/layouts/admin/header.php';
 ?>
 
@@ -8,20 +8,26 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
   <!-- Main Notification Card Wrapper -->
   <div class="notif-ref-card">
 
-    <!-- Page Header Toolbar (Consistent with User Panel) -->
-    <div class="notif-header-toolbar mb-24">
+    <!-- Page Header: title left · search + options right (single row) -->
+    <div class="notif-header-toolbar notif-header-aligned">
       <div class="notif-header-left">
         <div class="notif-icon-badge notif-icon-badge-gradient">
-          <i class="fa-solid fa-bell icon-primary"></i>
+          <i class="fa-solid fa-bell"></i>
         </div>
         <div>
           <h1 class="notif-main-title">System Audit & Notifications</h1>
           <p class="notif-subtext">Monitor administrative events, security policy updates, and user activity alerts.</p>
+          <p class="notif-summary-count notif-summary-inline">
+            <span id="notif-total-count-text"><?= count($notifications) ?></span> System Notifications
+          </p>
         </div>
       </div>
 
-      <!-- Working Options Dropdown Menu -->
       <div class="notif-header-right">
+        <div class="notif-search-box-pill">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="notif-search-input" placeholder="Search system notifications...">
+        </div>
         <div class="dropdown-wrapper">
           <button class="dropdown-toggle btn btn-secondary btn-sm" title="Notification Options">
             <i class="fa-solid fa-ellipsis"></i> Options
@@ -46,25 +52,23 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       </div>
     </div>
 
-    <!-- Sub Toolbar Row -->
-    <div class="notif-sub-toolbar-row">
-      <div class="notif-summary-count">
-        <span id="notif-total-count-text"><?= count($notifications) ?></span> System Notifications
-      </div>
-      <div class="notif-search-box-pill">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="notif-search-input" placeholder="Search system notifications...">
-      </div>
-    </div>
-
     <!-- Filter Tabs Row -->
     <div class="notif-tabs-header-row">
       <button class="notif-tab-item active" data-tab="all">
-        <span class="notif-tab-badge-pink" id="count-badge-all"><?= count($notifications) ?></span> All
+        <span class="notif-tab-badge-active" id="count-badge-all"><?= count($notifications) ?></span> All
       </button>
       <button class="notif-tab-item" data-tab="favorite">
         <span class="notif-tab-badge-grey" id="count-badge-favorite">2</span> Favorite
       </button>
+    </div>
+
+    <!-- Empty state (shown when no notifications) -->
+    <div class="notif-empty-state is-hidden" id="notif-empty-state" aria-live="polite">
+      <div class="notif-empty-icon">
+        <img src="<?= asset('images/notification.png') ?>" alt="No notifications" class="notif-empty-img">
+      </div>
+      <h3 class="notif-empty-title">No notifications yet</h3>
+      <p class="notif-empty-subtext">When a system event, security alert, or user activity comes in — it will show up here.</p>
     </div>
 
     <!-- Notification Rows Stack -->
@@ -131,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       tab.classList.add('active');
       const activeBadge = tab.querySelector('span');
-      if (activeBadge) activeBadge.className = 'notif-tab-badge-pink';
+      if (activeBadge) activeBadge.className = 'notif-tab-badge-active';
 
       const targetCategory = tab.getAttribute('data-tab');
       rows.forEach(row => {
@@ -141,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
           row.style.display = row.getAttribute('data-starred') === '1' ? 'flex' : 'none';
         }
       });
+      refreshNotifEmptyState();
     });
   });
 
@@ -157,8 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
           row.style.display = 'none';
         }
       });
+      refreshNotifEmptyState();
     });
   }
+
+  refreshNotifEmptyState();
 });
 
 function markAllNotifsRead() {
@@ -179,11 +187,27 @@ function favoriteAllNotifs() {
   });
 }
 
+function getVisibleNotifRows() {
+  return Array.from(document.querySelectorAll('#notif-items-container .notif-row-tile')).filter((row) => {
+    return row.style.display !== 'none';
+  });
+}
+
+function refreshNotifEmptyState() {
+  const emptyState = document.getElementById('notif-empty-state');
+  const list = document.getElementById('notif-items-container');
+  const hasVisible = getVisibleNotifRows().length > 0;
+
+  if (emptyState) emptyState.classList.toggle('is-hidden', hasVisible);
+  if (list) list.style.display = hasVisible ? 'flex' : 'none';
+  updateTotalCount();
+}
+
 function clearAllNotifs() {
   const container = document.getElementById('notif-items-container');
   if (container) {
-    container.innerHTML = '<div class="notif-empty-state" style="padding: 24px; text-align: center; color: var(--text-muted);">No system notifications available.</div>';
-    updateTotalCount();
+    container.innerHTML = '';
+    refreshNotifEmptyState();
   }
 }
 
@@ -195,13 +219,13 @@ function deleteNotifRow(btn) {
     row.style.transform = 'translateX(20px)';
     setTimeout(() => {
       row.remove();
-      updateTotalCount();
+      refreshNotifEmptyState();
     }, 250);
   }
 }
 
 function updateTotalCount() {
-  const remaining = document.querySelectorAll('.notif-row-tile').length;
+  const remaining = getVisibleNotifRows().length;
   const countText = document.getElementById('notif-total-count-text');
   if (countText) countText.textContent = remaining;
 }

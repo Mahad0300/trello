@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= sanitize($pageTitle ?? 'Trello Workspace') ?></title>
+  <title><?= sanitize($pageTitle ?? 'Richmondtech') ?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
       <a href="<?= route('user/dashboard') ?>" class="header-logo">
         <span class="header-logo-icon"><i class="fa-solid fa-layer-group"></i></span>
         <span class="header-logo-copy">
-          <span class="header-logo-name">Trello SaaS</span>
+          <span class="header-logo-name">Richmondtech</span>
           <span class="header-logo-tag">Workspace</span>
         </span>
       </a>
@@ -27,8 +27,8 @@
     <div class="topbar-center">
       <div class="search-input-group topbar-search">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="global-header-search-input" placeholder="Search boards, cards, tasks..." oninput="handleGlobalHeaderSearch(this);">
-        <div id="global-search-dropdown" class="global-search-dropdown-results" style="display: none;"></div>
+        <input type="text" id="global-header-search-input" placeholder="Search boards, cards, tasks..." data-global-search>
+        <div id="global-search-dropdown" class="global-search-dropdown-results display-none"></div>
       </div>
     </div>
 
@@ -39,10 +39,10 @@
       </a>
 
       <a href="<?= route('user/profile') ?>" class="topbar-profile topbar-profile--link">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="avatar topbar-avatar" alt="Mahad Bukhari">
+        <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="avatar topbar-avatar" alt="Chris Parker">
         <span class="topbar-profile-meta">
-          <span class="topbar-profile-name">Mahad Bukhari</span>
-          <span class="topbar-profile-email">mahad@trello.com</span>
+          <span class="topbar-profile-name">Chris Parker</span>
+          <span class="topbar-profile-email">chris@richmondtech.com</span>
         </span>
       </a>
     </div>

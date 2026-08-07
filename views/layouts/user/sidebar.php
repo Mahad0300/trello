@@ -42,7 +42,7 @@
             <i class="fa-regular fa-folder icon-sublink-folder"></i>
             <span class="text-ellipsis">Q4 Growth Marketing</span>
           </a>
-          <a href="#" class="sidebar-sublink sublink-create" data-modal-target="user-create-board-modal">
+          <a href="#" class="sidebar-sublink sublink-create" data-modal-target="create-board-modal">
             <i class="fa-solid fa-plus icon-sublink-plus"></i>
             <span>Create Board...</span>
           </a>

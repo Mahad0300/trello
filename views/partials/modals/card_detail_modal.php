@@ -1,164 +1,127 @@
-<!-- Rich Trello-Style Card Detail Modal -->
+﻿<!-- Premium Card Detail Modal -->
 <div class="modal-overlay" id="card-detail-modal">
   <div class="modal-container modal-container-card-detail">
-    <button class="modal-close-btn modal-close-glass" id="modal-close-btn" data-modal-close>&times;</button>
-    
-    <!-- Hero Modal Cover Banner -->
+    <button type="button" class="modal-close-btn modal-close-glass" id="modal-close-btn" data-modal-close>&times;</button>
+
     <div id="modal-cover-banner" class="modal-cover-banner">
-      <img id="modal-cover-img" src="<?= asset('images/card_cover_design.png') ?>" class="modal-cover-img">
+      <img id="modal-cover-img" src="<?= asset('images/card_cover_design.png') ?>" class="modal-cover-img" alt="Card cover">
+      <div class="modal-cover-fade"></div>
     </div>
 
     <div class="modal-card-detail-body">
       <div class="modal-flex-layout">
-        <!-- Left Main Column (75% Width) -->
         <div class="modal-left-main">
-          <div class="modal-header-row">
-            <i class="fa-solid fa-credit-card icon-primary-20"></i>
-            <h2 id="modal-card-title" class="modal-card-title-text">Card Detail View</h2>
-          </div>
-          <div class="modal-sub-info-row">
-            <i class="fa-solid fa-list-ul"></i> in list <span class="modal-list-link">In Progress</span>
-          </div>
-
-          <!-- Label Badges -->
-          <div class="mb-20">
-            <div class="modal-section-uppercase-title">Labels</div>
-            <div class="gap-8 flex-row">
-              <span class="badge badge-indigo">Feature</span>
-              <span class="badge badge-red">High Priority</span>
-              <span class="badge badge-emerald">Design System</span>
+          <div class="cd-title-block">
+            <span class="cd-title-icon"><i class="fa-solid fa-credit-card"></i></span>
+            <div class="cd-title-copy">
+              <div class="cd-title-top">
+                <h2 id="modal-card-title" class="modal-card-title-text">Card Detail View</h2>
+                <span class="modal-list-link">In Progress</span>
+              </div>
             </div>
           </div>
 
-          <!-- Description Box -->
-          <div class="mb-24">
-            <div class="flex-between-mb-8">
-              <div class="section-title-sm font-weight-700">
-                <i class="fa-solid fa-align-left text-muted-icon"></i> Description
+          <section class="cd-section">
+            <div class="modal-section-uppercase-title">Labels</div>
+            <div class="cd-labels-row">
+              <span class="badge badge-label-feature">Feature</span>
+              <span class="badge badge-label-priority">High Priority</span>
+              <span class="badge badge-label-design">Design System</span>
+            </div>
+          </section>
+
+          <section class="cd-section">
+            <div class="cd-section-head">
+              <div class="cd-section-title">
+                <i class="fa-solid fa-align-left"></i> Description
               </div>
-              <button class="btn btn-secondary btn-sm" onclick="alert('Description editor focused');">
+              <button type="button" class="cd-edit-btn" data-modal-target="edit-board-modal">
                 <i class="fa-solid fa-pen"></i> Edit
               </button>
             </div>
             <p class="modal-description-box">
-              Implement plain HTML5 drag-and-drop physics and events in user.js for moving card containers between columns. Ensure real-time card counter updates and dropzone highlight indicators.
+              Implement plain HTML5 drag-and-drop physics and events in board_detail.js for moving card containers between columns. Ensure real-time card counter updates and dropzone highlight indicators.
             </p>
-          </div>
+          </section>
 
-          <!-- Checklist Progress -->
-          <div class="mb-28">
-            <div class="flex-between-mb-8">
-              <div class="section-title-sm font-weight-700">
-                <i class="fa-regular fa-square-check icon-primary"></i> Checklist (Sub-tasks)
-              </div>
-              <span id="checklist-progress-text" class="checklist-progress-text font-weight-700 color-primary">50%</span>
-            </div>
-            <!-- Progress Bar -->
-            <div class="checklist-track">
-              <div id="checklist-progress-bar" class="checklist-fill-line" style="width: 50%;"></div>
+          <section class="cd-section cd-section-last">
+            <div class="cd-section-title">
+              <i class="fa-regular fa-comments"></i> Activity & Comments
             </div>
 
-            <div class="checklist-list-wrapper" id="checklist-items-container">
-              <div class="checklist-parent-wrapper">
-                <label class="checklist-item-row" style="display: flex; align-items: center; justify-content: space-between;">
-                  <span style="display: flex; align-items: center; gap: 8px;">
-                    <input type="checkbox" class="checklist-checkbox" checked onchange="recalculateChecklistProgress();">
-                    <span class="checklist-text-completed">Attach draggable=true attribute to cards</span>
-                  </span>
-                  <button class="btn btn-secondary btn-sm" style="padding: 2px 6px; font-size: 10px;" onclick="addNestedSubtask(this);">+ Sub-task</button>
-                </label>
-              </div>
-              
-              <div class="checklist-parent-wrapper">
-                <label class="checklist-item-row" style="display: flex; align-items: center; justify-content: space-between;">
-                  <span style="display: flex; align-items: center; gap: 8px;">
-                    <input type="checkbox" class="checklist-checkbox" checked onchange="recalculateChecklistProgress();">
-                    <span class="checklist-text-completed">Handle dragstart and dragend opacity states</span>
-                  </span>
-                  <button class="btn btn-secondary btn-sm" style="padding: 2px 6px; font-size: 10px;" onclick="addNestedSubtask(this);">+ Sub-task</button>
-                </label>
-              </div>
-
-              <div class="checklist-parent-wrapper">
-                <label class="checklist-item-row" style="display: flex; align-items: center; justify-content: space-between;">
-                  <span style="display: flex; align-items: center; gap: 8px;">
-                    <input type="checkbox" class="checklist-checkbox" onchange="recalculateChecklistProgress();">
-                    <span>Calculate element drop position relative to sibling cards</span>
-                  </span>
-                  <button class="btn btn-secondary btn-sm" style="padding: 2px 6px; font-size: 10px;" onclick="addNestedSubtask(this);">+ Sub-task</button>
-                </label>
-                <!-- Nested Indented Subtask Item Example -->
-                <div class="checklist-subitem-row" style="display: flex; align-items: center; justify-content: space-between; margin-left: 28px; margin-top: 4px; padding-left: 8px; border-left: 2px solid var(--primary-glow);">
-                  <span style="display: flex; align-items: center; gap: 8px;">
-                    <input type="checkbox" class="checklist-checkbox" onchange="recalculateChecklistProgress();">
-                    <span style="font-size: 12px;">Compute cursor Y-midpoint offset</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Comments & Activity Timeline -->
-          <div>
-            <div class="section-title-sm font-weight-700 mb-12">
-              <i class="fa-regular fa-comments text-muted-icon"></i> Activity & Comments
-            </div>
-            
-            <!-- Comment Box -->
-            <div class="comment-input-row">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="avatar" alt="Avatar">
-              <div class="flex-1">
-                <textarea id="comment-input" class="form-control comment-textarea-box" rows="2" placeholder="Write a comment..."></textarea>
-                <button id="add-comment-btn" class="btn btn-primary btn-sm">
-                  <i class="fa-solid fa-paper-plane"></i> Save Comment
+            <div class="cd-comment-compose">
+              <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+              <div class="cd-comment-compose-body">
+                <input type="text" id="comment-input" class="form-control comment-textarea-box" placeholder="Write a comment...">
+                <button type="button" id="add-comment-btn" class="cd-send-comment-btn" aria-label="Send comment" title="Send">
+                  <i class="fa-solid fa-paper-plane"></i>
                 </button>
               </div>
             </div>
 
-            <!-- Comments Feed -->
-            <div id="comments-feed">
-              <div class="comment-feed-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="avatar" alt="Avatar">
+            <div id="comments-feed" class="cd-comments-feed">
+              <div class="cd-comment-item">
+                <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="avatar cd-avatar" alt="Avatar">
                 <div class="comment-bubble-box">
                   <div class="comment-header-row">
-                    <span>Sarah Connor</span>
+                    <span class="cd-comment-author">Sarah Connor</span>
                     <span class="comment-time-text">2 hours ago</span>
                   </div>
-                  <p class="m-0 font-size-13">Drag physics work smoothly! Added smooth CSS transitions for card drop preview.</p>
+                  <p class="m-0 cd-comment-text">Drag physics work smoothly! Added smooth CSS transitions for card drop preview.</p>
+                </div>
+              </div>
+
+              <div class="cd-comment-item">
+                <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+                <div class="comment-bubble-box">
+                  <div class="comment-header-row">
+                    <span class="cd-comment-author">Alex Rivera</span>
+                    <span class="comment-time-text">5 hours ago</span>
+                  </div>
+                  <p class="m-0 cd-comment-text">Can we also highlight the active dropzone when a card is dragged over a list?</p>
+                </div>
+              </div>
+
+              <div class="cd-comment-item">
+                <img src="<?= asset('images/avatars/avatar_maya.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+                <div class="comment-bubble-box">
+                  <div class="comment-header-row">
+                    <span class="cd-comment-author">Maya Chen</span>
+                    <span class="comment-time-text">Yesterday</span>
+                  </div>
+                  <p class="m-0 cd-comment-text">Card counters look good. Please keep the list totals in sync after every move.</p>
+                </div>
+              </div>
+
+              <div class="cd-comment-item">
+                <img src="<?= asset('images/avatars/avatar_jordan.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+                <div class="comment-bubble-box">
+                  <div class="comment-header-row">
+                    <span class="cd-comment-author">Jordan Lee</span>
+                    <span class="comment-time-text">2 days ago</span>
+                  </div>
+                  <p class="m-0 cd-comment-text">Started the HTML5 DnD events in board_detail.js. Next up: drop preview states.</p>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
 
-        <!-- Right Action Sidebar (25% Width) -->
-        <div class="modal-sidebar-column">
+        <aside class="modal-sidebar-column">
           <div class="modal-section-uppercase-title">Add to Card</div>
-          <button class="btn btn-secondary btn-sm btn-start" data-modal-target="share-board-modal">
+          <button type="button" class="btn btn-secondary btn-sm btn-start" data-modal-target="card-members-modal" onclick="event.stopPropagation(); window.openModal('card-members-modal', this);">
             <i class="fa-solid fa-users"></i> Members
           </button>
-          <button class="btn btn-secondary btn-sm btn-start" data-modal-target="filter-board-modal">
+          <button type="button" class="btn btn-secondary btn-sm btn-start" data-modal-target="card-labels-modal" onclick="event.stopPropagation(); window.openModal('card-labels-modal', this);">
             <i class="fa-solid fa-tag"></i> Labels
           </button>
-          <button class="btn btn-secondary btn-sm btn-start" onclick="document.getElementById('comment-input').focus();">
-            <i class="fa-regular fa-square-check"></i> Checklist
-          </button>
-          <button class="btn btn-secondary btn-sm btn-start" data-modal-target="add-card-modal">
-            <i class="fa-regular fa-calendar-days"></i> Due Date
-          </button>
-          <button class="btn btn-secondary btn-sm btn-start" data-modal-target="add-card-modal">
+          <button type="button" class="btn btn-secondary btn-sm btn-start" data-modal-target="card-attachment-modal" onclick="event.stopPropagation(); window.openModal('card-attachment-modal', this);">
             <i class="fa-solid fa-paperclip"></i> Attachment
           </button>
-
-          <div class="modal-sidebar-title-spaced">Actions</div>
-          <button class="btn btn-secondary btn-sm btn-start" data-modal-target="add-card-modal">
+          <button type="button" class="btn btn-secondary btn-sm btn-start" data-modal-target="card-move-modal" onclick="event.stopPropagation(); window.openModal('card-move-modal', this);">
             <i class="fa-solid fa-arrow-right-arrow-left"></i> Move
           </button>
-          <button class="btn btn-secondary btn-sm btn-start" data-modal-target="add-card-modal">
-            <i class="fa-regular fa-copy"></i> Copy
-          </button>
-
-        </div>
+        </aside>
       </div>
     </div>
   </div>

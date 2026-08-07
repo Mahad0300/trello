@@ -1,11 +1,9 @@
-/**
+﻿/**
  * User Board Detail Page JavaScript
  * Drag & Drop, Kanban List Controls, View Switcher, Calendar, Card Modal
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('User Board Detail JS Loaded');
-
   // =========================================================
   // 1. HTML5 Drag & Drop Implementation for Trello Cards
   // =========================================================
@@ -97,18 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const progressBar = document.getElementById('checklist-progress-bar');
       const progressText = document.getElementById('checklist-progress-text');
 
-      if (progressBar) progressBar.style.width = percent + '%';
+      if (progressBar) {
+        progressBar.style.width = percent + '%';
+        progressBar.setAttribute('data-progress', String(percent));
+      }
       if (progressText) progressText.textContent = percent + '%';
 
       const label = item.nextElementSibling;
       if (label) {
-        if (item.checked) {
-          label.style.textDecoration = 'line-through';
-          label.style.color = 'var(--text-muted)';
-        } else {
-          label.style.textDecoration = 'none';
-          label.style.color = 'var(--text-main)';
-        }
+        label.classList.toggle('checklist-text-completed', item.checked);
       }
     });
   });
@@ -126,10 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const newComment = document.createElement('div');
       newComment.className = 'comment-feed-item';
       newComment.innerHTML = `
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="avatar" alt="User">
+        <img src="/trello/public/assets/images/avatars/avatar_chris.svg" class="avatar" alt="User">
         <div class="comment-bubble-box">
           <div class="comment-header-row">
-            <span>Mahad Bukhari</span>
+            <span>Chris Parker</span>
             <span class="comment-time-text">Just now</span>
           </div>
           <p class="m-0 font-size-13">${window.escapeHtml ? window.escapeHtml(text) : text}</p>
@@ -160,14 +155,14 @@ document.addEventListener('DOMContentLoaded', () => {
       viewTabBtn.classList.remove('btn-view-tab');
 
       document.querySelectorAll('.view-container').forEach(container => {
-        container.style.display = 'none';
         container.classList.add('display-none');
+        container.classList.remove('view-container-flex', 'view-container-block');
       });
 
       const targetContainer = document.getElementById(targetId);
       if (targetContainer) {
-        targetContainer.style.display = (targetId === 'board-view-container') ? 'flex' : 'block';
         targetContainer.classList.remove('display-none');
+        targetContainer.classList.add(targetId === 'board-view-container' ? 'view-container-flex' : 'view-container-block');
       }
     }
   });
@@ -278,13 +273,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const tasksMap = sampleTasksByMonth[monthIdx] || sampleTasksByMonth.default;
 
     if (currentCalMode === 'day') {
-      if (calHeaderRow) calHeaderRow.style.display = 'none';
-      calGrid.style.gridTemplateColumns = '1fr';
+      if (calHeaderRow) calHeaderRow.classList.add('is-mode-hidden');
+      calGrid.classList.add('is-day-mode');
+      calGrid.classList.remove('is-month-mode');
       
       const cellEl = document.createElement('div');
-      cellEl.className = 'cal-day-cell cal-day-cell-active-day';
-      cellEl.style.minHeight = '340px';
-      cellEl.style.padding = '24px';
+      cellEl.className = 'cal-day-cell cal-day-cell-active-day is-day-focus';
 
       let innerHtml = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px;">
         <h4 style="margin:0; font-size:16px; font-weight:800; color:#0F172A;"><i class="fa-regular fa-calendar-day text-primary mr-6"></i> ${months[monthIdx]} 21, ${year} - Daily Agenda</h4>
@@ -306,8 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (calHeaderRow) calHeaderRow.style.display = 'grid';
-    calGrid.style.gridTemplateColumns = 'repeat(7, 1fr)';
+    if (calHeaderRow) calHeaderRow.classList.remove('is-mode-hidden');
+    calGrid.classList.remove('is-day-mode');
+    calGrid.classList.add('is-month-mode');
 
     let cellCount = currentCalMode === 'week' ? 7 : 35;
     let dayCount = currentCalMode === 'week' ? 20 : 1;
@@ -329,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         if (i < firstDay) {
           dayNumber = prevMonthDays - firstDay + 1 + i;
-          cellEl.style.opacity = '0.4';
+          cellEl.classList.add('is-outside-month');
         } else if (dayCount <= totalDaysInMonth) {
           dayNumber = dayCount;
           isCurrentMonth = true;
@@ -337,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           dayNumber = nextMonthDay;
           nextMonthDay++;
-          cellEl.style.opacity = '0.4';
+          cellEl.classList.add('is-outside-month');
         }
       }
 
@@ -512,7 +507,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       isDown = true;
       kanbanCanvas.classList.add('dragging-active');
-      kanbanCanvas.style.cursor = 'grabbing';
       startX = e.pageX - kanbanCanvas.offsetLeft;
       scrollLeft = kanbanCanvas.scrollLeft;
     });
@@ -520,13 +514,11 @@ document.addEventListener('DOMContentLoaded', () => {
     kanbanCanvas.addEventListener('mouseleave', () => {
       isDown = false;
       kanbanCanvas.classList.remove('dragging-active');
-      kanbanCanvas.style.cursor = 'grab';
     });
 
     kanbanCanvas.addEventListener('mouseup', () => {
       isDown = false;
       kanbanCanvas.classList.remove('dragging-active');
-      kanbanCanvas.style.cursor = 'grab';
     });
 
     kanbanCanvas.addEventListener('mousemove', (e) => {
@@ -589,17 +581,18 @@ window.confirmArchiveList = function() {
   if (listEl) {
     const titleEl = listEl.querySelector('.list-title-text span:not(.list-card-count-badge)');
     const listTitle = titleEl ? titleEl.textContent.trim() : 'Archived List';
-    listEl.style.display = 'none';
+    listEl.classList.add('is-archived-hidden');
 
     const container = document.getElementById('archived-lists-list-container');
     if (container) {
+      const safeTitle = window.escapeHtml ? window.escapeHtml(listTitle) : listTitle;
       const itemHtml = `
-        <div class="archived-item-card" data-archived-list-title="${listTitle}">
+        <div class="archived-item-card" data-archived-list-title="${safeTitle}">
           <div class="archived-item-info">
-            <div class="archived-item-title">${listTitle}</div>
+            <div class="archived-item-title">${safeTitle}</div>
             <div class="archived-item-sub">Archived just now</div>
           </div>
-          <button class="btn btn-sm btn-secondary" onclick="restoreList(this, '${listTitle}');"><i class="fa-solid fa-rotate-left"></i> Restore</button>
+          <button type="button" class="btn btn-sm btn-secondary" onclick="restoreList(this, this.closest('.archived-item-card').getAttribute('data-archived-list-title'));"><i class="fa-solid fa-rotate-left"></i> Restore</button>
         </div>
       `;
       container.insertAdjacentHTML('afterbegin', itemHtml);
@@ -612,10 +605,10 @@ window.restoreList = function(btn, listTitle) {
   const cardItem = btn.closest('.archived-item-card');
   if (cardItem) cardItem.remove();
 
-  document.querySelectorAll('.kanban-list').forEach(list => {
+  document.querySelectorAll('.kanban-list').forEach((list) => {
     const titleEl = list.querySelector('.list-title-text span:not(.list-card-count-badge)');
     if (titleEl && titleEl.textContent.trim() === listTitle) {
-      list.style.display = 'block';
+      list.classList.remove('is-archived-hidden');
     }
   });
 };
@@ -637,17 +630,18 @@ window.confirmArchiveCard = function() {
   if (cardEl) {
     const titleEl = cardEl.querySelector('.card-title-text');
     const cardTitle = titleEl ? titleEl.textContent.trim() : 'Archived Card';
-    cardEl.style.display = 'none';
+    cardEl.classList.add('is-archived-hidden');
 
     const container = document.getElementById('archived-cards-list-container');
     if (container) {
+      const safeTitle = window.escapeHtml ? window.escapeHtml(cardTitle) : cardTitle;
       const itemHtml = `
-        <div class="archived-item-card" data-archived-title="${cardTitle}">
+        <div class="archived-item-card" data-archived-title="${safeTitle}">
           <div class="archived-item-info">
-            <div class="archived-item-title">${cardTitle}</div>
+            <div class="archived-item-title">${safeTitle}</div>
             <div class="archived-item-sub">Archived just now</div>
           </div>
-          <button class="btn btn-sm btn-secondary" onclick="restoreCard(this, '${cardTitle}');"><i class="fa-solid fa-rotate-left"></i> Restore</button>
+          <button type="button" class="btn btn-sm btn-secondary" onclick="restoreCard(this, this.closest('.archived-item-card').getAttribute('data-archived-title'));"><i class="fa-solid fa-rotate-left"></i> Restore</button>
         </div>
       `;
       container.insertAdjacentHTML('afterbegin', itemHtml);
@@ -660,19 +654,17 @@ window.restoreCard = function(btn, cardTitle) {
   const cardItem = btn.closest('.archived-item-card');
   if (cardItem) cardItem.remove();
 
-  document.querySelectorAll('.kanban-card').forEach(card => {
+  document.querySelectorAll('.kanban-card').forEach((card) => {
     const titleEl = card.querySelector('.card-title-text');
     if (titleEl && titleEl.textContent.trim() === cardTitle) {
-      card.style.display = 'block';
+      card.classList.remove('is-archived-hidden');
     }
   });
 };
 
 window.toggleArchivedDrawer = function() {
   const drawer = document.getElementById('archived-items-drawer');
-  if (drawer) {
-    drawer.style.display = (drawer.style.display === 'none' || !drawer.style.display) ? 'flex' : 'none';
-  }
+  if (drawer) drawer.classList.toggle('display-none');
 };
 
 window.switchArchivedTab = function(tab) {
@@ -680,16 +672,10 @@ window.switchArchivedTab = function(tab) {
   const listsContent = document.getElementById('archived-lists-tab-content');
   const cardsBtn = document.getElementById('arch-cards-tab-btn');
   const listsBtn = document.getElementById('arch-lists-tab-btn');
+  const showCards = tab === 'cards';
 
-  if (tab === 'cards') {
-    if (cardsContent) cardsContent.style.display = 'block';
-    if (listsContent) listsContent.style.display = 'none';
-    if (cardsBtn) { cardsBtn.className = 'btn btn-sm btn-view-tab-active active-arch-tab'; }
-    if (listsBtn) { listsBtn.className = 'btn btn-sm btn-view-tab'; }
-  } else {
-    if (cardsContent) cardsContent.style.display = 'none';
-    if (listsContent) listsContent.style.display = 'block';
-    if (cardsBtn) { cardsBtn.className = 'btn btn-sm btn-view-tab'; }
-    if (listsBtn) { listsBtn.className = 'btn btn-sm btn-view-tab-active active-arch-tab'; }
-  }
+  if (cardsContent) cardsContent.classList.toggle('display-none', !showCards);
+  if (listsContent) listsContent.classList.toggle('display-none', showCards);
+  if (cardsBtn) cardsBtn.className = showCards ? 'btn btn-sm btn-view-tab-active active-arch-tab' : 'btn btn-sm btn-view-tab';
+  if (listsBtn) listsBtn.className = showCards ? 'btn btn-sm btn-view-tab' : 'btn btn-sm btn-view-tab-active active-arch-tab';
 };

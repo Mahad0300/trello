@@ -1,47 +1,50 @@
-<!-- Modal Dialog: Manage Workspace Members -->
+﻿<!-- Modal Dialog: Manage Workspace Members -->
 <div class="modal-overlay" id="manage-workspace-members-modal">
   <div class="modal-container modal-container-lg-sub">
     <button class="modal-close-btn" data-modal-close>&times;</button>
     <h3 class="modal-title-heading">Manage Workspace Members</h3>
-    <p class="modal-subtitle-desc">Add or remove team members across this workspace.</p>
+    <p class="modal-subtitle-desc">
+      Add or remove team members across
+      <strong id="workspace-name-manage-display" class="text-dark">this workspace</strong>.
+    </p>
 
     <div class="modal-add-member-row">
       <input type="email" class="form-control flex-1" placeholder="Enter user email address...">
-      <button class="btn btn-primary btn-sm">Invite</button>
+      <button type="button" class="btn btn-primary">Invite</button>
     </div>
 
     <div class="modal-members-scroll-box">
       <div class="member-list-item-row">
-        <div class="member-info-flex">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="avatar-sm" alt="Avatar">
-          <div>
-            <div class="member-name-text">Alex Turner</div>
-            <div class="member-email-text">alex@company.com</div>
+        <a href="<?= route('admin/profile') ?>?id=2" class="member-info-flex member-profile-link">
+          <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="member-avatar" alt="Avatar">
+          <div class="member-meta">
+            <div class="member-name-text">Chris Parker</div>
+            <div class="member-email-text">chris@richmondtech.com</div>
           </div>
-        </div>
-        <button class="btn btn-secondary btn-sm text-danger">Remove</button>
+        </a>
+        <button type="button" class="btn btn-danger btn-sm member-remove-btn"><i class="fa-regular fa-trash-can"></i> Remove</button>
       </div>
 
       <div class="member-list-item-row">
-        <div class="member-info-flex">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" class="avatar-sm" alt="Avatar">
-          <div>
+        <a href="<?= route('admin/profile') ?>?id=3" class="member-info-flex member-profile-link">
+          <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="member-avatar" alt="Avatar">
+          <div class="member-meta">
             <div class="member-name-text">Sarah Connor</div>
-            <div class="member-email-text">sarah@company.com</div>
+            <div class="member-email-text">sarah@richmondtech.com</div>
           </div>
-        </div>
-        <button class="btn btn-secondary btn-sm text-danger">Remove</button>
+        </a>
+        <button type="button" class="btn btn-danger btn-sm member-remove-btn"><i class="fa-regular fa-trash-can"></i> Remove</button>
       </div>
 
-      <div class="member-list-item-row border-none">
-        <div class="member-info-flex">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" class="avatar-sm" alt="Avatar">
-          <div>
+      <div class="member-list-item-row">
+        <a href="<?= route('admin/profile') ?>?id=6" class="member-info-flex member-profile-link">
+          <img src="<?= asset('images/avatars/avatar_david.svg') ?>" class="member-avatar" alt="Avatar">
+          <div class="member-meta">
             <div class="member-name-text">David Chen</div>
-            <div class="member-email-text">david@company.com</div>
+            <div class="member-email-text">david@richmondtech.com</div>
           </div>
-        </div>
-        <button class="btn btn-secondary btn-sm text-danger">Remove</button>
+        </a>
+        <button type="button" class="btn btn-danger btn-sm member-remove-btn"><i class="fa-regular fa-trash-can"></i> Remove</button>
       </div>
     </div>
 

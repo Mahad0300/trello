@@ -52,6 +52,11 @@
           </a>
         </div>
       </div>
+
+      <a href="<?= route('admin/profile') ?>" class="sidebar-nav-item mt-2 <?= strpos($_SERVER['REQUEST_URI'] ?? '', 'admin/profile') !== false ? 'active' : '' ?>">
+        <span class="sidebar-icon-well"><i class="fa-regular fa-user sidebar-icon"></i></span>
+        <span>My Profile</span>
+      </a>
     </div>
 
     <div class="sidebar-block">
