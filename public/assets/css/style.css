@@ -9712,42 +9712,21 @@ no page scroll */
   color: #64748B;
 }
 
-.kpi-icon-badge {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
+.kpi-sparkline-wrap {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
+  justify-content: flex-end;
+  height: 42px;
+  overflow: visible;
 }
 
-.bg-indigo-light { background: #EEF2FF; }
-.text-indigo { color: #4F46E5; }
-.bg-teal-light { background: #CCFBF1; }
-.text-teal { color: #0D9488; }
-.bg-purple-light { background: #F3E8FF; }
-.text-purple { color: #9333EA; }
-
-/* Circular Green Arrow Button (Inspired by Image 1) */
-.kpi-arrow-circle-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #10B981;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
-  transition: transform 0.2s ease, background 0.2s ease;
-  cursor: pointer;
+.kpi-sparkline-wrap svg {
+  filter: drop-shadow(0 3px 6px rgba(16, 185, 129, 0.12));
+  transition: transform 0.3s ease;
 }
 
-.kpi-arrow-circle-btn:hover {
-  transform: scale(1.08) rotate(5deg);
-  background: #059669;
+.dash-card-box.kpi-box:hover .kpi-sparkline-wrap svg {
+  transform: scale(1.08) translateY(-1px);
 }
 
 .kpi-main-val {

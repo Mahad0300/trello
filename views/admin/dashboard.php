@@ -43,8 +43,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Total Users</span>
-            <div class="kpi-icon-badge bg-indigo-light text-indigo">
-              <i class="fa-solid fa-users"></i>
+            <div class="kpi-sparkline-wrap">
+              <svg width="90" height="42" viewBox="0 0 90 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 35 C 20 38, 30 18, 45 22 C 60 26, 70 8, 87 6" stroke="#6366F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
             </div>
           </div>
           <div class="kpi-main-val"><?= (int)($stats['total_users'] ?? 142) ?></div>
@@ -60,8 +62,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Workspaces</span>
-            <div class="kpi-icon-badge bg-teal-light text-teal">
-              <i class="fa-solid fa-layer-group"></i>
+            <div class="kpi-sparkline-wrap">
+              <svg width="90" height="42" viewBox="0 0 90 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 32 C 18 35, 28 12, 45 18 C 62 24, 72 6, 87 8" stroke="#0D9488" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
             </div>
           </div>
           <div class="kpi-main-val"><?= (int)($stats['active_workspaces'] ?? 12) ?></div>
@@ -77,8 +81,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Total Boards</span>
-            <div class="kpi-icon-badge bg-purple-light text-purple">
-              <i class="fa-solid fa-table-columns"></i>
+            <div class="kpi-sparkline-wrap">
+              <svg width="90" height="42" viewBox="0 0 90 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 36 C 22 30, 32 14, 48 20 C 64 26, 74 10, 87 5" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
             </div>
           </div>
           <div class="kpi-main-val"><?= (int)($stats['total_boards'] ?? 58) ?></div>
@@ -94,8 +100,10 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Task Velocity</span>
-            <div class="kpi-arrow-circle-btn">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <div class="kpi-sparkline-wrap">
+              <svg width="90" height="42" viewBox="0 0 90 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 34 C 15 36, 25 15, 38 25 C 50 35, 62 8, 74 22 C 80 14, 84 8, 87 6" stroke="#10B981" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
             </div>
           </div>
           <div class="kpi-main-val"><?= number_format((int)($stats['completed_tasks'] ?? 1240)) ?></div>
