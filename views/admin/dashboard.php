@@ -143,12 +143,30 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <canvas id="adminWavyLineChart" height="260"></canvas>
         </div>
 
-        <!-- Platform Resources & Media Summary Footer Bar -->
-        <div class="platform-metrics-summary-bar mt-16 pt-16 border-top">
-          <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
-            <span class="font-size-13 text-muted"><i class="fa-solid fa-file-pdf text-danger mr-4"></i> <strong><?= (int)($stats['pdf_files'] ?? 214) ?></strong> PDF Documents & Spec Files</span>
-            <span class="font-size-13 text-muted"><i class="fa-solid fa-paperclip text-primary mr-4"></i> <strong><?= (int)($stats['total_files'] ?? 482) ?></strong> Total File Attachments</span>
-            <span class="font-size-13 text-muted"><i class="fa-regular fa-comments text-indigo mr-4"></i> <strong><?= (int)($stats['total_comments'] ?? 892) ?></strong> Card Discussion Comments</span>
+        <!-- Platform Resources & Media Summary Footer Bar (3 Premium Pill Cards) -->
+        <div class="chart-footer-metrics-grid mt-24 pt-20 border-top">
+          <div class="metric-pill-chip pill-pdf">
+            <div class="pill-chip-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pill-chip-text">
+              <strong><?= (int)($stats['pdf_files'] ?? 214) ?></strong>
+              <span>PDF Documents & Specs</span>
+            </div>
+          </div>
+
+          <div class="metric-pill-chip pill-attachments">
+            <div class="pill-chip-icon"><i class="fa-solid fa-paperclip"></i></div>
+            <div class="pill-chip-text">
+              <strong><?= (int)($stats['total_files'] ?? 482) ?></strong>
+              <span>Total File Attachments</span>
+            </div>
+          </div>
+
+          <div class="metric-pill-chip pill-comments">
+            <div class="pill-chip-icon"><i class="fa-regular fa-comments"></i></div>
+            <div class="pill-chip-text">
+              <strong><?= (int)($stats['total_comments'] ?? 892) ?></strong>
+              <span>Card Discussion Comments</span>
+            </div>
           </div>
         </div>
       </div>
