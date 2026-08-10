@@ -211,8 +211,11 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
                 </button>
               </div>
 
-              <h4 class="project-hub-title mt-10 mb-4"><?= sanitize($b['title']) ?></h4>
-              <span class="project-hub-workspace text-muted font-size-12"><i class="fa-regular fa-building mr-4"></i><?= sanitize($b['workspace']) ?></span>
+              <h4 class="project-hub-title"><?= sanitize($b['title']) ?></h4>
+              <div class="project-hub-workspace mb-14">
+                <i class="fa-regular fa-building font-size-12"></i>
+                <span><?= sanitize($b['workspace']) ?></span>
+              </div>
 
               <!-- Progress bar -->
               <div class="dash-ref-progress-block mt-12 mb-16">
