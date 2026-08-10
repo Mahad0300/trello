@@ -32,21 +32,67 @@ class UserController extends Controller {
             'active_boards' => 5,
             'assigned_tasks' => 14,
             'completed_tasks' => 38,
-            'due_soon' => 3
+            'due_soon' => 3,
+            'productivity_score' => 92,
+            'completion_rate' => '86%'
+        ];
+
+        $myTasks = [
+            ['id' => 101, 'title' => 'Implement HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'list' => 'In Progress', 'due' => 'Tomorrow', 'priority' => 'High', 'priority_badge' => 'badge-danger', 'category_bg' => '#FCE7F3', 'category_color' => '#BE185D'],
+            ['id' => 102, 'title' => 'Audit CSS Variable Palette for Dark Accents', 'board' => 'Design System 2.0 Tokens', 'list' => 'To Do', 'due' => 'Jul 28', 'priority' => 'Medium', 'priority_badge' => 'badge-warning', 'category_bg' => '#E0F2FE', 'category_color' => '#0369A1'],
+            ['id' => 103, 'title' => 'Review MySQL DDL Schema References', 'board' => 'Sprint 24 - Core Architecture', 'list' => 'Review & QA', 'due' => 'Jul 26', 'priority' => 'Low', 'priority_badge' => 'badge-success', 'category_bg' => '#DCFCE7', 'category_color' => '#15803D'],
+            ['id' => 104, 'title' => 'Create Onboarding Illustrations SVG Assets', 'board' => 'Product Design & Marketing', 'list' => 'In Progress', 'due' => 'Aug 02', 'priority' => 'High', 'priority_badge' => 'badge-danger', 'category_bg' => '#F3E8FF', 'category_color' => '#7C3AED'],
+        ];
+
+        $recentBoards = [
+            [
+                'id' => 1,
+                'title' => 'Sprint 24 - Core Architecture',
+                'category' => 'Engineering',
+                'category_bg' => '#E0F2FE',
+                'category_color' => '#0369A1',
+                'description' => 'Architecting scalable microservices, queue caching, and query optimization layers.',
+                'progress' => 85,
+                'attachments' => 4,
+                'comments' => 6
+            ],
+            [
+                'id' => 4,
+                'title' => 'Design System 2.0 Tokens',
+                'category' => 'Design',
+                'category_bg' => '#FCE7F3',
+                'category_color' => '#BE185D',
+                'description' => 'Tokens system, accessible color contrast matrix, and reusable CSS utility tokens.',
+                'progress' => 92,
+                'attachments' => 8,
+                'comments' => 12
+            ],
+            [
+                'id' => 5,
+                'title' => 'Q4 Product Marketing Launch',
+                'category' => 'Marketing',
+                'category_bg' => '#DCFCE7',
+                'category_color' => '#15803D',
+                'description' => 'Multi-channel SaaS growth marketing, SEO landing pages, and lead generation.',
+                'progress' => 60,
+                'attachments' => 3,
+                'comments' => 5
+            ],
         ];
 
         $activities = [
-            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'time' => '15 mins ago'],
-            ['user' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'created board', 'target' => 'Q4 Product Marketing Launch', 'board' => 'Product Design & Marketing', 'time' => '1 hour ago'],
-            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'attached file', 'target' => 'architecture_v2_diagram.pdf', 'board' => 'Sprint 24 - Core Architecture', 'time' => '3 hours ago'],
-            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'completed checklist in', 'target' => 'Design System Tokens & CSS Variables', 'board' => 'Design System 2.0 Tokens', 'time' => '5 hours ago'],
+            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24', 'time' => '15 mins ago'],
+            ['user' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'completed task', 'target' => 'Audit CSS Variable Palette', 'board' => 'Design System 2.0', 'time' => '1 hour ago'],
+            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'attached file', 'target' => 'architecture_v2_diagram.pdf', 'board' => 'Sprint 24', 'time' => '3 hours ago'],
+            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'completed checklist in', 'target' => 'Design System Tokens', 'board' => 'Design System 2.0', 'time' => '5 hours ago'],
         ];
 
         $this->view('user/dashboard', [
-            'pageTitle' => 'User Dashboard - My Workspaces',
+            'pageTitle' => 'User Dashboard - Richmondtech',
             'workspaces' => $workspaces,
             'myTasks' => $myTasks,
             'stats' => $stats,
+            'recentBoards' => $recentBoards,
             'activities' => $activities
         ]);
     }
