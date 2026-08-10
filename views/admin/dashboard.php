@@ -39,13 +39,13 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
 
       <!-- KPI Metrics Grid (4 Top Cards) -->
       <div class="dash-kpi-grid mb-24">
-        <!-- KPI 1 -->
+        <!-- KPI 1: Total Users -->
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Total Users</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="105" height="46" viewBox="0 0 105 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 3 32 C 10 14, 18 38, 26 16 C 34 36, 44 10, 52 30 C 60 12, 70 34, 78 14 C 86 6, 94 22, 102 6" stroke="#6366F1" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 34 C 16 18, 26 38, 40 18 C 52 4, 64 32, 76 16 C 84 6, 88 12, 92 6" stroke="#6366F1" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
               </svg>
             </div>
           </div>
@@ -58,13 +58,13 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           </div>
         </div>
 
-        <!-- KPI 2 -->
+        <!-- KPI 2: Workspaces -->
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Workspaces</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="105" height="46" viewBox="0 0 105 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 3 30 C 12 36, 20 10, 28 32 C 36 12, 46 36, 54 14 C 62 34, 72 8, 80 26 C 88 10, 96 22, 102 6" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 36 C 18 12, 30 38, 44 16 C 56 2, 66 34, 78 18 C 85 8, 89 16, 92 8" stroke="#0D9488" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
               </svg>
             </div>
           </div>
@@ -77,13 +77,13 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           </div>
         </div>
 
-        <!-- KPI 3 -->
+        <!-- KPI 3: Total Boards -->
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Total Boards</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="105" height="46" viewBox="0 0 105 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 3 34 C 10 16, 18 38, 28 14 C 36 34, 46 10, 54 32 C 64 12, 72 30, 80 12 C 88 6, 96 18, 102 6" stroke="#8B5CF6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 38 C 18 22, 28 8, 40 24 C 52 40, 64 12, 76 18 C 84 22, 88 10, 92 4" stroke="#8B5CF6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
               </svg>
             </div>
           </div>
@@ -96,13 +96,13 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           </div>
         </div>
 
-        <!-- KPI 4 -->
+        <!-- KPI 4: Task Velocity -->
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Task Velocity</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="105" height="46" viewBox="0 0 105 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 3 32 C 10 12, 18 38, 28 14 C 36 36, 44 8, 54 28 C 62 10, 72 32, 80 14 C 88 6, 94 20, 102 5" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 32 C 14 10, 24 38, 38 12 C 48 38, 62 6, 74 28 C 82 14, 88 8, 92 5" stroke="#10B981" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
               </svg>
             </div>
           </div>
