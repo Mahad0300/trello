@@ -37,63 +37,65 @@ class UserController extends Controller {
             'completion_rate' => '86%'
         ];
 
-        $myTasks = [
-            ['id' => 101, 'title' => 'Implement HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'list' => 'In Progress', 'due' => 'Tomorrow', 'priority' => 'High', 'priority_badge' => 'badge-danger', 'category_bg' => '#FCE7F3', 'category_color' => '#BE185D'],
-            ['id' => 102, 'title' => 'Audit CSS Variable Palette for Dark Accents', 'board' => 'Design System 2.0 Tokens', 'list' => 'To Do', 'due' => 'Jul 28', 'priority' => 'Medium', 'priority_badge' => 'badge-warning', 'category_bg' => '#E0F2FE', 'category_color' => '#0369A1'],
-            ['id' => 103, 'title' => 'Review MySQL DDL Schema References', 'board' => 'Sprint 24 - Core Architecture', 'list' => 'Review & QA', 'due' => 'Jul 26', 'priority' => 'Low', 'priority_badge' => 'badge-success', 'category_bg' => '#DCFCE7', 'category_color' => '#15803D'],
-            ['id' => 104, 'title' => 'Create Onboarding Illustrations SVG Assets', 'board' => 'Product Design & Marketing', 'list' => 'In Progress', 'due' => 'Aug 02', 'priority' => 'High', 'priority_badge' => 'badge-danger', 'category_bg' => '#F3E8FF', 'category_color' => '#7C3AED'],
+        $todayAgenda = [
+            ['id' => 201, 'title' => 'Implement HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'due' => 'Today, 5:00 PM', 'due_status' => 'due-today', 'priority' => 'High', 'completed' => false],
+            ['id' => 202, 'title' => 'Audit CSS Variable Palette for Dark Accents', 'board' => 'Design System 2.0 Tokens', 'due' => 'Overdue', 'due_status' => 'overdue', 'priority' => 'High', 'completed' => false],
+            ['id' => 203, 'title' => 'Review MySQL DDL Schema References', 'board' => 'Sprint 24 - Core Architecture', 'due' => 'Tomorrow', 'due_status' => 'upcoming', 'priority' => 'Medium', 'completed' => true],
+            ['id' => 204, 'title' => 'Create Onboarding Illustrations SVG Assets', 'board' => 'Product Design & Marketing', 'due' => 'Aug 02', 'due_status' => 'upcoming', 'priority' => 'Low', 'completed' => false],
         ];
 
-        $recentBoards = [
+        $userBoards = [
             [
                 'id' => 1,
                 'title' => 'Sprint 24 - Core Architecture',
+                'workspace' => 'Engineering Team',
                 'category' => 'Engineering',
                 'category_bg' => '#E0F2FE',
                 'category_color' => '#0369A1',
-                'description' => 'Architecting scalable microservices, queue caching, and query optimization layers.',
                 'progress' => 85,
-                'attachments' => 4,
-                'comments' => 6
+                'starred' => true,
+                'cards_count' => 18,
+                'updated' => '10 mins ago'
             ],
             [
                 'id' => 4,
                 'title' => 'Design System 2.0 Tokens',
+                'workspace' => 'Product Design & Marketing',
                 'category' => 'Design',
                 'category_bg' => '#FCE7F3',
                 'category_color' => '#BE185D',
-                'description' => 'Tokens system, accessible color contrast matrix, and reusable CSS utility tokens.',
                 'progress' => 92,
-                'attachments' => 8,
-                'comments' => 12
+                'starred' => true,
+                'cards_count' => 22,
+                'updated' => '1 hour ago'
             ],
             [
                 'id' => 5,
                 'title' => 'Q4 Product Marketing Launch',
+                'workspace' => 'Product Design & Marketing',
                 'category' => 'Marketing',
                 'category_bg' => '#DCFCE7',
                 'category_color' => '#15803D',
-                'description' => 'Multi-channel SaaS growth marketing, SEO landing pages, and lead generation.',
                 'progress' => 60,
-                'attachments' => 3,
-                'comments' => 5
+                'starred' => false,
+                'cards_count' => 14,
+                'updated' => '3 hours ago'
             ],
         ];
 
-        $activities = [
-            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24', 'time' => '15 mins ago'],
-            ['user' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'completed task', 'target' => 'Audit CSS Variable Palette', 'board' => 'Design System 2.0', 'time' => '1 hour ago'],
-            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'attached file', 'target' => 'architecture_v2_diagram.pdf', 'board' => 'Sprint 24', 'time' => '3 hours ago'],
-            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'completed checklist in', 'target' => 'Design System Tokens', 'board' => 'Design System 2.0', 'time' => '5 hours ago'],
+        $userComments = [
+            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'comment' => 'tagged you in HTML5 Drag & Drop Card Physics: "Can you check line 140?"', 'board' => 'Sprint 24', 'time' => '10m ago', 'type' => 'mention'],
+            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'comment' => 'uploaded architecture_v2_diagram.pdf to Sprint 24', 'board' => 'Sprint 24', 'time' => '1h ago', 'type' => 'attachment'],
+            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'comment' => 'left a comment: "Design tokens look great!"', 'board' => 'Design System 2.0', 'time' => '3h ago', 'type' => 'comment'],
         ];
 
         $this->view('user/dashboard', [
             'pageTitle' => 'User Dashboard - Richmondtech',
             'workspaces' => $workspaces,
-            'myTasks' => $myTasks,
+            'todayAgenda' => $todayAgenda,
             'stats' => $stats,
-            'recentBoards' => $recentBoards,
-            'activities' => $activities
+            'userBoards' => $userBoards,
+            'userComments' => $userComments
         ]);
     }
 

@@ -10530,71 +10530,235 @@ no page scroll */
 
 .z-2 { z-index: 2 !important; }
 
-/* User Focus Tasks List Styling */
-.user-focus-tasks-list {
+/* ==========================================================================
+   USER DASHBOARD INTERACTIVE MODULES (AGENDA, PROJECT HUB & MENTIONS)
+   ========================================================================== */
+
+/* Today's Focus Agenda Checklist */
+.user-quick-add-wrap .input-group {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
-.user-task-card-item {
-  background: #F8FAFC;
-  border-radius: 14px;
-  padding: 16px 20px;
-  border: 1px solid #F1F5F9;
+.user-quick-add-wrap .form-control {
+  border-radius: 12px !important;
+  font-size: 13px !important;
+  padding: 10px 16px !important;
+  background: #F8FAFC !important;
+  border: 1.5px solid #E2E8F0 !important;
+}
+
+.user-quick-add-wrap .form-control:focus {
+  background: #ffffff !important;
+  border-color: #4F46E5 !important;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
+}
+
+.user-agenda-list {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-agenda-item {
+  background: #ffffff;
+  border: 1px solid #F1F5F9;
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   transition: all 0.2s ease;
 }
 
-.user-task-card-item:hover {
-  background: #ffffff;
+.user-agenda-item:hover {
   border-color: #E2E8F0;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
-  transform: translateX(3px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
 }
 
-.user-task-category-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 11.5px;
-  font-weight: 700;
-  font-family: var(--font-body) !important;
+.user-agenda-item.agenda-completed {
+  opacity: 0.65;
+  background: #F8FAFC;
 }
 
-.user-task-title {
-  font-family: var(--font-display) !important;
-  font-size: 14.5px !important;
-  font-weight: 700 !important;
-  color: #0F172A !important;
-  margin: 4px 0 !important;
+.user-agenda-item.agenda-completed .agenda-item-title {
+  text-decoration: line-through;
+  color: #94A3B8 !important;
 }
 
-.user-task-meta {
+.agenda-checkbox-label {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 12px;
-  color: #64748B;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
 }
 
-.task-list-pill,
-.task-due-pill {
+.agenda-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-checkbox-mark {
+  height: 22px;
+  width: 22px;
+  background-color: #F1F5F9;
+  border: 2px solid #CBD5E1;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agenda-checkbox-label:hover .custom-checkbox-mark {
+  border-color: #4F46E5;
+}
+
+.agenda-checkbox:checked ~ .custom-checkbox-mark {
+  background-color: #10B981;
+  border-color: #10B981;
+}
+
+.agenda-checkbox:checked ~ .custom-checkbox-mark:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.agenda-item-content {
+  flex-grow: 1;
+}
+
+.agenda-item-title {
+  font-family: var(--font-display) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+}
+
+.agenda-item-meta {
+  font-size: 12px;
+  color: #64748B;
+  margin-top: 3px;
+}
+
+.agenda-board-tag {
   display: inline-flex;
   align-items: center;
   font-weight: 500;
 }
 
-.user-task-right {
+.agenda-item-right {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
+  align-items: center;
+  gap: 10px;
   flex-shrink: 0;
 }
+
+/* User Project Hub Cards */
+.user-project-hub-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid #F1F5F9;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.user-project-hub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.08);
+}
+
+.project-hub-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.star-toggle-btn {
+  background: none;
+  border: none;
+  color: #CBD5E1;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.star-toggle-btn.is-starred,
+.star-toggle-btn:hover {
+  color: #F59E0B;
+}
+
+.project-hub-title {
+  font-family: var(--font-display) !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+}
+
+.project-hub-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #F8FAFC;
+}
+
+.project-hub-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Team Mentions & Discussions Stream */
+.user-discussions-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.discussion-item-box {
+  background: #F8FAFC;
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid #F1F5F9;
+  transition: all 0.2s ease;
+}
+
+.discussion-item-box:hover {
+  background: #ffffff;
+  border-color: #E2E8F0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.discussion-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discussion-user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.discussion-text-content {
+  line-height: 1.45;
+  color: #475569;
+}
+
 
 
 

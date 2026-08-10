@@ -188,4 +188,94 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // ==========================================
+  // 4. Interactive Focus Agenda Checklist & Quick Add
+  // ==========================================
+  const agendaContainer = document.getElementById('user-agenda-list-container');
+  const quickInput = document.getElementById('quick-agenda-input');
+  const quickAddBtn = document.getElementById('quick-agenda-add-btn');
+
+  // Checkbox toggle handler
+  if (agendaContainer) {
+    agendaContainer.addEventListener('change', function (e) {
+      if (e.target && e.target.classList.contains('agenda-checkbox')) {
+        const itemBox = e.target.closest('.user-agenda-item');
+        if (itemBox) {
+          if (e.target.checked) {
+            itemBox.classList.add('agenda-completed');
+          } else {
+            itemBox.classList.remove('agenda-completed');
+          }
+        }
+      }
+    });
+  }
+
+  // Quick Add Agenda Note Handler
+  function addQuickAgendaItem() {
+    if (!quickInput || !agendaContainer) return;
+    const text = quickInput.value.trim();
+    if (!text) return;
+
+    const newItemHtml = `
+      <div class="user-agenda-item">
+        <label class="agenda-checkbox-label">
+          <input type="checkbox" class="agenda-checkbox">
+          <span class="custom-checkbox-mark"></span>
+        </label>
+        <div class="agenda-item-content">
+          <div class="agenda-item-title">${escapeHtml(text)}</div>
+          <div class="agenda-item-meta">
+            <span class="agenda-board-tag"><i class="fa-regular fa-folder mr-4"></i>Personal Focus Note</span>
+          </div>
+        </div>
+        <div class="agenda-item-right">
+          <span class="badge-status-pill status-active"><i class="fa-solid fa-clock mr-4"></i> Just Now</span>
+          <button type="button" class="btn-table-action" title="Open Card" data-modal-target="card-detail-modal">
+            <i class="fa-solid fa-arrow-right font-size-12"></i>
+          </button>
+        </div>
+      </div>
+    `;
+
+    agendaContainer.insertAdjacentHTML('afterbegin', newItemHtml);
+    quickInput.value = '';
+  }
+
+  if (quickAddBtn) {
+    quickAddBtn.addEventListener('click', addQuickAgendaItem);
+  }
+
+  if (quickInput) {
+    quickInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        addQuickAgendaItem();
+      }
+    });
+  }
+
+  // Star / Favorite Toggle Handler
+  document.addEventListener('click', function (e) {
+    const starBtn = e.target.closest('.star-toggle-btn');
+    if (starBtn) {
+      starBtn.classList.toggle('is-starred');
+      const icon = starBtn.querySelector('i');
+      if (icon) {
+        if (starBtn.classList.contains('is-starred')) {
+          icon.className = 'fa-solid fa-star';
+        } else {
+          icon.className = 'fa-regular fa-star';
+        }
+      }
+    }
+  });
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+    });
+  }
 });
+
