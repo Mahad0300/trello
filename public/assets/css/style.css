@@ -9716,7 +9716,8 @@ no page scroll */
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 42px;
+  height: 46px;
+  width: 105px;
   overflow: visible;
 }
 

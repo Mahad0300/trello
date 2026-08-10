@@ -44,8 +44,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <div class="kpi-header-row">
             <span class="kpi-title-text">Total Users</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="90" height="42" viewBox="0 0 90 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 35 C 20 38, 30 18, 45 22 C 60 26, 70 8, 87 6" stroke="#6366F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <svg width="105" height="46" viewBox="0 0 105 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 3 32 C 10 14, 18 38, 26 16 C 34 36, 44 10, 52 30 C 60 12, 70 34, 78 14 C 86 6, 94 22, 102 6" stroke="#6366F1" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
           </div>
@@ -63,8 +63,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <div class="kpi-header-row">
             <span class="kpi-title-text">Workspaces</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="90" height="42" viewBox="0 0 90 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 32 C 18 35, 28 12, 45 18 C 62 24, 72 6, 87 8" stroke="#0D9488" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <svg width="105" height="46" viewBox="0 0 105 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 3 30 C 12 36, 20 10, 28 32 C 36 12, 46 36, 54 14 C 62 34, 72 8, 80 26 C 88 10, 96 22, 102 6" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
           </div>
@@ -82,8 +82,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <div class="kpi-header-row">
             <span class="kpi-title-text">Total Boards</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="90" height="42" viewBox="0 0 90 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 36 C 22 30, 32 14, 48 20 C 64 26, 74 10, 87 5" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <svg width="105" height="46" viewBox="0 0 105 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 3 34 C 10 16, 18 38, 28 14 C 36 34, 46 10, 54 32 C 64 12, 72 30, 80 12 C 88 6, 96 18, 102 6" stroke="#8B5CF6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
           </div>
@@ -101,8 +101,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <div class="kpi-header-row">
             <span class="kpi-title-text">Task Velocity</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="90" height="42" viewBox="0 0 90 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 34 C 15 36, 25 15, 38 25 C 50 35, 62 8, 74 22 C 80 14, 84 8, 87 6" stroke="#10B981" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <svg width="105" height="46" viewBox="0 0 105 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 3 32 C 10 12, 18 38, 28 14 C 36 36, 44 8, 54 28 C 62 10, 72 32, 80 14 C 88 6, 94 20, 102 5" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
           </div>
