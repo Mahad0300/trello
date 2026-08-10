@@ -1,6 +1,6 @@
 <?php
 $page_title = 'User Dashboard - Richmondtech';
-$page_js = 'user/user_dashboard.js';
+$page_js = 'user_dashboard.js';
 require_once VIEWS_PATH . '/layouts/user/header.php';
 ?>
 
