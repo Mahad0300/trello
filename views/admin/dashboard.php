@@ -325,17 +325,13 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <!-- System Attachments Breakdown: Images vs PDFs -->
         <div class="arc-rings-flex mt-16 pt-16 border-top">
           <div class="arc-ring-item">
-            <div class="arc-ring-val text-indigo">
-              <i class="fa-regular fa-image font-size-20 mr-4"></i><?= (int)($stats['total_images'] ?? 48) ?>
-            </div>
+            <div class="arc-ring-val text-indigo"><?= (int)($stats['total_images'] ?? 48) ?></div>
             <div class="arc-ring-month">Images</div>
             <div class="arc-ring-desc">JPG, PNG, WebP</div>
           </div>
           <div class="arc-ring-divider"></div>
           <div class="arc-ring-item">
-            <div class="arc-ring-val text-coral">
-              <i class="fa-regular fa-file-pdf font-size-20 mr-4"></i><?= (int)($stats['total_pdfs'] ?? 24) ?>
-            </div>
+            <div class="arc-ring-val text-coral"><?= (int)($stats['total_pdfs'] ?? 24) ?></div>
             <div class="arc-ring-month">PDF Files</div>
             <div class="arc-ring-desc">Documents & Specs</div>
           </div>
