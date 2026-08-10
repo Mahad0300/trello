@@ -9554,17 +9554,17 @@ no page scroll */
 /* Hero Green Banner Card (Inspired by Image 5) */
 .dash-hero-banner {
   background: linear-gradient(135deg, #059669 0%, #10B981 55%, #047857 100%) !important;
-  border-radius: 20px !important;
-  padding: 28px 36px !important;
-  color: #ffffff !important;
-  position: relative !important;
-  overflow: hidden !important;
-  box-shadow: 0 14px 34px -10px rgba(16, 185, 129, 0.45) !important;
-  min-height: 160px !important;
-  height: auto !important;
-  max-height: none !important;
-  display: flex !important;
-  align-items: center !important;
+    border-radius: 20px !important;
+    padding: 28px 36px !important;
+    color: #ffffff !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0px 6px 34px -10px rgba(16, 185, 129, 0.45) !important;
+    min-height: 220px !important;
+    height: auto !important;
+    max-height: none !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
 .hero-banner-content {
@@ -9577,18 +9577,19 @@ no page scroll */
 }
 
 .hero-banner-title {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: 22px !important;
-  font-weight: 800 !important;
-  line-height: 1.3 !important;
-  color: #ffffff !important;
-  margin: 0 !important;
-  letter-spacing: -0.3px !important;
-  display: block !important;
-  white-space: normal !important;
+  font-family: var(--font-display) !important;
+    font-size: 33px !important;
+    /* font-weight: 800 !important; */
+    line-height: 1.3 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    letter-spacing: -0.3px !important;
+    display: block !important;
+    white-space: normal !important;
 }
 
 .hero-banner-subtitle {
+  font-family: var(--font-body) !important;
   font-size: 13.5px !important;
   line-height: 1.5 !important;
   color: rgba(255, 255, 255, 0.92) !important;
@@ -9605,6 +9606,7 @@ no page scroll */
 }
 
 .btn-hero-white {
+  font-family: var(--font-body) !important;
   background: #ffffff !important;
   color: #047857 !important;
   font-weight: 700 !important;
@@ -9623,6 +9625,7 @@ no page scroll */
 }
 
 .btn-hero-outline {
+  font-family: var(--font-body) !important;
   background: rgba(255, 255, 255, 0.15) !important;
   color: #ffffff !important;
   font-weight: 600 !important;
@@ -9703,6 +9706,7 @@ no page scroll */
 }
 
 .kpi-title-text {
+  font-family: var(--font-body) !important;
   font-size: 13.5px;
   font-weight: 600;
   color: #64748B;
@@ -9747,7 +9751,7 @@ no page scroll */
 }
 
 .kpi-main-val {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: 32px !important;
   font-weight: 800 !important;
   color: #0F172A !important;
@@ -9763,6 +9767,7 @@ no page scroll */
 }
 
 .badge-trend {
+  font-family: var(--font-body) !important;
   padding: 3px 8px;
   border-radius: 20px;
   font-weight: 700;
@@ -9778,6 +9783,7 @@ no page scroll */
 }
 
 .kpi-sub-text {
+  font-family: var(--font-body) !important;
   color: #94A3B8;
   font-weight: 500;
 }
@@ -9812,6 +9818,7 @@ no page scroll */
 }
 
 .chart-kicker-title {
+  font-family: var(--font-body) !important;
   font-size: 14px;
   font-weight: 600;
   color: #64748B;
@@ -9824,7 +9831,7 @@ no page scroll */
 }
 
 .chart-big-amount {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: 28px !important;
   font-weight: 800 !important;
   color: #0F172A !important;
@@ -9833,12 +9840,14 @@ no page scroll */
 }
 
 .chart-unit-text {
+  font-family: var(--font-body) !important;
   font-size: 14px;
   font-weight: 600;
   color: #94A3B8;
 }
 
 .chart-growth-subtext {
+  font-family: var(--font-body) !important;
   font-size: 12.5px;
   font-weight: 600;
   margin: 0;
@@ -9857,6 +9866,7 @@ no page scroll */
 }
 
 .time-pill-btn {
+  font-family: var(--font-body) !important;
   border: none;
   background: transparent;
   padding: 6px 16px;
@@ -9882,7 +9892,7 @@ no page scroll */
 
 /* Donut Ring Chart Box - PERFECT DEAD CENTER OVERLAY */
 .donut-box-title {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: 17px !important;
   font-weight: 700 !important;
   color: #0F172A !important;
@@ -9890,6 +9900,7 @@ no page scroll */
 }
 
 .donut-box-subtitle {
+  font-family: var(--font-body) !important;
   font-size: 12.5px;
   color: #64748B;
   margin: 4px 0 0;
@@ -9926,7 +9937,7 @@ no page scroll */
 }
 
 .donut-center-val {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: 26px !important;
   font-weight: 800 !important;
   color: #10B981 !important;
@@ -9934,6 +9945,7 @@ no page scroll */
 }
 
 .donut-center-label {
+  font-family: var(--font-body) !important;
   font-size: 11.5px;
   font-weight: 600;
   color: #64748B;
@@ -9941,6 +9953,7 @@ no page scroll */
 }
 
 .donut-on-progress-chip {
+  font-family: var(--font-body) !important;
   display: inline-block;
   padding: 6px 14px;
   border-radius: 20px;
@@ -9951,6 +9964,7 @@ no page scroll */
 }
 
 .donut-desc-text {
+  font-family: var(--font-body) !important;
   font-size: 12.5px;
   color: #64748B;
   line-height: 1.4;
@@ -9965,7 +9979,7 @@ no page scroll */
 }
 
 .box-head-title {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: 16px !important;
   font-weight: 700 !important;
   color: #0F172A !important;
@@ -9984,13 +9998,14 @@ no page scroll */
 }
 
 .arc-ring-val {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: 32px !important;
   font-weight: 800 !important;
   line-height: 1 !important;
 }
 
 .arc-ring-month {
+  font-family: var(--font-body) !important;
   font-size: 13px;
   font-weight: 700;
   color: #0F172A;
@@ -9998,6 +10013,7 @@ no page scroll */
 }
 
 .arc-ring-desc {
+  font-family: var(--font-body) !important;
   font-size: 11.5px;
   color: #94A3B8;
 }
@@ -10028,7 +10044,6 @@ no page scroll */
 
 .gauge-center-info {
   position: absolute;
-  bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -10040,7 +10055,7 @@ no page scroll */
 }
 
 .gauge-val-text {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: 20px !important;
   font-weight: 800 !important;
   color: #0F172A !important;
@@ -10048,6 +10063,7 @@ no page scroll */
 }
 
 .gauge-sub-text {
+  font-family: var(--font-body) !important;
   font-size: 11px;
   color: #94A3B8;
   font-weight: 600;
@@ -10159,34 +10175,39 @@ no page scroll */
 }
 
 .btn-table-action {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: #F8FAFC;
-  color: #64748B;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #D1FAE5;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .btn-table-action:hover {
-  background: #4F46E5;
+  background: #059669;
   color: #ffffff;
+  border-color: #059669;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  transform: translateY(-1px);
 }
 
 /* Activity Feed Timeline */
 .dash-activity-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .dash-act-item {
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
   border-bottom: 1px dashed #F1F5F9;
 }
 
@@ -10196,31 +10217,55 @@ no page scroll */
 }
 
 .dash-act-avatar {
-  width: 32px !important;
-  height: 32px !important;
+  width: 36px !important;
+  height: 36px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
-  flex-shrink: 0;
-  border: 1px solid #E2E8F0;
+  flex-shrink: 0 !important;
+  border: 1.5px solid #E2E8F0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
 }
 
 .dash-act-title {
-  font-size: 13px;
-  color: #334155;
-  line-height: 1.4;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13px !important;
+  color: #475569 !important;
+  line-height: 1.45 !important;
+}
+
+.dash-act-title strong {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  letter-spacing: -0.1px !important;
 }
 
 .dash-act-target {
-  color: #0F172A;
-  font-weight: 600;
+  color: #0F172A !important;
+  font-weight: 600 !important;
 }
 
 .dash-act-meta {
-  display: flex;
-  gap: 8px;
-  font-size: 11.5px;
-  color: #94A3B8;
-  margin-top: 3px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 12px !important;
+  color: #64748B !important;
+  margin-top: 4px !important;
+}
+
+.dash-act-board {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  color: #64748B !important;
+  font-weight: 500 !important;
+}
+
+.dash-act-time {
+  color: #94A3B8 !important;
+  font-weight: 500 !important;
 }
 
 /* Active Boards Grid */
@@ -10305,4 +10350,209 @@ no page scroll */
   font-size: 11.5px;
   color: #94A3B8;
 }
+
+/* True Asymmetric 2-Column Masonry Layout Grid (Inspired by Reference Image 2) */
+.dash-true-masonry-container {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+.dash-masonry-col-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dash-masonry-col-side {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+@media (max-width: 1200px) {
+  .dash-true-masonry-container {
+    grid-template-columns: 1fr 340px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .dash-true-masonry-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reference Board Card Styling (Inspired by User Reference Image) */
+.dash-ref-board-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid #F1F5F9;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-ref-board-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.06);
+}
+
+.dash-ref-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-ref-cat-pill {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dash-ref-options-btn {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.dash-ref-options-btn:hover {
+  color: #0F172A;
+}
+
+.dash-ref-card-title {
+  font-family: var(--font-display) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+}
+
+.dash-ref-card-desc {
+  font-size: 12.5px;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 6px 0 16px;
+}
+
+/* Progress Track & Handle Circle Dot */
+.dash-ref-progress-block {
+  width: 100%;
+}
+
+.dash-ref-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-ref-progress-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.dash-ref-progress-val {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.dash-ref-progress-track {
+  width: 100%;
+  height: 6px;
+  background: #F1F5F9;
+  border-radius: 10px;
+  overflow: visible;
+  position: relative;
+}
+
+.dash-ref-progress-bar {
+  height: 100%;
+  background: #059669;
+  border-radius: 10px;
+  position: relative;
+  transition: width 0.4s ease;
+}
+
+.dash-ref-progress-handle {
+  width: 10px;
+  height: 10px;
+  background: #047857;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dash-ref-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #F8FAFC;
+}
+
+.dash-ref-meta-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-ref-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.dash-ref-meta-item i {
+  font-size: 14px;
+  color: #94A3B8;
+}
+
+/* Background Geometric Ring Shape for Board Cards (Top Right Only, Static) */
+.dash-ref-board-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.dash-card-shape {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.shape-bg-ring-top {
+  width: 110px;
+    height: 110px;
+    top: -30px;
+    right: -32px;
+    border: 20px solid #d4fce9;
+    opacity: 0.35;
+}
+
+.z-2 { z-index: 2 !important; }
+
+
+
+
+
 

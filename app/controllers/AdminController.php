@@ -23,9 +23,42 @@ class AdminController extends Controller {
         ];
 
         $recentBoards = [
-            ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'workspace' => 'Engineering Team', 'members_count' => 8, 'cards' => 24, 'progress' => 85, 'updated' => '2 mins ago', 'bg' => '#4f46e5'],
-            ['id' => 2, 'title' => 'Q4 Growth Marketing Campaign', 'workspace' => 'Marketing & Operations', 'members_count' => 5, 'cards' => 14, 'progress' => 60, 'updated' => '1 hour ago', 'bg' => '#0d9488'],
-            ['id' => 3, 'title' => 'Design System Tokens 2.0', 'workspace' => 'Product Design', 'members_count' => 12, 'cards' => 31, 'progress' => 92, 'updated' => '3 hours ago', 'bg' => '#9333ea'],
+            [
+                'id' => 1,
+                'title' => 'Create Onboarding Illustrations',
+                'category' => 'Design',
+                'category_bg' => '#FCE7F3',
+                'category_color' => '#BE185D',
+                'description' => 'Design a cohesive set of onboarding illustrations that introduce key product features.',
+                'progress' => 75,
+                'attachments' => 2,
+                'comments' => 1,
+                'updated' => '2 mins ago'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Sprint 24 - Core Architecture',
+                'category' => 'Engineering',
+                'category_bg' => '#E0F2FE',
+                'category_color' => '#0369A1',
+                'description' => 'Architecting scalable microservices, queue caching, and query optimization layers.',
+                'progress' => 85,
+                'attachments' => 4,
+                'comments' => 6,
+                'updated' => '1 hour ago'
+            ],
+            [
+                'id' => 3,
+                'title' => 'Q4 Growth Marketing Campaign',
+                'category' => 'Marketing',
+                'category_bg' => '#DCFCE7',
+                'category_color' => '#15803D',
+                'description' => 'Execute multi-channel performance marketing for Q4 SaaS platform growth.',
+                'progress' => 60,
+                'attachments' => 3,
+                'comments' => 8,
+                'updated' => '3 hours ago'
+            ],
         ];
 
         $activities = [
