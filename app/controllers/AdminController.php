@@ -5,32 +5,34 @@ class AdminController extends Controller {
         $stats = [
             'total_users' => 142,
             'active_users' => 136,
+            'inactive_users' => 6,
             'total_boards' => 58,
+            'active_boards' => 52,
             'active_workspaces' => 12,
             'completed_tasks' => 1240,
-            'productivity_rate' => 84,
-            'growth_rate' => '+2.7%'
+            'completion_rate' => 84,
+            'growth_rate' => '+18.5%'
         ];
 
         $recentUsers = [
-            ['id' => 1, 'name' => 'Sarah Connor', 'email' => 'sarah@richmondtech.com', 'role' => 'user', 'department' => 'Product Design', 'status' => 'Active', 'joined' => '2026-07-20', 'avatar' => asset('images/avatars/default-image.jpg')],
-            ['id' => 2, 'name' => 'Chris Parker', 'email' => 'chris@richmondtech.com', 'role' => 'user', 'department' => 'Engineering', 'status' => 'Active', 'joined' => '2026-07-18', 'avatar' => asset('images/avatars/default-image.jpg')],
-            ['id' => 3, 'name' => 'Alex Johnson', 'email' => 'alex@richmondtech.com', 'role' => 'admin', 'department' => 'Engineering', 'status' => 'Active', 'joined' => '2026-07-15', 'avatar' => asset('images/avatars/default-image.jpg')],
-            ['id' => 4, 'name' => 'Elena Rostova', 'email' => 'elena@richmondtech.com', 'role' => 'user', 'department' => 'Quality Assurance', 'status' => 'Inactive', 'joined' => '2026-07-10', 'avatar' => asset('images/avatars/default-image.jpg')],
-            ['id' => 5, 'name' => 'David Chen', 'email' => 'david@richmondtech.com', 'role' => 'user', 'department' => 'Marketing', 'status' => 'Active', 'joined' => '2026-06-18', 'avatar' => asset('images/avatars/default-image.jpg')]
+            ['id' => 1, 'name' => 'Sarah Connor', 'email' => 'sarah@richmondtech.com', 'role' => 'Product Designer', 'status' => 'Active', 'joined' => '2026-07-20', 'avatar' => asset('images/avatars/default-image.jpg')],
+            ['id' => 2, 'name' => 'Chris Parker', 'email' => 'chris@richmondtech.com', 'role' => 'Senior Frontend Lead', 'status' => 'Active', 'joined' => '2026-07-18', 'avatar' => asset('images/avatars/default-image.jpg')],
+            ['id' => 3, 'name' => 'Alex Johnson', 'email' => 'alex@richmondtech.com', 'role' => 'Backend Lead', 'status' => 'Active', 'joined' => '2026-07-15', 'avatar' => asset('images/avatars/default-image.jpg')],
+            ['id' => 4, 'name' => 'Elena Rostova', 'email' => 'elena@richmondtech.com', 'role' => 'QA Specialist', 'status' => 'Inactive', 'joined' => '2026-07-10', 'avatar' => asset('images/avatars/default-image.jpg')],
+            ['id' => 6, 'name' => 'David Chen', 'email' => 'david@richmondtech.com', 'role' => 'Growth Marketer', 'status' => 'Active', 'joined' => '2026-06-18', 'avatar' => asset('images/avatars/default-image.jpg')],
         ];
 
         $recentBoards = [
-            ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'workspace' => 'Engineering Team', 'members' => 8, 'cards' => 24, 'progress' => 80, 'updated' => '2 mins ago'],
-            ['id' => 2, 'title' => 'Q4 Growth Marketing', 'workspace' => 'Marketing & Ops', 'members' => 5, 'cards' => 14, 'progress' => 55, 'updated' => '1 hour ago'],
-            ['id' => 3, 'title' => 'Bug Triage & Polish', 'workspace' => 'Engineering Team', 'members' => 12, 'cards' => 31, 'progress' => 90, 'updated' => '3 hours ago'],
+            ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'workspace' => 'Engineering Team', 'members_count' => 8, 'cards' => 24, 'progress' => 85, 'updated' => '2 mins ago', 'bg' => '#4f46e5'],
+            ['id' => 2, 'title' => 'Q4 Growth Marketing Campaign', 'workspace' => 'Marketing & Operations', 'members_count' => 5, 'cards' => 14, 'progress' => 60, 'updated' => '1 hour ago', 'bg' => '#0d9488'],
+            ['id' => 3, 'title' => 'Design System Tokens 2.0', 'workspace' => 'Product Design', 'members_count' => 12, 'cards' => 31, 'progress' => 92, 'updated' => '3 hours ago', 'bg' => '#9333ea'],
         ];
 
         $activities = [
-            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Physics', 'board' => 'Sprint 24 - Core Architecture', 'time' => '15 mins ago'],
-            ['user' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'created workspace', 'target' => 'Q4 Product Launch', 'board' => 'Marketing & Ops', 'time' => '1 hour ago'],
-            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'attached file', 'target' => 'architecture_v2.pdf', 'board' => 'Sprint 24 - Core Architecture', 'time' => '3 hours ago'],
-            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'completed checklist', 'target' => 'CSS Tokens & Variables', 'board' => 'Design System 2.0', 'time' => '5 hours ago'],
+            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'time' => '15 mins ago'],
+            ['user' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'created board', 'target' => 'Q4 Product Marketing Launch', 'board' => 'Product Design & Marketing', 'time' => '1 hour ago'],
+            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'attached file', 'target' => 'architecture_v2_diagram.pdf', 'board' => 'Sprint 24 - Core Architecture', 'time' => '3 hours ago'],
+            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'completed checklist in', 'target' => 'Design System Tokens & CSS Variables', 'board' => 'Design System 2.0 Tokens', 'time' => '5 hours ago'],
         ];
 
         $this->view('admin/dashboard', [

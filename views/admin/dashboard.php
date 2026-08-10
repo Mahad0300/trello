@@ -4,211 +4,355 @@ $page_js = 'admin_dashboard.js';
 require_once VIEWS_PATH . '/layouts/admin/header.php';
 ?>
 
-<div class="dashboard-wrapper p-24">
-  
-  <!-- 1. Hero Green Banner (Clean Overflow & Crisp Typography) -->
+<div class="dashboard-wrapper dash-masonry-wrapper p-24">
+
+  <!-- 1. Hero Enterprise Banner Card (Green CTA Style) -->
   <div class="dash-hero-banner mb-24">
-    <div class="dash-hero-content">
-      <h1 class="dash-hero-title">Manage your project in one touch</h1>
-      <p class="dash-hero-subtitle">Let Richmondtech manage your team workspaces and active boards automatically with real-time systems.</p>
+    <div class="hero-banner-content">
+      <h2 class="hero-banner-title">Manage your enterprise project workload in one place</h2>
+      <p class="hero-banner-subtitle">
+        Monitor real-time task velocity, workspace analytics, user statistics, and system activity across all departments.
+      </p>
+      <div class="hero-banner-actions">
+        <button type="button" class="btn btn-hero-white" data-modal-target="create-workspace-modal">
+          <i class="fa-solid fa-plus mr-6"></i> Create Workspace
+        </button>
+        <button type="button" class="btn btn-hero-outline" data-modal-target="add-board-modal">
+          <i class="fa-solid fa-square-plus mr-6"></i> Create Board
+        </button>
+        <button type="button" class="btn btn-hero-outline" data-modal-target="manage-workspace-members-modal">
+          <i class="fa-solid fa-user-plus mr-6"></i> Invite Member
+        </button>
+      </div>
     </div>
-    <div class="dash-hero-action">
-      <button type="button" class="btn btn-pill-white" data-modal-target="create-workspace-modal">
-        <i class="fa-solid fa-plus mr-6"></i> Create Workspace
-      </button>
+    <div class="hero-banner-graphics">
+      <div class="hero-circle-shape shape-1"></div>
+      <div class="hero-circle-shape shape-2"></div>
     </div>
-    <div class="dash-hero-bg-circles"></div>
   </div>
 
-  <!-- 2. Row 1: Dual Main Cards (Matching Reference Screenshot 1) -->
-  <div class="dash-grid-2col mb-24">
+  <!-- 2. KPI Metrics Grid (Masonry Boxes) -->
+  <div class="dash-kpi-grid mb-24">
+    <!-- KPI 1 -->
+    <div class="dash-card-box kpi-box">
+      <div class="kpi-header-row">
+        <span class="kpi-title-text">Total Users</span>
+        <div class="kpi-icon-badge bg-indigo-light text-indigo">
+          <i class="fa-solid fa-users"></i>
+        </div>
+      </div>
+      <div class="kpi-main-val"><?= (int)($stats['total_users'] ?? 142) ?></div>
+      <div class="kpi-footer-row">
+        <span class="badge-trend badge-trend-up">
+          <i class="fa-solid fa-arrow-trend-up"></i> +12.4%
+        </span>
+        <span class="kpi-sub-text"><?= (int)($stats['active_users'] ?? 136) ?> Active</span>
+      </div>
+    </div>
+
+    <!-- KPI 2 -->
+    <div class="dash-card-box kpi-box">
+      <div class="kpi-header-row">
+        <span class="kpi-title-text">Active Workspaces</span>
+        <div class="kpi-icon-badge bg-teal-light text-teal">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+      </div>
+      <div class="kpi-main-val"><?= (int)($stats['active_workspaces'] ?? 12) ?></div>
+      <div class="kpi-footer-row">
+        <span class="badge-trend badge-trend-up">
+          <i class="fa-solid fa-plus"></i> +2 new
+        </span>
+        <span class="kpi-sub-text">4 Departments</span>
+      </div>
+    </div>
+
+    <!-- KPI 3 -->
+    <div class="dash-card-box kpi-box">
+      <div class="kpi-header-row">
+        <span class="kpi-title-text">Total Boards</span>
+        <div class="kpi-icon-badge bg-purple-light text-purple">
+          <i class="fa-solid fa-table-columns"></i>
+        </div>
+      </div>
+      <div class="kpi-main-val"><?= (int)($stats['total_boards'] ?? 58) ?></div>
+      <div class="kpi-footer-row">
+        <span class="badge-trend badge-trend-up">
+          <i class="fa-solid fa-circle-check"></i> 84%
+        </span>
+        <span class="kpi-sub-text"><?= (int)($stats['active_boards'] ?? 52) ?> Active</span>
+      </div>
+    </div>
+
+    <!-- KPI 4 (With Green Circular Arrow Button) -->
+    <div class="dash-card-box kpi-box">
+      <div class="kpi-header-row">
+        <span class="kpi-title-text">Task Velocity</span>
+        <div class="kpi-arrow-circle-btn">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
+      </div>
+      <div class="kpi-main-val"><?= number_format((int)($stats['completed_tasks'] ?? 1240)) ?></div>
+      <div class="kpi-footer-row">
+        <span class="badge-trend badge-trend-up">
+          <i class="fa-solid fa-arrow-trend-up"></i> <?= sanitize($stats['growth_rate'] ?? '+18.5%') ?>
+        </span>
+        <span class="kpi-sub-text">Completed Cards</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Charts Row 1: Dual Wavy Line Chart + Donut Ring Chart (Inspired by Image 1 & 2) -->
+  <div class="dash-masonry-grid grid-2-col mb-24">
     
-    <!-- Left Card: Current Activity Wavy Chart Card -->
-    <div class="dash-card">
-      <div class="dash-card-head">
+    <!-- Left Box: Wavy Dual Line Chart (Workload Velocity) -->
+    <div class="dash-card-box chart-main-box">
+      <div class="chart-box-header">
         <div>
-          <span class="dash-card-label">Task Velocity & Activity</span>
-          <div class="dash-card-value-row">
-            <h2 class="dash-card-big-value">1,240 Tasks</h2>
-            <span class="dash-card-arrow-icon"><i class="fa-solid fa-arrow-up-right-from-square font-size-12"></i></span>
-          </div>
-          <span class="dash-badge-green"><i class="fa-solid fa-arrow-trend-up"></i> <?= sanitize($stats['growth_rate']) ?> than last week</span>
-        </div>
-        
-        <!-- Time Range Pill Selector -->
-        <div class="dash-time-tabs">
-          <button class="dash-tab-pill" data-period="daily">Daily</button>
-          <button class="dash-tab-pill" data-period="weekly">Weekly</button>
-          <button class="dash-tab-pill active" data-period="monthly">Monthly</button>
-        </div>
-      </div>
-
-      <!-- Dual Wavy Line Chart Container (Matching Screenshot 1 & 2) -->
-      <div class="dash-chart-container-lg mt-16">
-        <canvas id="wavyLineChart"></canvas>
-      </div>
-    </div>
-
-    <!-- Right Card: Circular Gauge Ring Card (Matching Screenshot 1 Right) -->
-    <div class="dash-card dash-card-flex-center">
-      <div class="dash-ring-wrapper">
-        <canvas id="circularRingChart"></canvas>
-        <div class="dash-ring-center-text">
-          <span class="dash-ring-percent">84%</span>
-        </div>
-      </div>
-
-      <div class="text-center mt-16">
-        <div class="dash-ring-status-text">On Progress <span class="text-emerald font-weight-700">84%</span></div>
-        <h3 class="dash-card-section-heading mt-6 mb-6">Workload Dashboard For Enterprise Teams</h3>
-        <p class="dash-card-muted-desc">Real-time workspace activity, board completions, and active task distribution across departments.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- 3. Row 2: Secondary Statistics Grid (Matching Reference Screenshot 4) -->
-  <div class="dash-grid-2col mb-24">
-    
-    <!-- Left Card: Dual Semi-Arc Statistics -->
-    <div class="dash-card">
-      <div class="dash-card-head mb-12">
-        <h3 class="dash-card-title">Statistics</h3>
-        <span class="font-size-12 text-muted">August vs July Execution</span>
-      </div>
-      <div class="dash-dual-gauge-layout">
-        <div class="dash-gauge-item">
-          <div class="dash-arc-container">
-            <canvas id="gaugeTopArc"></canvas>
-            <div class="dash-arc-label">
-              <span class="text-emerald font-weight-700 font-size-16">51%</span>
-              <span class="font-size-11 text-muted">August</span>
+          <span class="chart-kicker-title">Task Velocity & Workload</span>
+          <div class="chart-amount-flex mt-4">
+            <h3 class="chart-big-amount">1,240 <span class="chart-unit-text">Completed</span></h3>
+            <div class="kpi-arrow-circle-btn sm-circle">
+              <i class="fa-solid fa-arrow-up"></i>
             </div>
           </div>
+          <p class="chart-growth-subtext text-emerald mt-2">
+            <i class="fa-solid fa-caret-up"></i> +18.5% completion rate than last month
+          </p>
         </div>
-        <div class="dash-gauge-item">
-          <div class="dash-arc-container">
-            <canvas id="gaugeBottomArc"></canvas>
-            <div class="dash-arc-label">
-              <span class="text-rose font-weight-700 font-size-16">35%</span>
-              <span class="font-size-11 text-muted">July</span>
-            </div>
-          </div>
+
+        <!-- Filter Time Pills (Daily, Weekly, Monthly) -->
+        <div class="chart-time-pills" id="chart-time-toggle">
+          <button type="button" class="time-pill-btn" data-period="daily">Daily</button>
+          <button type="button" class="time-pill-btn" data-period="weekly">Weekly</button>
+          <button type="button" class="time-pill-btn active" data-period="monthly">Monthly</button>
         </div>
       </div>
-      <p class="text-center text-muted font-size-12 mt-12 m-0">Monthly sprint completion consistency breakdown across active boards.</p>
+
+      <!-- Chart Container -->
+      <div class="chart-canvas-wrap mt-20">
+        <canvas id="adminWavyLineChart" height="250"></canvas>
+      </div>
     </div>
 
-    <!-- Right Card: Speedometer Active Statistics -->
-    <div class="dash-card">
-      <div class="dash-card-head mb-12">
-        <div>
-          <h3 class="dash-card-title">Active Statistics</h3>
-          <span class="font-size-12 text-muted">All Workspace Accounts</span>
+    <!-- Right Box: Progress Donut Ring (Inspired by Image 1 Right) -->
+    <div class="dash-card-box chart-donut-box">
+      <div class="donut-chart-header text-center">
+        <h4 class="donut-box-title">Platform Workload Completion</h4>
+        <p class="donut-box-subtitle">Real-time status across active boards</p>
+      </div>
+
+      <div class="donut-canvas-container mt-16 position-relative">
+        <canvas id="adminDonutChart" height="210"></canvas>
+        <div class="donut-center-badge">
+          <span class="donut-center-val"><?= (int)($stats['completion_rate'] ?? 84) ?>%</span>
+          <span class="donut-center-label">Completed</span>
         </div>
       </div>
 
-      <div class="dash-speedometer-wrapper">
-        <canvas id="speedometerChart"></canvas>
-        <div class="dash-speedometer-center-val">
-          <span class="font-weight-700 font-size-20 text-dark">90<small class="font-size-12 text-muted">c</small> / 25<small class="font-size-12 text-muted">c</small></span>
-          <span class="font-size-11 text-muted">Total Speed</span>
+      <div class="donut-footer-meta mt-16 text-center">
+        <div class="donut-on-progress-chip mb-8">
+          <i class="fa-solid fa-circle-check text-emerald mr-4"></i> 52 of 58 Boards On Track
         </div>
-      </div>
-
-      <div class="dash-pill-legend-row mt-12">
-        <span class="dash-legend-pill pill-purple">Acc 1</span>
-        <span class="dash-legend-pill pill-rose">Acc 2</span>
-        <span class="dash-legend-pill pill-blue">Acc 3</span>
+        <p class="donut-desc-text">
+          Enterprise workload completion is <strong>84%</strong>. High efficiency across Engineering and Product teams.
+        </p>
       </div>
     </div>
 
   </div>
 
-  <!-- 4. Row 3: Users Table & Live Activity Feed -->
-  <div class="dash-grid-main-side">
-    
-    <!-- Left Column: Recent Users Directory Table -->
-    <div class="dash-card p-0">
-      <div class="dash-table-header p-20 border-bottom">
-        <div>
-          <h3 class="dash-card-title">Recent System Users</h3>
-          <span class="font-size-12 text-muted">Active team members and platform administrators</span>
+  <!-- 4. Charts Row 2: Statistics Ring + Speedometer Active Gauge (Inspired by Image 4) -->
+  <div class="dash-masonry-grid grid-2-col mb-24">
+
+    <!-- Left Box: Statistics Arc Rings -->
+    <div class="dash-card-box arc-stats-box">
+      <div class="box-head-row">
+        <h4 class="box-head-title">User Engagement Statistics</h4>
+        <span class="badge-status-progress"><i class="fa-regular fa-chart-bar"></i> Overview</span>
+      </div>
+
+      <div class="arc-rings-flex mt-20">
+        <div class="arc-ring-item">
+          <div class="arc-ring-val text-emerald">96%</div>
+          <div class="arc-ring-month">Active Users</div>
+          <div class="arc-ring-desc">136 Active Accounts</div>
         </div>
-        <a href="<?= route('admin/users') ?>" class="btn btn-secondary btn-sm">View All Users <i class="fa-solid fa-arrow-right ml-4 font-size-10"></i></a>
+        <div class="arc-ring-divider"></div>
+        <div class="arc-ring-item">
+          <div class="arc-ring-val text-coral">4%</div>
+          <div class="arc-ring-month">Inactive Users</div>
+          <div class="arc-ring-desc">6 Inactive Accounts</div>
+        </div>
+      </div>
+      <p class="arc-footer-note mt-16 text-center text-muted font-size-12">
+        Active user engagement is at an all-time peak across 12 workspaces.
+      </p>
+    </div>
+
+    <!-- Right Box: Speedometer / Active Statistics Gauge -->
+    <div class="dash-card-box gauge-stats-box">
+      <div class="box-head-row">
+        <div>
+          <h4 class="box-head-title">System Execution Speed</h4>
+          <span class="text-muted font-size-12">Overall Workload Velocity</span>
+        </div>
+        <span class="badge-priority-high"><i class="fa-solid fa-bolt"></i> High Performance</span>
+      </div>
+
+      <div class="gauge-canvas-wrap mt-12 position-relative text-center">
+        <canvas id="adminGaugeChart" height="150"></canvas>
+        <div class="gauge-center-info">
+          <span class="gauge-val-text">98 / 100</span>
+          <span class="gauge-sub-text">Velocity Score</span>
+        </div>
+      </div>
+
+      <div class="gauge-legend-flex mt-12">
+        <span class="legend-chip legend-purple"><span class="chip-dot"></span> Engineering</span>
+        <span class="legend-chip legend-emerald"><span class="chip-dot"></span> Marketing</span>
+        <span class="legend-chip legend-coral"><span class="chip-dot"></span> Design</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 5. Row 3: Recent Registered Users Table + Live Audit Activity Feed -->
+  <div class="dash-masonry-grid grid-2-col-60-40 mb-24">
+
+    <!-- Left Box: Users Data Table -->
+    <div class="dash-card-box table-box-card">
+      <div class="box-head-row mb-16">
+        <div>
+          <h4 class="box-head-title">Recently Registered Users</h4>
+          <span class="text-muted font-size-12">Latest members onboarded to Richmondtech</span>
+        </div>
+        <a href="<?= route('admin/users') ?>" class="btn btn-secondary btn-sm">
+          View All Users <i class="fa-solid fa-arrow-right ml-4"></i>
+        </a>
       </div>
 
       <div class="table-responsive">
-        <table class="table dash-custom-table">
+        <table class="dash-custom-table">
           <thead>
             <tr>
               <th>User</th>
-              <th>Department</th>
+              <th>Role & Department</th>
               <th>Status</th>
               <th>Joined</th>
-              <th class="text-end">Action</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($recentUsers as $u): ?>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center gap-10">
-                  <img src="<?= $u['avatar'] ?>" class="dash-user-table-avatar" alt="User">
-                  <div>
-                    <div class="font-weight-600 font-size-13 text-dark"><?= sanitize($u['name']) ?></div>
-                    <div class="font-size-11 text-muted"><?= sanitize($u['email']) ?></div>
+              <tr>
+                <td>
+                  <div class="table-user-info-flex">
+                    <img src="<?= sanitize($u['avatar']) ?>" class="table-user-avatar" alt="Avatar">
+                    <div>
+                      <div class="table-user-name"><?= sanitize($u['name']) ?></div>
+                      <div class="table-user-email"><?= sanitize($u['email']) ?></div>
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>
-                <span class="badge badge-dept"><?= sanitize($u['department']) ?></span>
-              </td>
-              <td>
-                <?php if ($u['status'] === 'Active'): ?>
-                  <span class="badge badge-status-active"><i class="fa-solid fa-circle font-size-8"></i> Active</span>
-                <?php else: ?>
-                  <span class="badge badge-status-inactive"><i class="fa-solid fa-circle font-size-8"></i> Inactive</span>
-                <?php endif; ?>
-              </td>
-              <td class="font-size-12 text-muted"><?= sanitize($u['joined']) ?></td>
-              <td class="text-end">
-                <a href="<?= route('admin/profile') ?>?id=<?= (int)$u['id'] ?>" class="btn btn-sm btn-ghost-primary">Profile</a>
-              </td>
-            </tr>
+                </td>
+                <td>
+                  <span class="role-dept-badge"><?= sanitize($u['role']) ?></span>
+                </td>
+                <td>
+                  <?php if (strtolower($u['status']) === 'active'): ?>
+                    <span class="badge-status-pill status-active"><i class="fa-solid fa-circle font-size-8"></i> Active</span>
+                  <?php else: ?>
+                    <span class="badge-status-pill status-inactive"><i class="fa-solid fa-circle font-size-8"></i> Inactive</span>
+                  <?php endif; ?>
+                </td>
+                <td>
+                  <span class="text-muted font-size-13"><?= sanitize($u['joined']) ?></span>
+                </td>
+                <td>
+                  <a href="<?= route('admin/profile') ?>?id=<?= (int)$u['id'] ?>" class="btn-table-action" title="View Profile">
+                    <i class="fa-regular fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- Right Column: Live Enterprise Activity Feed -->
-    <div class="dash-card">
-      <div class="dash-card-head mb-16">
-        <h3 class="dash-card-title">System Activity Log</h3>
-        <span class="badge badge-indigo">Live Feed</span>
+    <!-- Right Box: Live Activity Feed -->
+    <div class="dash-card-box activity-feed-box">
+      <div class="box-head-row mb-16">
+        <h4 class="box-head-title"><i class="fa-solid fa-bolt text-warning mr-6"></i> System Audit & Activity Log</h4>
       </div>
 
       <div class="dash-activity-list">
         <?php foreach ($activities as $act): ?>
-        <div class="dash-act-item">
-          <img src="<?= $act['avatar'] ?>" class="dash-act-avatar" alt="Avatar">
-          <div class="dash-act-info">
-            <div class="dash-act-text">
-              <strong class="text-dark"><?= sanitize($act['user']) ?></strong> 
-              <?= sanitize($act['action']) ?> 
-              <span class="text-primary font-weight-500">"<?= sanitize($act['target']) ?>"</span>
-            </div>
-            <div class="dash-act-meta">
-              <span class="dash-act-board"><i class="fa-regular fa-folder font-size-10"></i> <?= sanitize($act['board']) ?></span>
-              <span class="dash-act-time"><i class="fa-regular fa-clock font-size-10"></i> <?= sanitize($act['time']) ?></span>
+          <div class="dash-act-item">
+            <img src="<?= sanitize($act['avatar']) ?>" class="dash-act-avatar" alt="User">
+            <div class="dash-act-content">
+              <div class="dash-act-title">
+                <strong><?= sanitize($act['user']) ?></strong> <?= sanitize($act['action']) ?>
+                <span class="dash-act-target"><?= sanitize($act['target']) ?></span>
+              </div>
+              <div class="dash-act-meta">
+                <span class="dash-act-board"><i class="fa-regular fa-folder mr-4"></i><?= sanitize($act['board']) ?></span>
+                <span class="dash-act-time">• <?= sanitize($act['time']) ?></span>
+              </div>
             </div>
           </div>
-        </div>
         <?php endforeach; ?>
       </div>
     </div>
 
+  </div>
+
+  <!-- 6. Row 4: Top Active Boards Grid -->
+  <div class="dash-card-box mb-24">
+    <div class="box-head-row mb-16">
+      <div>
+        <h4 class="box-head-title">High-Priority Enterprise Boards</h4>
+        <span class="text-muted font-size-12">Top active project boards with member progress</span>
+      </div>
+      <a href="<?= route('admin/all-boards') ?>" class="btn btn-secondary btn-sm">
+        View All Boards <i class="fa-solid fa-arrow-right ml-4"></i>
+      </a>
+    </div>
+
+    <div class="boards-masonry-grid">
+      <?php foreach ($recentBoards as $b): ?>
+        <div class="dash-board-card">
+          <div class="board-card-header-bar" style="background: <?= sanitize($b['bg']) ?>;"></div>
+          <div class="board-card-inner">
+            <span class="board-card-workspace"><?= sanitize($b['workspace']) ?></span>
+            <h4 class="board-card-title"><?= sanitize($b['title']) ?></h4>
+
+            <div class="board-card-members-row mt-12 mb-12">
+              <div class="avatar-group avatar-group-stack">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar" title="Sarah Connor">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar" title="Chris Parker">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar" title="Alex Johnson">
+              </div>
+              <span class="board-card-task-count"><i class="fa-solid fa-list-check mr-4"></i><?= (int)$b['cards'] ?> Cards</span>
+            </div>
+
+            <div class="board-card-progress-wrap mb-12">
+              <div class="progress-track-sm">
+                <div class="progress-fill-indigo" style="width: <?= (int)$b['progress'] ?>%;"></div>
+              </div>
+              <span class="progress-percent-text"><?= (int)$b['progress'] ?>% Complete</span>
+            </div>
+
+            <div class="board-card-footer">
+              <span class="board-card-time"><i class="fa-regular fa-clock mr-4"></i><?= sanitize($b['updated']) ?></span>
+              <a href="<?= route('admin/board-detail') ?>?id=<?= (int)$b['id'] ?>" class="btn btn-secondary btn-xs">
+                Open Board <i class="fa-solid fa-arrow-right font-size-10 ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
   </div>
 
 </div>
