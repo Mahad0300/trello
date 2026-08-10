@@ -10247,11 +10247,24 @@ no page scroll */
   font-weight: 500 !important;
 }
 
-/* Active Boards Grid */
+/* Active Boards Grid (Max 3 Columns) */
 .boards-masonry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .boards-masonry-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* Platform Resource Metrics Summary Bar Below Chart */
+.platform-metrics-summary-bar {
+  margin-top: 24px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid #F1F5F9 !important;
 }
 
 .dash-board-card {

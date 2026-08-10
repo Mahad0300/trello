@@ -226,7 +226,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="boards-masonry-grid">
-          <?php foreach ($recentBoards as $b): ?>
+          <?php foreach (array_slice($recentBoards, 0, 3) as $b): ?>
             <div class="dash-ref-board-card">
               <!-- Background Geometric Ring Shape (Top Right Only) -->
               <div class="dash-card-shape shape-bg-ring-top"></div>
