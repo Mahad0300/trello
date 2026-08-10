@@ -347,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetCardsStack) {
         const cardId = 'card-' + Date.now();
         const newCardHtml = `
-          <div class="kanban-card" data-card-id="${cardId}" data-cover="/trello/public/assets/images/card_cover_design.png" data-modal-target="card-detail-modal">
+          <div class="kanban-card" data-card-id="${cardId}" data-cover="${(window.BASE_URL || '')}/assets/images/card_cover_design.png" data-modal-target="card-detail-modal">
             <div class="card-title-text">${window.escapeHtml ? window.escapeHtml(title) : title}</div>
           </div>
         `;

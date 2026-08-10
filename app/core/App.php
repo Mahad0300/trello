@@ -19,9 +19,16 @@ class App {
             $requestUri = substr($requestUri, 0, $pos);
         }
 
-        // Strip /trello/public or /trello from beginning
-        $requestUri = preg_replace('#^/trello/public/?#i', '/', $requestUri);
-        $requestUri = preg_replace('#^/trello/?#i', '/', $requestUri);
+        // Dynamically strip script directory and root project folder name
+        $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+        $rootDir = str_replace('\\', '/', dirname($scriptDir));
+
+        if ($scriptDir !== '/' && $scriptDir !== '.') {
+            $requestUri = preg_replace('#^' . preg_quote($scriptDir, '#') . '/?#i', '/', $requestUri);
+        }
+        if ($rootDir !== '/' && $rootDir !== '.') {
+            $requestUri = preg_replace('#^' . preg_quote($rootDir, '#') . '/?#i', '/', $requestUri);
+        }
         $requestUri = preg_replace('#^/index\.php/?#i', '/', $requestUri);
 
         return filter_var(trim($requestUri, '/'), FILTER_SANITIZE_URL);

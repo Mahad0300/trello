@@ -188,10 +188,10 @@ CREATE TABLE IF NOT EXISTS `system_settings` (
 -- ==========================================
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `role`, `status`) VALUES
-(1, 'Admin User', 'admin@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/avatar_admin.svg', 'admin', 'active'),
-(2, 'Chris Parker', 'chris@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/avatar_chris.svg', 'user', 'active'),
-(3, 'Sarah Connor', 'sarah@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/avatar_sarah.svg', 'user', 'active'),
-(4, 'Alex Johnson', 'alex@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/avatar_alex.svg', 'user', 'active');
+(1, 'Admin User', 'admin@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/default-image.jpg', 'admin', 'active'),
+(2, 'Chris Parker', 'chris@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/default-image.jpg', 'user', 'active'),
+(3, 'Sarah Connor', 'sarah@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/default-image.jpg', 'user', 'active'),
+(4, 'Alex Johnson', 'alex@richmondtech.com', '$2y$10$e9H6c0z...hashed', 'assets/images/avatars/default-image.jpg', 'user', 'active');
 
 INSERT INTO `workspaces` (`id`, `name`, `description`, `owner_id`) VALUES
 (1, 'Engineering Team', 'Core product development and API integrations workspace.', 1),

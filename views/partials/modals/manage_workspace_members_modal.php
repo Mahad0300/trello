@@ -1,4 +1,4 @@
-﻿<!-- Modal Dialog: Manage Workspace Members -->
+<!-- Modal Dialog: Manage Workspace Members -->
 <div class="modal-overlay" id="manage-workspace-members-modal">
   <div class="modal-container modal-container-lg-sub">
     <button class="modal-close-btn" data-modal-close>&times;</button>
@@ -16,7 +16,7 @@
     <div class="modal-members-scroll-box">
       <div class="member-list-item-row">
         <a href="<?= route('admin/profile') ?>?id=2" class="member-info-flex member-profile-link">
-          <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="member-avatar" alt="Avatar">
+          <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="member-avatar" alt="Avatar">
           <div class="member-meta">
             <div class="member-name-text">Chris Parker</div>
             <div class="member-email-text">chris@richmondtech.com</div>
@@ -27,7 +27,7 @@
 
       <div class="member-list-item-row">
         <a href="<?= route('admin/profile') ?>?id=3" class="member-info-flex member-profile-link">
-          <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="member-avatar" alt="Avatar">
+          <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="member-avatar" alt="Avatar">
           <div class="member-meta">
             <div class="member-name-text">Sarah Connor</div>
             <div class="member-email-text">sarah@richmondtech.com</div>
@@ -38,7 +38,7 @@
 
       <div class="member-list-item-row">
         <a href="<?= route('admin/profile') ?>?id=6" class="member-info-flex member-profile-link">
-          <img src="<?= asset('images/avatars/avatar_david.svg') ?>" class="member-avatar" alt="Avatar">
+          <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="member-avatar" alt="Avatar">
           <div class="member-meta">
             <div class="member-name-text">David Chen</div>
             <div class="member-email-text">david@richmondtech.com</div>

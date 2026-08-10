@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>window.BASE_URL = "<?= BASE_URL ?>";</script>
 </head>
 <body>
 <div class="app-container app-container-column">
@@ -44,7 +45,7 @@
       </a>
 
       <a href="<?= route('admin/profile') ?>" class="topbar-profile topbar-profile--link">
-        <img src="<?= asset('images/avatars/avatar_admin.svg') ?>" class="avatar topbar-avatar" alt="Admin System">
+        <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar topbar-avatar" alt="Admin System">
         <span class="topbar-profile-meta">
           <span class="topbar-profile-name">Admin System</span>
           <span class="topbar-profile-email">admin@richmondtech.com</span>

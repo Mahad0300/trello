@@ -1,4 +1,4 @@
-﻿<!-- Premium Card Detail Modal -->
+<!-- Premium Card Detail Modal -->
 <div class="modal-overlay" id="card-detail-modal">
   <div class="modal-container modal-container-card-detail">
     <button type="button" class="modal-close-btn modal-close-glass" id="modal-close-btn" data-modal-close>&times;</button>
@@ -35,9 +35,6 @@
               <div class="cd-section-title">
                 <i class="fa-solid fa-align-left"></i> Description
               </div>
-              <button type="button" class="cd-edit-btn" data-modal-target="edit-board-modal">
-                <i class="fa-solid fa-pen"></i> Edit
-              </button>
             </div>
             <p class="modal-description-box">
               Implement plain HTML5 drag-and-drop physics and events in board_detail.js for moving card containers between columns. Ensure real-time card counter updates and dropzone highlight indicators.
@@ -50,7 +47,7 @@
             </div>
 
             <div class="cd-comment-compose">
-              <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+              <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar cd-avatar" alt="Avatar">
               <div class="cd-comment-compose-body">
                 <input type="text" id="comment-input" class="form-control comment-textarea-box" placeholder="Write a comment...">
                 <button type="button" id="add-comment-btn" class="cd-send-comment-btn" aria-label="Send comment" title="Send">
@@ -61,7 +58,7 @@
 
             <div id="comments-feed" class="cd-comments-feed">
               <div class="cd-comment-item">
-                <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar cd-avatar" alt="Avatar">
                 <div class="comment-bubble-box">
                   <div class="comment-header-row">
                     <span class="cd-comment-author">Sarah Connor</span>
@@ -72,7 +69,7 @@
               </div>
 
               <div class="cd-comment-item">
-                <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar cd-avatar" alt="Avatar">
                 <div class="comment-bubble-box">
                   <div class="comment-header-row">
                     <span class="cd-comment-author">Alex Rivera</span>
@@ -83,7 +80,7 @@
               </div>
 
               <div class="cd-comment-item">
-                <img src="<?= asset('images/avatars/avatar_maya.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar cd-avatar" alt="Avatar">
                 <div class="comment-bubble-box">
                   <div class="comment-header-row">
                     <span class="cd-comment-author">Maya Chen</span>
@@ -94,7 +91,7 @@
               </div>
 
               <div class="cd-comment-item">
-                <img src="<?= asset('images/avatars/avatar_jordan.svg') ?>" class="avatar cd-avatar" alt="Avatar">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar cd-avatar" alt="Avatar">
                 <div class="comment-bubble-box">
                   <div class="comment-header-row">
                     <span class="cd-comment-author">Jordan Lee</span>

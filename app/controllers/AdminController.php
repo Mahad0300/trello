@@ -10,10 +10,10 @@ class AdminController extends Controller {
         ];
 
         $recentUsers = [
-            ['id' => 1, 'name' => 'Sarah Connor', 'email' => 'sarah@richmondtech.com', 'role' => 'user', 'status' => 'Active', 'joined' => '2026-07-20', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-            ['id' => 2, 'name' => 'Chris Parker', 'email' => 'chris@richmondtech.com', 'role' => 'user', 'status' => 'Active', 'joined' => '2026-07-18', 'avatar' => asset('images/avatars/avatar_chris.svg')],
-            ['id' => 3, 'name' => 'Alex Johnson', 'email' => 'alex@richmondtech.com', 'role' => 'admin', 'status' => 'Active', 'joined' => '2026-07-15', 'avatar' => asset('images/avatars/avatar_alex.svg')],
-            ['id' => 4, 'name' => 'Elena Rostova', 'email' => 'elena@richmondtech.com', 'role' => 'user', 'status' => 'Inactive', 'joined' => '2026-07-10', 'avatar' => asset('images/avatars/avatar_elena.svg')],
+            ['id' => 1, 'name' => 'Sarah Connor', 'email' => 'sarah@richmondtech.com', 'role' => 'user', 'status' => 'Active', 'joined' => '2026-07-20', 'avatar' => asset('images/avatars/default-image.jpg')],
+            ['id' => 2, 'name' => 'Chris Parker', 'email' => 'chris@richmondtech.com', 'role' => 'user', 'status' => 'Active', 'joined' => '2026-07-18', 'avatar' => asset('images/avatars/default-image.jpg')],
+            ['id' => 3, 'name' => 'Alex Johnson', 'email' => 'alex@richmondtech.com', 'role' => 'admin', 'status' => 'Active', 'joined' => '2026-07-15', 'avatar' => asset('images/avatars/default-image.jpg')],
+            ['id' => 4, 'name' => 'Elena Rostova', 'email' => 'elena@richmondtech.com', 'role' => 'user', 'status' => 'Inactive', 'joined' => '2026-07-10', 'avatar' => asset('images/avatars/default-image.jpg')],
         ];
 
         $recentBoards = [
@@ -44,7 +44,7 @@ class AdminController extends Controller {
                 'boards' => 14,
                 'joined' => '2026-01-01',
                 'joined_label' => 'January 2026',
-                'avatar' => asset('images/avatars/avatar_admin.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
             ],
             [
                 'id' => 2,
@@ -58,7 +58,7 @@ class AdminController extends Controller {
                 'boards' => 6,
                 'joined' => '2026-03-15',
                 'joined_label' => 'March 2026',
-                'avatar' => asset('images/avatars/avatar_chris.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
             ],
             [
                 'id' => 3,
@@ -72,7 +72,7 @@ class AdminController extends Controller {
                 'boards' => 4,
                 'joined' => '2026-04-10',
                 'joined_label' => 'April 2026',
-                'avatar' => asset('images/avatars/avatar_sarah.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
             ],
             [
                 'id' => 4,
@@ -86,7 +86,7 @@ class AdminController extends Controller {
                 'boards' => 9,
                 'joined' => '2026-05-22',
                 'joined_label' => 'May 2026',
-                'avatar' => asset('images/avatars/avatar_alex.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
             ],
             [
                 'id' => 5,
@@ -100,7 +100,7 @@ class AdminController extends Controller {
                 'boards' => 2,
                 'joined' => '2026-06-01',
                 'joined_label' => 'June 2026',
-                'avatar' => asset('images/avatars/avatar_elena.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
             ],
             [
                 'id' => 6,
@@ -114,7 +114,7 @@ class AdminController extends Controller {
                 'boards' => 11,
                 'joined' => '2026-06-18',
                 'joined_label' => 'June 2026',
-                'avatar' => asset('images/avatars/avatar_david.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
             ],
         ];
     }
@@ -362,7 +362,7 @@ class AdminController extends Controller {
                 'email' => 'admin@richmondtech.com',
                 'role' => 'Platform Administrator',
                 'department' => 'Operations',
-                'avatar' => asset('images/avatars/avatar_admin.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
                 'joined' => 'January 2026',
                 'status' => 'Active',
                 'status_label' => 'Super Admin',
@@ -387,10 +387,10 @@ class AdminController extends Controller {
             'background_image' => asset('images/board_cover_engineering.png'),
             'is_starred' => true,
             'members' => [
-                ['id' => 2, 'name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg'), 'role' => 'Owner'],
-                ['id' => 3, 'name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg'), 'role' => 'Admin'],
-                ['id' => 4, 'name' => 'Alex Johnson', 'avatar' => asset('images/avatars/avatar_alex.svg'), 'role' => 'Member'],
-                ['id' => 5, 'name' => 'Elena Rostova', 'avatar' => asset('images/avatars/avatar_elena.svg'), 'role' => 'Member']
+                ['id' => 2, 'name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Owner'],
+                ['id' => 3, 'name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Admin'],
+                ['id' => 4, 'name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member'],
+                ['id' => 5, 'name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member']
             ],
             'lists' => [
                 [
@@ -411,8 +411,8 @@ class AdminController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -428,8 +428,8 @@ class AdminController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]
@@ -451,7 +451,7 @@ class AdminController extends Controller {
                             'comments_count' => 5,
                             'attachments_count' => 2,
                             'assignees' => [
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]
@@ -473,7 +473,7 @@ class AdminController extends Controller {
                             'comments_count' => 18,
                             'attachments_count' => 1,
                             'assignees' => [
-                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/avatar_alex.svg')]
+                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]

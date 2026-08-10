@@ -9,7 +9,7 @@
       <input type="email" class="form-control" placeholder="colleague@company.com">
     </div>
     <div class="share-link-row">
-      <span class="modal-subtitle-text mb-0">http://localhost/trello/public/user/board</span>
+      <span class="modal-subtitle-text mb-0"><?= route('user/board-detail') ?></span>
       <button type="button" class="btn btn-secondary btn-sm" onclick="if (navigator.clipboard) { navigator.clipboard.writeText(this.previousElementSibling ? this.previousElementSibling.textContent.trim() : window.location.href); }">Copy Link</button>
     </div>
   </div>

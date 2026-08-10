@@ -4,11 +4,12 @@
  * (Static UI Build - No Database Connection)
  */
 
-// Define Base URL dynamically or default to relative path
-$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
-$baseUrl = rtrim($scriptDir, '/');
+// Define Base URL dynamically from current SCRIPT_NAME directory
+$scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+$scriptDir = str_replace('\\', '/', dirname($scriptName));
+$baseUrl = ($scriptDir === '/' || $scriptDir === '.') ? '' : rtrim($scriptDir, '/');
 
-define('BASE_URL', $baseUrl !== '' ? $baseUrl : '/trello/public');
+define('BASE_URL', $baseUrl);
 define('APP_NAME', 'Richmondtech');
 define('APP_VERSION', '1.0.0');
 

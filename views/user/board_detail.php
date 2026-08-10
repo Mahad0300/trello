@@ -11,9 +11,6 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
       <i class="fa-solid fa-star"></i>
     </button>
     <h1 class="board-title" id="board-title-text"><?= sanitize($board['title']) ?></h1>
-    <button type="button" class="board-edit-btn" title="Edit Board" data-modal-target="edit-board-modal" data-board-name="<?= sanitize($board['title']) ?>" data-board-description="<?= sanitize($board['description'] ?? 'Core product architecture, API services, microservices, and database schemas.') ?>">
-      <i class="fa-solid fa-pen"></i>
-    </button>
   </div>
 
   <div class="gap-16 flex-row">
@@ -222,8 +219,8 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
             </td>
             <td class="cell-assignees">
               <div class="assignees-avatar-flex">
-                <img src="<?= asset('images/avatars/avatar_sarah.svg') ?>" class="table-user-avatar" title="Sarah Connor">
-                <img src="<?= asset('images/avatars/avatar_chris.svg') ?>" class="table-user-avatar table-user-avatar-overlap" title="Chris Parker">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar" title="Sarah Connor">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar table-user-avatar-overlap" title="Chris Parker">
               </div>
             </td>
             <td class="cell-priority">
@@ -267,7 +264,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
             </td>
             <td class="cell-assignees">
               <div class="assignees-avatar-flex">
-                <img src="<?= asset('images/avatars/avatar_elena.svg') ?>" class="table-user-avatar" title="Alex Johnson">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar" title="Alex Johnson">
               </div>
             </td>
             <td class="cell-priority">

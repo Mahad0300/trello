@@ -36,10 +36,10 @@ class UserController extends Controller {
         ];
 
         $activities = [
-            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg'), 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'time' => '15 mins ago'],
-            ['user' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg'), 'action' => 'created board', 'target' => 'Q4 Product Marketing Launch', 'board' => 'Product Design & Marketing', 'time' => '1 hour ago'],
-            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/avatar_alex.svg'), 'action' => 'attached file', 'target' => 'architecture_v2_diagram.pdf', 'board' => 'Sprint 24 - Core Architecture', 'time' => '3 hours ago'],
-            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/avatar_elena.svg'), 'action' => 'completed checklist in', 'target' => 'Design System Tokens & CSS Variables', 'board' => 'Design System 2.0 Tokens', 'time' => '5 hours ago'],
+            ['user' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'moved card', 'target' => 'HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'time' => '15 mins ago'],
+            ['user' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'created board', 'target' => 'Q4 Product Marketing Launch', 'board' => 'Product Design & Marketing', 'time' => '1 hour ago'],
+            ['user' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'attached file', 'target' => 'architecture_v2_diagram.pdf', 'board' => 'Sprint 24 - Core Architecture', 'time' => '3 hours ago'],
+            ['user' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'action' => 'completed checklist in', 'target' => 'Design System Tokens & CSS Variables', 'board' => 'Design System 2.0 Tokens', 'time' => '5 hours ago'],
         ];
 
         $this->view('user/dashboard', [
@@ -61,10 +61,10 @@ class UserController extends Controller {
             'background_image' => asset('images/board_cover_engineering.png'),
             'is_starred' => true,
             'members' => [
-                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg'), 'role' => 'Owner'],
-                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg'), 'role' => 'Admin'],
-                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/avatar_alex.svg'), 'role' => 'Member'],
-                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/avatar_elena.svg'), 'role' => 'Member']
+                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Owner'],
+                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Admin'],
+                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member'],
+                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member']
             ],
             'lists' => [
                 [
@@ -85,8 +85,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -102,8 +102,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -119,8 +119,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]
@@ -143,8 +143,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -160,8 +160,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -177,8 +177,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]
@@ -200,8 +200,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -216,8 +216,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]
@@ -240,8 +240,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -257,8 +257,8 @@ class UserController extends Controller {
                             'comments_count' => 12,
                             'attachments_count' => 4,
                             'assignees' => [
-                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/avatar_sarah.svg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/avatar_chris.svg')]
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]
@@ -278,7 +278,7 @@ class UserController extends Controller {
             'email' => 'chris@richmondtech.com',
             'role' => 'Senior Frontend Lead',
             'department' => 'Engineering',
-            'avatar' => asset('images/avatars/avatar_chris.svg'),
+            'avatar' => asset('images/avatars/default-image.jpg'),
             'joined' => 'March 2026',
             'status_label' => 'Active Member',
             'kicker' => 'My Profile',
@@ -297,7 +297,7 @@ class UserController extends Controller {
             [
                 'id' => 1,
                 'user' => 'Sarah Connor',
-                'avatar' => asset('images/avatars/avatar_sarah.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
                 'action' => 'mentioned you in a comment on',
                 'target' => 'HTML5 Drag & Drop Card Physics',
                 'board' => 'Sprint 24 - Core Architecture',
@@ -310,7 +310,7 @@ class UserController extends Controller {
             [
                 'id' => 2,
                 'user' => 'Alex Johnson',
-                'avatar' => asset('images/avatars/avatar_alex.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
                 'action' => 'assigned you to the card',
                 'target' => 'Define MySQL 16-Table Schema Blueprint',
                 'board' => 'Sprint 24 - Core Architecture',
@@ -323,7 +323,7 @@ class UserController extends Controller {
             [
                 'id' => 3,
                 'user' => 'Elena Rostova',
-                'avatar' => asset('images/avatars/avatar_elena.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
                 'action' => 'attached file architecture_v2.pdf to',
                 'target' => 'Card Detail Modal & Cover Banners',
                 'board' => 'Sprint 24 - Core Architecture',
@@ -336,7 +336,7 @@ class UserController extends Controller {
             [
                 'id' => 4,
                 'user' => 'System Automation',
-                'avatar' => asset('images/avatars/avatar_default.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
                 'action' => 'Card due date approaching for',
                 'target' => 'Custom Router & Controller MVC Skeleton',
                 'board' => 'Sprint 24 - Core Architecture',
@@ -349,7 +349,7 @@ class UserController extends Controller {
             [
                 'id' => 5,
                 'user' => 'Sarah Connor',
-                'avatar' => asset('images/avatars/avatar_sarah.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
                 'action' => 'moved card from Backlog to In Progress',
                 'target' => 'Design System Tokens & CSS Variables',
                 'board' => 'Design System 2.0 Tokens',
@@ -362,7 +362,7 @@ class UserController extends Controller {
             [
                 'id' => 6,
                 'user' => 'Alex Johnson',
-                'avatar' => asset('images/avatars/avatar_alex.svg'),
+                'avatar' => asset('images/avatars/default-image.jpg'),
                 'action' => 'mentioned you in a comment on',
                 'target' => 'API Endpoint Authentication & JWT Token',
                 'board' => 'API v3 Migration Roadmap',

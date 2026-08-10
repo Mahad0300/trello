@@ -1,4 +1,4 @@
-﻿/**
+/**
  * User Board Detail Page JavaScript
  * Drag & Drop, Kanban List Controls, View Switcher, Calendar, Card Modal
  */
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const newComment = document.createElement('div');
       newComment.className = 'comment-feed-item';
       newComment.innerHTML = `
-        <img src="/trello/public/assets/images/avatars/avatar_chris.svg" class="avatar" alt="User">
+        <img src="${(window.BASE_URL || '')}/assets/images/avatars/default-image.jpg" class="avatar" alt="User">
         <div class="comment-bubble-box">
           <div class="comment-header-row">
             <span>Chris Parker</span>
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetCardsStack) {
         const cardId = 'card-' + Date.now();
         const newCardHtml = `
-          <div class="kanban-card" data-card-id="${cardId}" data-cover="/trello/public/assets/images/card_cover_design.png" data-modal-target="card-detail-modal">
+          <div class="kanban-card" data-card-id="${cardId}" data-cover="${(window.BASE_URL || '')}/assets/images/card_cover_design.png" data-modal-target="card-detail-modal">
             <div class="card-title-text">${window.escapeHtml ? window.escapeHtml(title) : title}</div>
           </div>
         `;
