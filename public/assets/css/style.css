@@ -9548,7 +9548,7 @@ no page scroll */
 }
 
 /* ==========================================================================
-   ULTRA-PREMIUM MASONRY ADMIN DASHBOARD STYLES
+   ULTRA-PREMIUM MASONRY ADMIN DASHBOARD STYLES (PIXEL PERFECT)
    ========================================================================== */
 
 /* Hero Green Banner Card (Inspired by Image 5) */
@@ -9569,19 +9569,20 @@ no page scroll */
 }
 
 .hero-banner-title {
-  font-family: Syne, sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1.25;
-  color: #ffffff;
-  margin: 0 0 10px;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  color: #ffffff !important;
+  margin: 0 0 10px !important;
+  letter-spacing: -0.3px;
 }
 
 .hero-banner-subtitle {
-  font-size: 14px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 20px;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  margin: 0 0 20px !important;
 }
 
 .hero-banner-actions {
@@ -9595,9 +9596,10 @@ no page scroll */
   background: #ffffff !important;
   color: #047857 !important;
   font-weight: 700 !important;
-  padding: 10px 20px !important;
+  padding: 10px 22px !important;
   border-radius: 30px !important;
   border: none !important;
+  font-size: 13.5px !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
   transition: all 0.2s ease !important;
 }
@@ -9614,7 +9616,8 @@ no page scroll */
   font-weight: 600 !important;
   padding: 10px 20px !important;
   border-radius: 30px !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  font-size: 13.5px !important;
   backdrop-filter: blur(4px);
   transition: all 0.2s ease !important;
 }
@@ -9661,6 +9664,7 @@ no page scroll */
   padding: 24px;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.05);
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  position: relative;
 }
 
 .dash-card-box:hover {
@@ -9730,19 +9734,13 @@ no page scroll */
   background: #059669;
 }
 
-.kpi-arrow-circle-btn.sm-circle {
-  width: 28px;
-  height: 28px;
-  font-size: 12px;
-  box-shadow: none;
-}
-
 .kpi-main-val {
-  font-family: Syne, sans-serif;
-  font-size: 28px;
-  font-weight: 800;
-  color: #0F172A;
-  margin: 12px 0 8px;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  margin: 12px 0 8px !important;
+  line-height: 1 !important;
 }
 
 .kpi-footer-row {
@@ -9779,7 +9777,7 @@ no page scroll */
 }
 
 .grid-2-col {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 }
 
 .grid-2-col-60-40 {
@@ -9792,7 +9790,7 @@ no page scroll */
   }
 }
 
-/* Wavy Line Chart Header & Time Pills (Inspired by Image 1) */
+/* Wavy Line Chart Header & Time Pills */
 .chart-box-header {
   display: flex;
   justify-content: space-between;
@@ -9807,26 +9805,31 @@ no page scroll */
   color: #64748B;
 }
 
-.chart-big-amount {
-  font-family: Syne, sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: #0F172A;
-  margin: 0;
+.chart-amount-row {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 8px;
+}
+
+.chart-big-amount {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  line-height: 1 !important;
+  margin: 0;
 }
 
 .chart-unit-text {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: #94A3B8;
 }
 
 .chart-growth-subtext {
   font-size: 12.5px;
   font-weight: 600;
+  margin: 0;
 }
 
 .text-emerald { color: #10B981 !important; }
@@ -9865,12 +9868,12 @@ no page scroll */
   width: 100%;
 }
 
-/* Donut Ring Chart Box (Inspired by Image 1 Right) */
+/* Donut Ring Chart Box - PERFECT DEAD CENTER OVERLAY */
 .donut-box-title {
-  font-family: Syne, sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: #0F172A;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
   margin: 0;
 }
 
@@ -9880,30 +9883,49 @@ no page scroll */
   margin: 4px 0 0;
 }
 
+.donut-chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.donut-chart-wrapper canvas {
+  max-height: 200px !important;
+  max-width: 200px !important;
+  margin: 0 auto;
+}
+
 .donut-center-badge {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -55%);
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   pointer-events: none;
+  z-index: 5;
 }
 
 .donut-center-val {
-  font-family: Syne, sans-serif;
-  font-size: 28px;
-  font-weight: 800;
-  color: #10B981;
-  line-height: 1;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  color: #10B981 !important;
+  line-height: 1 !important;
 }
 
 .donut-center-label {
   font-size: 11.5px;
   font-weight: 600;
   color: #64748B;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 .donut-on-progress-chip {
@@ -9923,7 +9945,7 @@ no page scroll */
   margin: 0;
 }
 
-/* Arc Ring Statistics & Gauge (Inspired by Image 4) */
+/* Speedometer Gauge Info - PERFECT DEAD CENTER OVERLAY */
 .box-head-row {
   display: flex;
   justify-content: space-between;
@@ -9931,10 +9953,10 @@ no page scroll */
 }
 
 .box-head-title {
-  font-family: Syne, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #0F172A;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
   margin: 0;
 }
 
@@ -9950,10 +9972,10 @@ no page scroll */
 }
 
 .arc-ring-val {
-  font-family: Syne, sans-serif;
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
 }
 
 .arc-ring-month {
@@ -9974,23 +9996,43 @@ no page scroll */
   background: #E2E8F0;
 }
 
-/* Speedometer Gauge Info */
+/* Gauge Chart Centered Wrapper */
+.gauge-chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.gauge-chart-wrapper canvas {
+  max-height: 140px !important;
+  max-width: 280px !important;
+  margin: 0 auto;
+}
+
 .gauge-center-info {
   position: absolute;
-  bottom: 12px;
+  bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  pointer-events: none;
+  z-index: 5;
 }
 
 .gauge-val-text {
-  font-family: Syne, sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-  color: #0F172A;
-  line-height: 1;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  line-height: 1 !important;
 }
 
 .gauge-sub-text {
@@ -10052,6 +10094,15 @@ no page scroll */
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.table-user-avatar {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  flex-shrink: 0;
+  border: 1px solid #E2E8F0;
 }
 
 .table-user-name {
@@ -10133,11 +10184,12 @@ no page scroll */
 }
 
 .dash-act-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
   flex-shrink: 0;
+  border: 1px solid #E2E8F0;
 }
 
 .dash-act-title {
@@ -10198,11 +10250,11 @@ no page scroll */
 }
 
 .board-card-title {
-  font-family: Syne, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #0F172A;
-  margin: 4px 0 0;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  margin: 4px 0 0 !important;
 }
 
 .board-card-members-row {
@@ -10241,3 +10293,4 @@ no page scroll */
   font-size: 11.5px;
   color: #94A3B8;
 }
+

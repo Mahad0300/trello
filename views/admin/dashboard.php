@@ -31,7 +31,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
     </div>
   </div>
 
-  <!-- 2. KPI Metrics Grid (Masonry Boxes) -->
+  <!-- 2. KPI Metrics Grid (4 Masonry Boxes) -->
   <div class="dash-kpi-grid mb-24">
     <!-- KPI 1 -->
     <div class="dash-card-box kpi-box">
@@ -84,7 +84,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
       </div>
     </div>
 
-    <!-- KPI 4 (With Green Circular Arrow Button) -->
+    <!-- KPI 4 (With Circular Green Arrow Button) -->
     <div class="dash-card-box kpi-box">
       <div class="kpi-header-row">
         <span class="kpi-title-text">Task Velocity</span>
@@ -102,22 +102,20 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
     </div>
   </div>
 
-  <!-- 3. Charts Row 1: Dual Wavy Line Chart + Donut Ring Chart (Inspired by Image 1 & 2) -->
+  <!-- 3. Charts Row 1: Dual Wavy Line Chart + Donut Ring Chart -->
   <div class="dash-masonry-grid grid-2-col mb-24">
     
-    <!-- Left Box: Wavy Dual Line Chart (Workload Velocity) -->
+    <!-- Left Box: Wavy Dual Line Chart -->
     <div class="dash-card-box chart-main-box">
       <div class="chart-box-header">
         <div>
           <span class="chart-kicker-title">Task Velocity & Workload</span>
-          <div class="chart-amount-flex mt-4">
-            <h3 class="chart-big-amount">1,240 <span class="chart-unit-text">Completed</span></h3>
-            <div class="kpi-arrow-circle-btn sm-circle">
-              <i class="fa-solid fa-arrow-up"></i>
-            </div>
+          <div class="chart-amount-row mt-6">
+            <span class="chart-big-amount"><?= number_format((int)($stats['completed_tasks'] ?? 1240)) ?></span>
+            <span class="chart-unit-text">Completed</span>
           </div>
-          <p class="chart-growth-subtext text-emerald mt-2">
-            <i class="fa-solid fa-caret-up"></i> +18.5% completion rate than last month
+          <p class="chart-growth-subtext text-emerald mt-4">
+            <i class="fa-solid fa-arrow-trend-up mr-4"></i> +18.5% completion rate than last month
           </p>
         </div>
 
@@ -131,19 +129,20 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
 
       <!-- Chart Container -->
       <div class="chart-canvas-wrap mt-20">
-        <canvas id="adminWavyLineChart" height="250"></canvas>
+        <canvas id="adminWavyLineChart" height="240"></canvas>
       </div>
     </div>
 
-    <!-- Right Box: Progress Donut Ring (Inspired by Image 1 Right) -->
+    <!-- Right Box: Donut Ring Chart -->
     <div class="dash-card-box chart-donut-box">
-      <div class="donut-chart-header text-center">
+      <div class="donut-chart-header text-center mb-16">
         <h4 class="donut-box-title">Platform Workload Completion</h4>
         <p class="donut-box-subtitle">Real-time status across active boards</p>
       </div>
 
-      <div class="donut-canvas-container mt-16 position-relative">
-        <canvas id="adminDonutChart" height="210"></canvas>
+      <!-- Donut Chart Centered Wrapper -->
+      <div class="donut-chart-wrapper">
+        <canvas id="adminDonutChart"></canvas>
         <div class="donut-center-badge">
           <span class="donut-center-val"><?= (int)($stats['completion_rate'] ?? 84) ?>%</span>
           <span class="donut-center-label">Completed</span>
@@ -162,17 +161,17 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
 
   </div>
 
-  <!-- 4. Charts Row 2: Statistics Ring + Speedometer Active Gauge (Inspired by Image 4) -->
+  <!-- 4. Charts Row 2: Statistics Arc Rings + Speedometer Active Gauge -->
   <div class="dash-masonry-grid grid-2-col mb-24">
 
-    <!-- Left Box: Statistics Arc Rings -->
+    <!-- Left Box: User Engagement Arc Rings -->
     <div class="dash-card-box arc-stats-box">
-      <div class="box-head-row">
+      <div class="box-head-row mb-16">
         <h4 class="box-head-title">User Engagement Statistics</h4>
         <span class="badge-status-progress"><i class="fa-regular fa-chart-bar"></i> Overview</span>
       </div>
 
-      <div class="arc-rings-flex mt-20">
+      <div class="arc-rings-flex mt-16 mb-16">
         <div class="arc-ring-item">
           <div class="arc-ring-val text-emerald">96%</div>
           <div class="arc-ring-month">Active Users</div>
@@ -185,14 +184,14 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           <div class="arc-ring-desc">6 Inactive Accounts</div>
         </div>
       </div>
-      <p class="arc-footer-note mt-16 text-center text-muted font-size-12">
+      <p class="arc-footer-note text-center text-muted font-size-12 m-0">
         Active user engagement is at an all-time peak across 12 workspaces.
       </p>
     </div>
 
     <!-- Right Box: Speedometer / Active Statistics Gauge -->
     <div class="dash-card-box gauge-stats-box">
-      <div class="box-head-row">
+      <div class="box-head-row mb-12">
         <div>
           <h4 class="box-head-title">System Execution Speed</h4>
           <span class="text-muted font-size-12">Overall Workload Velocity</span>
@@ -200,8 +199,9 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <span class="badge-priority-high"><i class="fa-solid fa-bolt"></i> High Performance</span>
       </div>
 
-      <div class="gauge-canvas-wrap mt-12 position-relative text-center">
-        <canvas id="adminGaugeChart" height="150"></canvas>
+      <!-- Gauge Chart Centered Wrapper -->
+      <div class="gauge-chart-wrapper">
+        <canvas id="adminGaugeChart"></canvas>
         <div class="gauge-center-info">
           <span class="gauge-val-text">98 / 100</span>
           <span class="gauge-sub-text">Velocity Score</span>
