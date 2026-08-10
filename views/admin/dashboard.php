@@ -142,33 +142,6 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <div class="chart-canvas-wrap mt-20">
           <canvas id="adminWavyLineChart" height="260"></canvas>
         </div>
-
-        <!-- Platform Resources & Media Summary Footer Bar (3 Premium Pill Cards) -->
-        <div class="chart-footer-metrics-grid mt-24 pt-20 border-top">
-          <div class="metric-pill-chip pill-pdf">
-            <div class="pill-chip-icon"><i class="fa-solid fa-file-pdf"></i></div>
-            <div class="pill-chip-text">
-              <strong><?= (int)($stats['pdf_files'] ?? 214) ?></strong>
-              <span>PDF Documents & Specs</span>
-            </div>
-          </div>
-
-          <div class="metric-pill-chip pill-attachments">
-            <div class="pill-chip-icon"><i class="fa-solid fa-paperclip"></i></div>
-            <div class="pill-chip-text">
-              <strong><?= (int)($stats['total_files'] ?? 482) ?></strong>
-              <span>Total File Attachments</span>
-            </div>
-          </div>
-
-          <div class="metric-pill-chip pill-comments">
-            <div class="pill-chip-icon"><i class="fa-regular fa-comments"></i></div>
-            <div class="pill-chip-text">
-              <strong><?= (int)($stats['total_comments'] ?? 892) ?></strong>
-              <span>Card Discussion Comments</span>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Recent Registered Users Table Box -->
@@ -244,7 +217,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         </div>
 
         <div class="boards-masonry-grid">
-          <?php foreach (array_slice($recentBoards, 0, 3) as $b): ?>
+          <?php foreach ($recentBoards as $b): ?>
             <div class="dash-ref-board-card">
               <!-- Background Geometric Ring Shape (Top Right Only) -->
               <div class="dash-card-shape shape-bg-ring-top"></div>
@@ -349,18 +322,22 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
           </div>
         </div>
 
-        <!-- User Engagement Arc Stats -->
+        <!-- System Attachments Breakdown: Images vs PDFs -->
         <div class="arc-rings-flex mt-16 pt-16 border-top">
           <div class="arc-ring-item">
-            <div class="arc-ring-val text-emerald">96%</div>
-            <div class="arc-ring-month">Active</div>
-            <div class="arc-ring-desc">136 Users</div>
+            <div class="arc-ring-val text-indigo">
+              <i class="fa-regular fa-image font-size-20 mr-4"></i><?= (int)($stats['total_images'] ?? 48) ?>
+            </div>
+            <div class="arc-ring-month">Images</div>
+            <div class="arc-ring-desc">JPG, PNG, WebP</div>
           </div>
           <div class="arc-ring-divider"></div>
           <div class="arc-ring-item">
-            <div class="arc-ring-val text-coral">4%</div>
-            <div class="arc-ring-month">Inactive</div>
-            <div class="arc-ring-desc">6 Users</div>
+            <div class="arc-ring-val text-coral">
+              <i class="fa-regular fa-file-pdf font-size-20 mr-4"></i><?= (int)($stats['total_pdfs'] ?? 24) ?>
+            </div>
+            <div class="arc-ring-month">PDF Files</div>
+            <div class="arc-ring-desc">Documents & Specs</div>
           </div>
         </div>
       </div>

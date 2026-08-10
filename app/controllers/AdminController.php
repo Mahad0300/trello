@@ -10,11 +10,11 @@ class AdminController extends Controller {
             'active_boards' => 52,
             'active_workspaces' => 12,
             'completed_tasks' => 1240,
-            'total_files' => 482,
-            'pdf_files' => 214,
-            'total_comments' => 892,
             'completion_rate' => 84,
-            'growth_rate' => '+18.5%'
+            'growth_rate' => '+18.5%',
+            'total_images' => 48,
+            'total_pdfs' => 24,
+            'total_attachments' => 72
         ];
 
         $recentUsers = [
@@ -34,8 +34,8 @@ class AdminController extends Controller {
                 'category_color' => '#BE185D',
                 'description' => 'Design a cohesive set of onboarding illustrations that introduce key product features.',
                 'progress' => 75,
-                'attachments' => 4,
-                'comments' => 8,
+                'attachments' => 2,
+                'comments' => 1,
                 'updated' => '2 mins ago'
             ],
             [
@@ -46,8 +46,8 @@ class AdminController extends Controller {
                 'category_color' => '#0369A1',
                 'description' => 'Architecting scalable microservices, queue caching, and query optimization layers.',
                 'progress' => 85,
-                'attachments' => 6,
-                'comments' => 12,
+                'attachments' => 4,
+                'comments' => 6,
                 'updated' => '1 hour ago'
             ],
             [
@@ -58,22 +58,10 @@ class AdminController extends Controller {
                 'category_color' => '#15803D',
                 'description' => 'Execute multi-channel performance marketing for Q4 SaaS platform growth.',
                 'progress' => 60,
-                'attachments' => 5,
-                'comments' => 9,
+                'attachments' => 3,
+                'comments' => 8,
                 'updated' => '3 hours ago'
             ],
-            [
-                'id' => 4,
-                'title' => 'Design System Tokens 2.0 & Components',
-                'category' => 'Design',
-                'category_bg' => '#F3E8FF',
-                'category_color' => '#7E22CE',
-                'description' => 'Standardizing reusable web components, color tokens, and CSS variables across all modules.',
-                'progress' => 92,
-                'attachments' => 8,
-                'comments' => 15,
-                'updated' => '5 hours ago'
-            ]
         ];
 
         $activities = [

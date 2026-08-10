@@ -95,12 +95,6 @@ function initWavyLineChart() {
           cornerRadius: 10
         }
       },
-      layout: {
-        padding: {
-          bottom: 12,
-          top: 4
-        }
-      },
       scales: {
         x: {
           grid: { display: false },
