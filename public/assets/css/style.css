@@ -10659,41 +10659,100 @@ no page scroll */
 .agenda-item-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
 }
 
-/* Boards Grid Layout (3 Columns with Responsive Fallbacks) */
+.agenda-date-added {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.agenda-action-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-action-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-action-edit {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ECFDF5;
+  color: #059669;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-action-edit:hover {
+  background: #a7f3d08a;
+  color: #047857;
+  transform: scale(1.1);
+}
+
+.btn-action-delete {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FFE4E6;
+  color: #F43F5E;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-action-delete:hover {
+  background: #FECDD3;
+  color: #E11D48;
+  transform: scale(1.1);
+}
+
+/* Boards Grid Layout (Fluid Auto-Fit Grid) */
 .boards-masonry-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 16px;
-}
-
-@media (max-width: 1200px) {
-  .boards-masonry-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .boards-masonry-grid {
-    grid-template-columns: 1fr;
-  }
+  width: 100%;
 }
 
 /* User Project Hub Cards */
 .user-project-hub-card {
   background: #ffffff;
   border-radius: 18px;
-  padding: 18px;
+  padding: 16px;
   border: 1px solid #F1F5F9;
   box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 190px;
+  min-width: 0;
+  width: 100%;
 }
 
 .user-project-hub-card:hover {
@@ -10724,7 +10783,7 @@ no page scroll */
 
 .project-hub-title {
   font-family: var(--font-display) !important;
-  font-size: 15px !important;
+  font-size: 14.5px !important;
   font-weight: 700 !important;
   color: #0F172A !important;
   margin-top: 8px !important;
@@ -10752,24 +10811,33 @@ no page scroll */
 
 .project-hub-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   border-top: 1px solid #F1F5F9;
-  padding-top: 12px;
-  margin-top: 14px;
+  padding-top: 10px;
+  margin-top: 12px;
+}
+
+.project-hub-footer > span {
+  white-space: nowrap;
+  font-size: 11.5px !important;
 }
 
 .project-hub-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .project-hub-actions .btn {
-  padding: 6px 12px !important;
-  font-size: 12px !important;
+  padding: 5px 10px !important;
+  font-size: 11.5px !important;
   font-weight: 600 !important;
   border-radius: 8px !important;
+  white-space: nowrap !important;
 }
 
 /* Team Mentions & Discussions Stream */
@@ -10901,6 +10969,86 @@ no page scroll */
   border-color: rgba(255, 255, 255, 0.6) !important;
   color: #FFFFFF !important;
   transform: translateY(-2px) !important;
+}
+
+/* Team Mentions & Discussions Stream Layout */
+.user-discussions-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.discussion-item-box {
+  background: #F8FAFC;
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid #F1F5F9;
+  transition: all 0.2s ease;
+}
+
+.discussion-item-box:hover {
+  background: #ffffff;
+  border-color: #E2E8F0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.discussion-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.discussion-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.discussion-user-info .dash-act-avatar,
+.dash-act-avatar {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  flex-shrink: 0 !important;
+  border: 1.5px solid #E2E8F0;
+}
+
+.discussion-user-name-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 6px;
+  min-width: 0;
+}
+
+.discussion-user-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+.discussion-time {
+  font-size: 11.5px;
+  color: #64748B;
+  white-space: nowrap;
+}
+
+.discussion-item-top .role-dept-badge {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.discussion-text-content {
+  line-height: 1.45;
+  color: #475569;
+  font-size: 13px;
 }
 
 

@@ -218,6 +218,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const text = quickInput.value.trim();
     if (!text) return;
 
+    const todayStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
     const newItemHtml = `
       <div class="user-agenda-item">
         <label class="agenda-checkbox-label">
@@ -231,16 +233,58 @@ document.addEventListener('DOMContentLoaded', function () {
           </div>
         </div>
         <div class="agenda-item-right">
-          <span class="badge-status-pill status-active"><i class="fa-solid fa-clock mr-4"></i> Just Now</span>
-          <button type="button" class="btn-table-action" title="Open Card" data-modal-target="card-detail-modal">
-            <i class="fa-solid fa-arrow-right font-size-12"></i>
-          </button>
+          <span class="agenda-date-added text-muted font-size-12">
+            <i class="fa-regular fa-clock mr-4"></i>${todayStr}
+          </span>
+          <div class="agenda-action-btns">
+            <button type="button" class="btn-action-icon btn-action-edit agenda-edit-btn" title="Edit Note">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+            <button type="button" class="btn-action-icon btn-action-delete agenda-delete-btn" title="Delete Note">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
         </div>
       </div>
     `;
 
     agendaContainer.insertAdjacentHTML('afterbegin', newItemHtml);
     quickInput.value = '';
+  }
+
+  // Edit & Delete Agenda Note Event Delegation
+  if (agendaContainer) {
+    agendaContainer.addEventListener('click', function (e) {
+      // Edit Button Handler
+      const editBtn = e.target.closest('.agenda-edit-btn');
+      if (editBtn) {
+        const itemBox = editBtn.closest('.user-agenda-item');
+        const titleEl = itemBox ? itemBox.querySelector('.agenda-item-title') : null;
+        if (titleEl) {
+          const currentText = titleEl.innerText;
+          const newText = prompt('Edit your focus note:', currentText);
+          if (newText !== null && newText.trim() !== '') {
+            titleEl.innerText = newText.trim();
+          }
+        }
+        return;
+      }
+
+      // Delete Button Handler
+      const deleteBtn = e.target.closest('.agenda-delete-btn');
+      if (deleteBtn) {
+        const itemBox = deleteBtn.closest('.user-agenda-item');
+        if (itemBox) {
+          itemBox.style.transition = 'all 0.3s ease';
+          itemBox.style.opacity = '0';
+          itemBox.style.transform = 'translateX(20px)';
+          setTimeout(function () {
+            itemBox.remove();
+          }, 300);
+        }
+        return;
+      }
+    });
   }
 
   if (quickAddBtn) {

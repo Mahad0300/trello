@@ -38,10 +38,10 @@ class UserController extends Controller {
         ];
 
         $todayAgenda = [
-            ['id' => 201, 'title' => 'Implement HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'due' => 'Today, 5:00 PM', 'due_status' => 'due-today', 'priority' => 'High', 'completed' => false],
-            ['id' => 202, 'title' => 'Audit CSS Variable Palette for Dark Accents', 'board' => 'Design System 2.0 Tokens', 'due' => 'Overdue', 'due_status' => 'overdue', 'priority' => 'High', 'completed' => false],
-            ['id' => 203, 'title' => 'Review MySQL DDL Schema References', 'board' => 'Sprint 24 - Core Architecture', 'due' => 'Tomorrow', 'due_status' => 'upcoming', 'priority' => 'Medium', 'completed' => true],
-            ['id' => 204, 'title' => 'Create Onboarding Illustrations SVG Assets', 'board' => 'Product Design & Marketing', 'due' => 'Aug 02', 'due_status' => 'upcoming', 'priority' => 'Low', 'completed' => false],
+            ['id' => 201, 'title' => 'Implement HTML5 Drag & Drop Card Physics', 'board' => 'Sprint 24 - Core Architecture', 'created_at' => 'Aug 11, 2026', 'completed' => false],
+            ['id' => 202, 'title' => 'Audit CSS Variable Palette for Dark Accents', 'board' => 'Design System 2.0 Tokens', 'created_at' => 'Aug 10, 2026', 'completed' => false],
+            ['id' => 203, 'title' => 'Review MySQL DDL Schema References', 'board' => 'Sprint 24 - Core Architecture', 'created_at' => 'Aug 09, 2026', 'completed' => true],
+            ['id' => 204, 'title' => 'Create Onboarding Illustrations SVG Assets', 'board' => 'Product Design & Marketing', 'created_at' => 'Aug 08, 2026', 'completed' => false],
         ];
 
         $userBoards = [

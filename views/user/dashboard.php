@@ -37,15 +37,20 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
     <!-- LEFT MAIN COLUMN (65% Width) -->
     <div class="dash-masonry-col-main">
 
-      <!-- 4 Top User KPI Metrics Cards (with Distinct SVG Sparkline Waves) -->
+      <!-- 4 Top User KPI Metrics Cards (with 4 Unique Custom SVG Graphics) -->
       <div class="dash-kpi-grid mb-24">
-        <!-- KPI 1: Active Boards -->
+        <!-- KPI 1: Active Projects (Connected Workspace Project Nodes) -->
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Active Projects</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 36 C 18 12, 30 38, 44 16 C 56 2, 66 34, 78 18 C 85 8, 89 16, 92 8" stroke="#0D9488" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <svg width="85" height="40" viewBox="0 0 85 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 10 24 L 30 8 L 50 28 L 74 10" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="10" cy="24" r="3.5" fill="#14B8A6"/>
+                <circle cx="30" cy="8" r="4" fill="#0D9488"/>
+                <circle cx="50" cy="28" r="3.5" fill="#14B8A6"/>
+                <circle cx="74" cy="10" r="4.5" fill="#0D9488"/>
+                <circle cx="74" cy="10" r="7.5" fill="#0D9488" fill-opacity="0.25"/>
               </svg>
             </div>
           </div>
@@ -58,13 +63,17 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           </div>
         </div>
 
-        <!-- KPI 2: Assigned Tasks -->
+        <!-- KPI 2: Assigned Focus (5 Rising Velocity Pillar Columns) -->
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Assigned Focus</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 34 C 16 18, 26 38, 40 18 C 52 4, 64 32, 76 16 C 84 6, 88 12, 92 6" stroke="#6366F1" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="24" width="8" height="12" rx="4" fill="#818CF8" fill-opacity="0.4"/>
+                <rect x="18" y="16" width="8" height="20" rx="4" fill="#6366F1" fill-opacity="0.6"/>
+                <rect x="32" y="10" width="8" height="26" rx="4" fill="#6366F1" fill-opacity="0.8"/>
+                <rect x="46" y="20" width="8" height="16" rx="4" fill="#818CF8" fill-opacity="0.5"/>
+                <rect x="60" y="4" width="8" height="32" rx="4" fill="#4F46E5"/>
               </svg>
             </div>
           </div>
@@ -77,13 +86,15 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           </div>
         </div>
 
-        <!-- KPI 3: Tasks Completed -->
+        <!-- KPI 3: Tasks Completed (Radial Completion Arc Segment) -->
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Tasks Completed</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 32 C 14 10, 24 38, 38 12 C 48 38, 62 6, 74 28 C 82 14, 88 8, 92 5" stroke="#10B981" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="38" r="28" stroke="#E2E8F0" stroke-width="5" fill="none"/>
+                <path d="M 12 38 A 28 28 0 0 1 65 24" stroke="#10B981" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <circle cx="65" cy="24" r="4" fill="#10B981"/>
               </svg>
             </div>
           </div>
@@ -96,13 +107,15 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           </div>
         </div>
 
-        <!-- KPI 4: Due Soon -->
+        <!-- KPI 4: Due Soon (Stepped Deadline Staircase Path) -->
         <div class="dash-card-box kpi-box">
           <div class="kpi-header-row">
             <span class="kpi-title-text">Due Soon</span>
             <div class="kpi-sparkline-wrap">
-              <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 38 C 18 22, 28 8, 40 24 C 52 40, 64 12, 76 18 C 84 22, 88 10, 92 4" stroke="#EF4444" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <svg width="85" height="40" viewBox="0 0 85 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 4 34 H 22 V 24 H 42 V 14 H 62 V 6 H 78" stroke="#EF4444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="78" cy="6" r="4.5" fill="#EF4444"/>
+                <circle cx="78" cy="6" r="8" fill="#EF4444" fill-opacity="0.25"/>
               </svg>
             </div>
           </div>
@@ -171,16 +184,17 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
               </div>
 
               <div class="agenda-item-right">
-                <?php if ($item['due_status'] === 'overdue'): ?>
-                  <span class="badge-status-pill status-inactive"><i class="fa-solid fa-clock mr-4"></i> Overdue</span>
-                <?php elseif ($item['due_status'] === 'due-today'): ?>
-                  <span class="badge-status-pill status-active"><i class="fa-solid fa-clock mr-4"></i> Due Today</span>
-                <?php else: ?>
-                  <span class="badge-trend"><i class="fa-regular fa-calendar mr-4"></i> <?= sanitize($item['due']) ?></span>
-                <?php endif; ?>
-                <button type="button" class="btn-table-action" title="Open Card" data-modal-target="card-detail-modal">
-                  <i class="fa-solid fa-arrow-right font-size-12"></i>
-                </button>
+                <span class="agenda-date-added text-muted font-size-12">
+                  <i class="fa-regular fa-clock mr-4"></i><?= sanitize($item['created_at'] ?? 'Aug 11, 2026') ?>
+                </span>
+                <div class="agenda-action-btns">
+                  <button type="button" class="btn-action-icon btn-action-edit agenda-edit-btn" title="Edit Note">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                  </button>
+                  <button type="button" class="btn-action-icon btn-action-delete agenda-delete-btn" title="Delete Note">
+                    <i class="fa-regular fa-trash-can"></i>
+                  </button>
+                </div>
               </div>
             </div>
           <?php endforeach; ?>
@@ -286,12 +300,12 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
         <div class="user-discussions-stream">
           <?php foreach ($userComments as $com): ?>
             <div class="discussion-item-box mb-12">
-              <div class="discussion-item-top">
+              <div class="discussion-item-top mb-8">
                 <div class="discussion-user-info">
                   <img src="<?= sanitize($com['avatar']) ?>" class="dash-act-avatar" alt="User">
-                  <div>
-                    <strong class="font-size-13"><?= sanitize($com['user']) ?></strong>
-                    <span class="discussion-time ml-6 font-size-11 text-muted">• <?= sanitize($com['time']) ?></span>
+                  <div class="discussion-user-name-wrap">
+                    <span class="discussion-user-name"><?= sanitize($com['user']) ?></span>
+                    <span class="discussion-time">• <?= sanitize($com['time']) ?></span>
                   </div>
                 </div>
                 <span class="role-dept-badge font-size-10"><?= sanitize($com['board']) ?></span>
