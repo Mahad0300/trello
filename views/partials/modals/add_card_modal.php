@@ -11,10 +11,18 @@
       <div class="form-group">
         <label>Select List Column</label>
         <select id="add-card-list-select" class="form-control">
-          <option>Backlog</option>
+          <option>To-Do</option>
           <option selected>In Progress</option>
-          <option>Review & QA</option>
+          <option>Review</option>
           <option>Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Priority Level</label>
+        <select id="add-card-priority-select" class="form-control">
+          <option value="Low Priority" selected>Low Priority</option>
+          <option value="Medium Priority">Medium Priority</option>
+          <option value="High Priority">High Priority / Urgent</option>
         </select>
       </div>
       <div class="form-group">

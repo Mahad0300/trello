@@ -55,18 +55,24 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <div class="workspace-card-footer">
           <div class="workspace-meta-stats">
             <span><i class="fa-solid fa-users text-primary mr-4"></i> <?= $ws['members_count'] ?> Members</span>
-            <span>•</span>
+            <span class="mx-2">•</span>
             <span><i class="fa-solid fa-table-columns text-warning mr-4"></i> <?= $ws['boards_count'] ?> Boards</span>
           </div>
-          <button type="button" class="btn btn-sm users-hub-btn-edit" data-modal-target="manage-workspace-members-modal" onclick="document.getElementById('workspace-name-manage-display').textContent = '<?= sanitize($ws['name']) ?>'; window.openModal('manage-workspace-members-modal', this);">
-            Manage Members
-          </button>
+          <div class="workspace-card-actions">
+            <button type="button" class="ws-btn-edit" data-modal-target="edit-workspace-modal" onclick="document.getElementById('edit-workspace-name').value = '<?= sanitize($ws['name']) ?>'; document.getElementById('edit-workspace-desc').value = '<?= sanitize($ws['description']) ?>'; window.openModal('edit-workspace-modal', this);">
+              <i class="fa-solid fa-pen mr-4"></i> Edit
+            </button>
+            <button type="button" class="ws-btn-members" data-modal-target="manage-workspace-members-modal" onclick="document.getElementById('workspace-name-manage-display').textContent = '<?= sanitize($ws['name']) ?>'; window.openModal('manage-workspace-members-modal', this);">
+              <i class="fa-solid fa-users-gear mr-4"></i> Members
+            </button>
+          </div>
         </div>
       </div>
     <?php endforeach; ?>
   </div>
 </div>
 
+<?php require_once VIEWS_PATH . '/partials/modals/edit_workspace_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/manage_workspace_members_modal.php'; ?>
 
 <?php require_once VIEWS_PATH . '/layouts/admin/footer.php'; ?>

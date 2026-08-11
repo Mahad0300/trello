@@ -48,14 +48,14 @@
 
           <button type="button" class="attach-grid-card" data-type="images" data-name="wireframe-preview.png" title="wireframe-preview.png">
             <div class="attach-grid-thumb">
-              <img src="<?= asset('images/card_cover_architecture.png') ?>" alt="wireframe">
+              <img src="<?= asset('images/covers/card_cover_architecture.png') ?>" alt="wireframe">
             </div>
             <span class="attach-grid-remove" title="Remove" onclick="event.stopPropagation(); removeCardAttachment(this);"><i class="fa-solid fa-xmark"></i></span>
           </button>
 
           <button type="button" class="attach-grid-card" data-type="images" data-name="ui-mockup.jpg" title="ui-mockup.jpg">
             <div class="attach-grid-thumb">
-              <img src="<?= asset('images/card_cover_dragdrop.png') ?>" alt="mockup">
+              <img src="<?= asset('images/covers/card_cover_dragdrop.png') ?>" alt="mockup">
             </div>
             <span class="attach-grid-remove" title="Remove" onclick="event.stopPropagation(); removeCardAttachment(this);"><i class="fa-solid fa-xmark"></i></span>
           </button>
@@ -69,28 +69,28 @@
 
           <button type="button" class="attach-grid-card" data-type="images" data-name="board-cover.png" title="board-cover.png">
             <div class="attach-grid-thumb">
-              <img src="<?= asset('images/board_cover_engineering.png') ?>" alt="cover">
+              <img src="<?= asset('images/covers/board_cover_engineering.png') ?>" alt="cover">
             </div>
             <span class="attach-grid-remove" title="Remove" onclick="event.stopPropagation(); removeCardAttachment(this);"><i class="fa-solid fa-xmark"></i></span>
           </button>
 
           <button type="button" class="attach-grid-card" data-type="images" data-name="nature-1.jpg" title="nature-1.jpg">
             <div class="attach-grid-thumb">
-              <img src="<?= asset('images/images.png') ?>" alt="nature">
+              <img src="<?= asset('images/covers/board_cover_triage.png') ?>" alt="nature">
             </div>
             <span class="attach-grid-remove" title="Remove" onclick="event.stopPropagation(); removeCardAttachment(this);"><i class="fa-solid fa-xmark"></i></span>
           </button>
 
           <button type="button" class="attach-grid-card" data-type="images" data-name="nature-2.jpg" title="nature-2.jpg">
             <div class="attach-grid-thumb">
-              <img src="<?= asset('images/images1.png') ?>" alt="nature">
+              <img src="<?= asset('images/covers/board_cover_roadmap.png') ?>" alt="nature">
             </div>
             <span class="attach-grid-remove" title="Remove" onclick="event.stopPropagation(); removeCardAttachment(this);"><i class="fa-solid fa-xmark"></i></span>
           </button>
 
           <button type="button" class="attach-grid-card" data-type="images" data-name="nature-3.jpg" title="nature-3.jpg">
             <div class="attach-grid-thumb">
-              <img src="<?= asset('images/board_cover_design.png') ?>" alt="nature">
+              <img src="<?= asset('images/covers/board_cover_design.png') ?>" alt="nature">
             </div>
             <span class="attach-grid-remove" title="Remove" onclick="event.stopPropagation(); removeCardAttachment(this);"><i class="fa-solid fa-xmark"></i></span>
           </button>

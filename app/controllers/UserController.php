@@ -7,17 +7,17 @@ class UserController extends Controller {
                 'name' => 'Engineering Team',
                 'description' => 'Core product architecture, API services, and microservices.',
                 'boards' => [
-                    ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'color' => '#4f46e5', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
-                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'color' => '#0284c7', 'cover_image' => asset('images/images.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
-                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'color' => '#d97706', 'cover_image' => asset('images/images1.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
+                    ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'color' => '#4f46e5', 'cover_image' => asset('images/covers/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
+                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'color' => '#0284c7', 'cover_image' => asset('images/covers/board_cover_triage.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
+                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'color' => '#d97706', 'cover_image' => asset('images/covers/board_cover_roadmap.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
                 ]
             ],
             [
                 'name' => 'Product Design & Marketing',
                 'description' => 'UI/UX design system, brand assets, and growth experiments.',
                 'boards' => [
-                    ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'color' => '#059669', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
-                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'color' => '#7c3aed', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
+                    ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'color' => '#059669', 'cover_image' => asset('images/covers/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
+                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'color' => '#7c3aed', 'cover_image' => asset('images/covers/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
                 ]
             ]
         ];
@@ -106,7 +106,7 @@ class UserController extends Controller {
             'description' => 'Core product architecture, API services, microservices, and database schemas.',
             'workspace' => 'Engineering Team',
             'color' => '#4f46e5',
-            'background_image' => asset('images/board_cover_engineering.png'),
+            'background_image' => asset('images/covers/board_cover_engineering.png'),
             'is_starred' => true,
             'members' => [
                 ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Owner'],
@@ -141,7 +141,7 @@ class UserController extends Controller {
                             'id' => 'card-2',
                             'title' => 'Develop API for User Profiles',
                             'description' => 'Integrate Third-Party API Services',
-                            'cover_image' => asset('images/card_cover_architecture.png'),
+                            'cover_image' => asset('images/covers/card_cover_architecture.png'),
                             'labels' => [
                                 ['name' => 'Low Priority', 'bg' => '#F3E8FF', 'color' => '#9333EA'],
                                 ['name' => 'In Progress', 'bg' => '#FFEDD5', 'color' => '#EA580C']
@@ -240,7 +240,7 @@ class UserController extends Controller {
                             'id' => 'card-7',
                             'title' => 'Deploy API to Production Environment',
                             'description' => 'Build API for Notifications System',
-                            'cover_image' => asset('images/card_cover_dragdrop.png'),
+                            'cover_image' => asset('images/covers/card_cover_dragdrop.png'),
                             'labels' => [
                                 ['name' => 'In Progress', 'bg' => '#FFEDD5', 'color' => '#EA580C']
                             ],
@@ -434,7 +434,7 @@ class UserController extends Controller {
                 'id' => 1,
                 'title' => 'Sprint 24 - Core Architecture',
                 'workspace' => 'Engineering Team',
-                'cover_image' => asset('images/board_cover_engineering.png'),
+                'cover_image' => asset('images/covers/board_cover_engineering.png'),
                 'cards_count' => 18,
                 'members_count' => 6,
                 'is_starred' => true,
@@ -444,7 +444,7 @@ class UserController extends Controller {
                 'id' => 3,
                 'title' => 'API v3 Migration Roadmap',
                 'workspace' => 'Engineering Team',
-                'cover_image' => asset('images/images1.png'),
+                'cover_image' => asset('images/covers/board_cover_roadmap.png'),
                 'cards_count' => 9,
                 'members_count' => 5,
                 'is_starred' => true,
@@ -454,7 +454,7 @@ class UserController extends Controller {
                 'id' => 4,
                 'title' => 'Design System 2.0 Tokens',
                 'workspace' => 'Product Design & Marketing',
-                'cover_image' => asset('images/board_cover_design.png'),
+                'cover_image' => asset('images/covers/board_cover_design.png'),
                 'cards_count' => 22,
                 'members_count' => 8,
                 'is_starred' => true,
@@ -467,7 +467,7 @@ class UserController extends Controller {
                 'id' => 1,
                 'title' => 'Sprint 24 - Core Architecture',
                 'workspace' => 'Engineering Team',
-                'cover_image' => asset('images/board_cover_engineering.png'),
+                'cover_image' => asset('images/covers/board_cover_engineering.png'),
                 'cards_count' => 18,
                 'members_count' => 6,
                 'is_starred' => true
@@ -476,7 +476,7 @@ class UserController extends Controller {
                 'id' => 2,
                 'title' => 'Bug Triage & Hotfixes',
                 'workspace' => 'Engineering Team',
-                'cover_image' => asset('images/images.png'),
+                'cover_image' => asset('images/covers/board_cover_triage.png'),
                 'cards_count' => 12,
                 'members_count' => 4,
                 'is_starred' => false
@@ -485,7 +485,7 @@ class UserController extends Controller {
                 'id' => 5,
                 'title' => 'Q4 Product Marketing Launch',
                 'workspace' => 'Product Design & Marketing',
-                'cover_image' => asset('images/board_cover_design.png'),
+                'cover_image' => asset('images/covers/board_cover_design.png'),
                 'cards_count' => 14,
                 'members_count' => 3,
                 'is_starred' => false
@@ -502,10 +502,10 @@ class UserController extends Controller {
                 'members_count' => 8,
                 'description' => 'Core product architecture, API services, microservices, and database schemas.',
                 'boards' => [
-                    ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
-                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'cover_image' => asset('images/images.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
-                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'cover_image' => asset('images/images1.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
-                    ['id' => 6, 'title' => 'DevOps & CI/CD Pipelines', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => false, 'cards_count' => 7, 'members_count' => 3],
+                    ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'cover_image' => asset('images/covers/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
+                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'cover_image' => asset('images/covers/board_cover_triage.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
+                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'cover_image' => asset('images/covers/board_cover_roadmap.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
+                    ['id' => 6, 'title' => 'DevOps & CI/CD Pipelines', 'cover_image' => asset('images/covers/board_cover_engineering.png'), 'starred' => false, 'cards_count' => 7, 'members_count' => 3],
                 ]
             ],
             [
@@ -517,9 +517,9 @@ class UserController extends Controller {
                 'members_count' => 12,
                 'description' => 'UI/UX design system tokens, brand identity, landing page, and growth campaigns.',
                 'boards' => [
-                    ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
-                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
-                    ['id' => 7, 'title' => 'User Feedback & Usability Tests', 'cover_image' => asset('images/card_cover_architecture.png'), 'starred' => false, 'cards_count' => 11, 'members_count' => 5],
+                    ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'cover_image' => asset('images/covers/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
+                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'cover_image' => asset('images/covers/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
+                    ['id' => 7, 'title' => 'User Feedback & Usability Tests', 'cover_image' => asset('images/covers/card_cover_architecture.png'), 'starred' => false, 'cards_count' => 11, 'members_count' => 5],
                 ]
             ]
         ];

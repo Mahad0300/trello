@@ -17,6 +17,7 @@ Router::get('admin/boards', 'AdminController@boards');
 Router::get('admin/board-detail', 'AdminController@boardDetail');
 Router::get('admin/board', 'AdminController@boardDetail');
 Router::get('admin/notifications', 'AdminController@notifications');
+Router::get('admin/activity-log', 'AdminController@activityLog');
 Router::get('admin/profile', 'AdminController@profile');
 
 // User Routes

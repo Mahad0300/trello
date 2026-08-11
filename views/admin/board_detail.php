@@ -90,7 +90,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
         <!-- Draggable Cards Container -->
         <div class="list-cards list-cards-stack">
           <?php foreach ($list['cards'] as $card): ?>
-            <div class="kanban-card" data-card-id="<?= $card['id'] ?>" data-cover="<?= !empty($card['cover_image']) ? $card['cover_image'] : asset('images/card_cover_design.png') ?>" data-modal-target="card-detail-modal">
+            <div class="kanban-card" data-card-id="<?= $card['id'] ?>" data-cover="<?= !empty($card['cover_image']) ? $card['cover_image'] : asset('images/covers/card_cover_design.png') ?>" data-modal-target="card-detail-modal">
               <!-- Cover Image -->
               <?php if (!empty($card['cover_image'])): ?>
                 <div class="card-cover-img-box">

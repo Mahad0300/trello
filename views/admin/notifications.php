@@ -65,7 +65,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
     <!-- Empty state (shown when no notifications) -->
     <div class="notif-empty-state is-hidden" id="notif-empty-state" aria-live="polite">
       <div class="notif-empty-icon">
-        <img src="<?= asset('images/notification.png') ?>" alt="No notifications" class="notif-empty-img">
+        <img src="<?= asset('images/empty-states/notification.png') ?>" alt="No notifications" class="notif-empty-img">
       </div>
       <h3 class="notif-empty-title">No notifications yet</h3>
       <p class="notif-empty-subtext">When a system event, security alert, or user activity comes in — it will show up here.</p>

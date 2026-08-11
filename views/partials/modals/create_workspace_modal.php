@@ -16,14 +16,6 @@
         <textarea class="form-control no-resize" rows="3" placeholder="Briefly describe what this workspace is about..."></textarea>
       </div>
 
-      <div class="form-group">
-        <label>Visibility</label>
-        <select class="form-control">
-          <option value="Private">Private - Only invited members</option>
-          <option value="Public">Public - Anyone in organization</option>
-        </select>
-      </div>
-
       <div class="modal-footer-actions">
         <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
         <button type="submit" class="btn btn-primary">Create Workspace</button>

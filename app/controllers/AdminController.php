@@ -182,7 +182,7 @@ class AdminController extends Controller {
                 'id' => 1,
                 'title' => 'Sprint 24 - Core Architecture',
                 'workspace' => 'Engineering Team',
-                'cover_image' => asset('images/board_cover_engineering.png'),
+                'cover_image' => asset('images/covers/board_cover_engineering.png'),
                 'cards_count' => 18,
                 'members_count' => 6,
                 'is_starred' => true
@@ -191,7 +191,7 @@ class AdminController extends Controller {
                 'id' => 3,
                 'title' => 'API v3 Migration Roadmap',
                 'workspace' => 'Engineering Team',
-                'cover_image' => asset('images/images1.png'),
+                'cover_image' => asset('images/covers/board_cover_roadmap.png'),
                 'cards_count' => 9,
                 'members_count' => 5,
                 'is_starred' => true
@@ -200,7 +200,7 @@ class AdminController extends Controller {
                 'id' => 4,
                 'title' => 'Design System 2.0 Tokens',
                 'workspace' => 'Product Design & Marketing',
-                'cover_image' => asset('images/board_cover_design.png'),
+                'cover_image' => asset('images/covers/board_cover_design.png'),
                 'cards_count' => 22,
                 'members_count' => 8,
                 'is_starred' => true
@@ -212,7 +212,7 @@ class AdminController extends Controller {
                 'id' => 1,
                 'title' => 'Sprint 24 - Core Architecture',
                 'workspace' => 'Engineering Team',
-                'cover_image' => asset('images/board_cover_engineering.png'),
+                'cover_image' => asset('images/covers/board_cover_engineering.png'),
                 'cards_count' => 18,
                 'members_count' => 6,
                 'is_starred' => true
@@ -221,7 +221,7 @@ class AdminController extends Controller {
                 'id' => 2,
                 'title' => 'Bug Triage & Hotfixes',
                 'workspace' => 'Engineering Team',
-                'cover_image' => asset('images/images.png'),
+                'cover_image' => asset('images/covers/board_cover_triage.png'),
                 'cards_count' => 12,
                 'members_count' => 4,
                 'is_starred' => false
@@ -230,7 +230,7 @@ class AdminController extends Controller {
                 'id' => 5,
                 'title' => 'Q4 Product Marketing Launch',
                 'workspace' => 'Product Design & Marketing',
-                'cover_image' => asset('images/board_cover_design.png'),
+                'cover_image' => asset('images/covers/board_cover_design.png'),
                 'cards_count' => 14,
                 'members_count' => 3,
                 'is_starred' => false
@@ -247,10 +247,10 @@ class AdminController extends Controller {
                 'members_count' => 8,
                 'description' => 'Core product architecture, API services, microservices, and database schemas.',
                 'boards' => [
-                    ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
-                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'cover_image' => asset('images/images.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
-                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'cover_image' => asset('images/images1.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
-                    ['id' => 6, 'title' => 'DevOps & CI/CD Pipelines', 'cover_image' => asset('images/board_cover_engineering.png'), 'starred' => false, 'cards_count' => 7, 'members_count' => 3],
+                    ['id' => 1, 'title' => 'Sprint 24 - Core Architecture', 'cover_image' => asset('images/covers/board_cover_engineering.png'), 'starred' => true, 'cards_count' => 18, 'members_count' => 6],
+                    ['id' => 2, 'title' => 'Bug Triage & Hotfixes', 'cover_image' => asset('images/covers/board_cover_triage.png'), 'starred' => false, 'cards_count' => 12, 'members_count' => 4],
+                    ['id' => 3, 'title' => 'API v3 Migration Roadmap', 'cover_image' => asset('images/covers/board_cover_roadmap.png'), 'starred' => true, 'cards_count' => 9, 'members_count' => 5],
+                    ['id' => 6, 'title' => 'DevOps & CI/CD Pipelines', 'cover_image' => asset('images/covers/board_cover_engineering.png'), 'starred' => false, 'cards_count' => 7, 'members_count' => 3],
                 ]
             ],
             [
@@ -262,9 +262,9 @@ class AdminController extends Controller {
                 'members_count' => 12,
                 'description' => 'UI/UX design system tokens, brand identity, landing page, and growth campaigns.',
                 'boards' => [
-                    ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
-                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'cover_image' => asset('images/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
-                    ['id' => 7, 'title' => 'User Feedback & Usability Tests', 'cover_image' => asset('images/card_cover_architecture.png'), 'starred' => false, 'cards_count' => 11, 'members_count' => 5],
+                    ['id' => 4, 'title' => 'Design System 2.0 Tokens', 'cover_image' => asset('images/covers/board_cover_design.png'), 'starred' => true, 'cards_count' => 22, 'members_count' => 8],
+                    ['id' => 5, 'title' => 'Q4 Product Marketing Launch', 'cover_image' => asset('images/covers/board_cover_design.png'), 'starred' => false, 'cards_count' => 14, 'members_count' => 3],
+                    ['id' => 7, 'title' => 'User Feedback & Usability Tests', 'cover_image' => asset('images/covers/card_cover_architecture.png'), 'starred' => false, 'cards_count' => 11, 'members_count' => 5],
                 ]
             ]
         ];
@@ -434,7 +434,7 @@ class AdminController extends Controller {
             'description' => 'Core product architecture, API services, microservices, and database schemas.',
             'workspace' => 'Engineering Team',
             'color' => '#4f46e5',
-            'background_image' => asset('images/board_cover_engineering.png'),
+            'background_image' => asset('images/covers/board_cover_engineering.png'),
             'is_starred' => true,
             'members' => [
                 ['id' => 2, 'name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Owner'],
@@ -469,7 +469,7 @@ class AdminController extends Controller {
                             'id' => 'card-2',
                             'title' => 'Develop API for User Profiles',
                             'description' => 'Integrate Third-Party API Services',
-                            'cover_image' => asset('images/card_cover_architecture.png'),
+                            'cover_image' => asset('images/covers/card_cover_architecture.png'),
                             'labels' => [
                                 ['name' => 'Low Priority', 'bg' => '#F3E8FF', 'color' => '#9333EA'],
                                 ['name' => 'In Progress', 'bg' => '#FFEDD5', 'color' => '#EA580C']
@@ -493,7 +493,7 @@ class AdminController extends Controller {
                             'id' => 'card-4',
                             'title' => 'Design System Tokens & Variables',
                             'description' => 'Build reusable component primitives',
-                            'cover_image' => asset('images/card_cover_architecture.png'),
+                            'cover_image' => asset('images/covers/card_cover_architecture.png'),
                             'labels' => [
                                 ['name' => 'Feature', 'bg' => '#E0F2FE', 'color' => '#0284C7']
                             ],
@@ -534,6 +534,572 @@ class AdminController extends Controller {
         $this->view('admin/board_detail', [
             'pageTitle' => 'Sprint 24 Architecture - Admin Panel',
             'board' => $board
+        ]);
+    }
+
+    public function activityLog() {
+        $stats = [
+            'total_events' => 1284,
+            'admin_actions' => 42,
+            'active_users' => 18,
+            'critical_alerts' => 3
+        ];
+
+        $logs = [
+            [
+                'id' => 'LOG-8942',
+                'user' => [
+                    'name' => 'Sarah Connor',
+                    'email' => 'sarah@richmondtech.com',
+                    'role' => 'Product Designer',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Card Moved',
+                    'icon' => 'fa-solid fa-arrows-left-right',
+                    'badge_class' => 'badge-action-blue',
+                    'category' => 'cards'
+                ],
+                'target_item' => 'HTML5 Drag & Drop Card Physics',
+                'workspace' => 'Engineering Team',
+                'board' => 'Sprint 24 Architecture',
+                'ip_address' => '192.168.1.45',
+                'device' => 'Chrome / Windows 11',
+                'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-11 17:42:10',
+                'time_ago' => '10 mins ago',
+                'severity' => [
+                    'label' => 'Info',
+                    'class' => 'severity-info'
+                ],
+                'details' => [
+                    'from_list' => 'To-Do',
+                    'to_list' => 'In Progress',
+                    'card_id' => 'card-101',
+                    'user_id' => 1
+                ]
+            ],
+            [
+                'id' => 'LOG-8941',
+                'user' => [
+                    'name' => 'Chris Parker',
+                    'email' => 'chris@richmondtech.com',
+                    'role' => 'Senior Frontend Lead',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Board Created',
+                    'icon' => 'fa-solid fa-plus',
+                    'badge_class' => 'badge-action-green',
+                    'category' => 'boards'
+                ],
+                'target_item' => 'Q4 Product Marketing Launch',
+                'workspace' => 'Product Design & Marketing',
+                'board' => 'Q4 Marketing Launch',
+                'ip_address' => '192.168.1.18',
+                'device' => 'Safari / macOS',
+                'location' => 'Karachi, PK',
+                'timestamp' => '2026-08-11 16:30:00',
+                'time_ago' => '1 hour ago',
+                'severity' => [
+                    'label' => 'Info',
+                    'class' => 'severity-info'
+                ],
+                'details' => [
+                    'board_color' => '#7c3aed',
+                    'visibility' => 'Workspace Visible',
+                    'user_id' => 2
+                ]
+            ],
+            [
+                'id' => 'LOG-8940',
+                'user' => [
+                    'name' => 'Alex Johnson',
+                    'email' => 'alex@richmondtech.com',
+                    'role' => 'Backend Lead',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'File Attached',
+                    'icon' => 'fa-solid fa-paperclip',
+                    'badge_class' => 'badge-action-purple',
+                    'category' => 'cards'
+                ],
+                'target_item' => 'architecture_v2_diagram.pdf',
+                'workspace' => 'Engineering Team',
+                'board' => 'Sprint 24 Architecture',
+                'ip_address' => '10.0.0.12',
+                'device' => 'Firefox / Linux',
+                'location' => 'Islamabad, PK',
+                'timestamp' => '2026-08-11 14:15:22',
+                'time_ago' => '3 hours ago',
+                'severity' => [
+                    'label' => 'Info',
+                    'class' => 'severity-info'
+                ],
+                'details' => [
+                    'file_size' => '2.4 MB',
+                    'mime_type' => 'application/pdf',
+                    'card_id' => 'card-104'
+                ]
+            ],
+            [
+                'id' => 'LOG-8939',
+                'user' => [
+                    'name' => 'Admin System',
+                    'email' => 'admin@richmondtech.com',
+                    'role' => 'Super Admin',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Role Updated',
+                    'icon' => 'fa-solid fa-user-shield',
+                    'badge_class' => 'badge-action-amber',
+                    'category' => 'security'
+                ],
+                'target_item' => 'Elena Rostova (Member -> QA Lead)',
+                'workspace' => 'System Wide',
+                'board' => 'Admin Panel',
+                'ip_address' => '192.168.1.1',
+                'device' => 'Chrome / Windows 11',
+                'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-11 12:00:00',
+                'time_ago' => '5 hours ago',
+                'severity' => [
+                    'label' => 'Warning',
+                    'class' => 'severity-warning'
+                ],
+                'details' => [
+                    'old_role' => 'Member',
+                    'new_role' => 'QA Specialist Lead',
+                    'affected_user_id' => 4
+                ]
+            ],
+            [
+                'id' => 'LOG-8938',
+                'user' => [
+                    'name' => 'Elena Rostova',
+                    'email' => 'elena@richmondtech.com',
+                    'role' => 'QA Specialist',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Checklist Done',
+                    'icon' => 'fa-solid fa-square-check',
+                    'badge_class' => 'badge-action-green',
+                    'category' => 'cards'
+                ],
+                'target_item' => 'Audit CSS Variable Palette for Dark Accents',
+                'workspace' => 'Product Design & Marketing',
+                'board' => 'Design System 2.0 Tokens',
+                'ip_address' => '192.168.1.99',
+                'device' => 'Chrome / Windows 10',
+                'location' => 'Rawalpindi, PK',
+                'timestamp' => '2026-08-11 10:45:12',
+                'time_ago' => '7 hours ago',
+                'severity' => [
+                    'label' => 'Info',
+                    'class' => 'severity-info'
+                ],
+                'details' => [
+                    'checklist_items_done' => 5,
+                    'total_checklist_items' => 5,
+                    'card_id' => 'card-102'
+                ]
+            ],
+            [
+                'id' => 'LOG-8937',
+                'user' => [
+                    'name' => 'David Chen',
+                    'email' => 'david@richmondtech.com',
+                    'role' => 'Growth Marketer',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Failed Login',
+                    'icon' => 'fa-solid fa-triangle-exclamation',
+                    'badge_class' => 'badge-action-red',
+                    'category' => 'security'
+                ],
+                'target_item' => 'Invalid Auth Password (3 Failed Attempts)',
+                'workspace' => 'Authentication',
+                'board' => 'System Auth Gateway',
+                'ip_address' => '203.135.42.10',
+                'device' => 'Edge / Windows 11',
+                'location' => 'Faisalabad, PK',
+                'timestamp' => '2026-08-11 08:30:15',
+                'time_ago' => '9 hours ago',
+                'severity' => [
+                    'label' => 'Critical',
+                    'class' => 'severity-critical'
+                ],
+                'details' => [
+                    'failed_attempts' => 3,
+                    'lockout_status' => 'Temporary 15 min lock',
+                    'account_email' => 'david@richmondtech.com'
+                ]
+            ],
+            [
+                'id' => 'LOG-8936',
+                'user' => [
+                    'name' => 'Sarah Connor',
+                    'email' => 'sarah@richmondtech.com',
+                    'role' => 'Product Designer',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Card Deleted',
+                    'icon' => 'fa-solid fa-trash-can',
+                    'badge_class' => 'badge-action-rose',
+                    'category' => 'cards'
+                ],
+                'target_item' => 'Deprecated IE11 Polyfills Task',
+                'workspace' => 'Engineering Team',
+                'board' => 'Bug Triage & Hotfixes',
+                'ip_address' => '192.168.1.45',
+                'device' => 'Chrome / Windows 11',
+                'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-10 22:15:00',
+                'time_ago' => 'Yesterday',
+                'severity' => [
+                    'label' => 'Warning',
+                    'class' => 'severity-warning'
+                ],
+                'details' => [
+                    'card_title' => 'Deprecated IE11 Polyfills Task',
+                    'list_name' => 'Archived Items',
+                    'deleted_by' => 'Sarah Connor'
+                ]
+            ],
+            [
+                'id' => 'LOG-8935',
+                'user' => [
+                    'name' => 'Admin System',
+                    'email' => 'admin@richmondtech.com',
+                    'role' => 'Super Admin',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Workspace Updated',
+                    'icon' => 'fa-solid fa-sliders',
+                    'badge_class' => 'badge-action-blue',
+                    'category' => 'security'
+                ],
+                'target_item' => 'Engineering Team (Public -> Workspace Visible)',
+                'workspace' => 'Engineering Team',
+                'board' => 'Workspace Config',
+                'ip_address' => '192.168.1.1',
+                'device' => 'Chrome / Windows 11',
+                'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-10 18:00:00',
+                'time_ago' => 'Yesterday',
+                'severity' => [
+                    'label' => 'Info',
+                    'class' => 'severity-info'
+                ],
+                'details' => [
+                    'setting_changed' => 'workspace_visibility',
+                    'old_val' => 'Public',
+                    'new_val' => 'Workspace Visible'
+                ]
+            ],
+            [
+                'id' => 'LOG-8934',
+                'user' => [
+                    'name' => 'Chris Parker',
+                    'email' => 'chris@richmondtech.com',
+                    'role' => 'Senior Frontend Lead',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Card Moved',
+                    'icon' => 'fa-solid fa-arrows-left-right',
+                    'badge_class' => 'badge-action-blue',
+                    'category' => 'cards'
+                ],
+                'target_item' => 'Refactor CSS Grid Layout Tokens',
+                'workspace' => 'Product Design & Marketing',
+                'board' => 'Design System 2.0 Tokens',
+                'ip_address' => '192.168.1.18',
+                'device' => 'Safari / macOS',
+                'location' => 'Karachi, PK',
+                'timestamp' => '2026-08-10 16:20:00',
+                'time_ago' => 'Yesterday',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'],
+                'details' => ['from_list' => 'In Review', 'to_list' => 'Completed']
+            ],
+            [
+                'id' => 'LOG-8933',
+                'user' => [
+                    'name' => 'Alex Johnson',
+                    'email' => 'alex@richmondtech.com',
+                    'role' => 'Backend Lead',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Board Created',
+                    'icon' => 'fa-solid fa-plus',
+                    'badge_class' => 'badge-action-green',
+                    'category' => 'boards'
+                ],
+                'target_item' => 'DevOps & CI/CD Pipelines',
+                'workspace' => 'Engineering Team',
+                'board' => 'DevOps Pipelines',
+                'ip_address' => '10.0.0.12',
+                'device' => 'Firefox / Linux',
+                'location' => 'Islamabad, PK',
+                'timestamp' => '2026-08-10 14:10:00',
+                'time_ago' => 'Yesterday',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'],
+                'details' => ['board_color' => '#0284c7']
+            ],
+            [
+                'id' => 'LOG-8932',
+                'user' => [
+                    'name' => 'Elena Rostova',
+                    'email' => 'elena@richmondtech.com',
+                    'role' => 'QA Specialist',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'File Attached',
+                    'icon' => 'fa-solid fa-paperclip',
+                    'badge_class' => 'badge-action-purple',
+                    'category' => 'cards'
+                ],
+                'target_item' => 'test_coverage_report_q3.pdf',
+                'workspace' => 'Engineering Team',
+                'board' => 'Bug Triage & Hotfixes',
+                'ip_address' => '192.168.1.99',
+                'device' => 'Chrome / Windows 10',
+                'location' => 'Rawalpindi, PK',
+                'timestamp' => '2026-08-10 11:30:00',
+                'time_ago' => 'Yesterday',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'],
+                'details' => ['file_size' => '1.8 MB']
+            ],
+            [
+                'id' => 'LOG-8931',
+                'user' => [
+                    'name' => 'Sarah Connor',
+                    'email' => 'sarah@richmondtech.com',
+                    'role' => 'Product Designer',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Checklist Done',
+                    'icon' => 'fa-solid fa-square-check',
+                    'badge_class' => 'badge-action-green',
+                    'category' => 'cards'
+                ],
+                'target_item' => 'Verify Figma Export Component Assets',
+                'workspace' => 'Product Design & Marketing',
+                'board' => 'Q4 Marketing Launch',
+                'ip_address' => '192.168.1.45',
+                'device' => 'Chrome / Windows 11',
+                'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-09 19:45:00',
+                'time_ago' => '2 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'],
+                'details' => ['checklist_items_done' => 3]
+            ],
+            [
+                'id' => 'LOG-8930',
+                'user' => [
+                    'name' => 'David Chen',
+                    'email' => 'david@richmondtech.com',
+                    'role' => 'Growth Marketer',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Card Moved',
+                    'icon' => 'fa-solid fa-arrows-left-right',
+                    'badge_class' => 'badge-action-blue',
+                    'category' => 'cards'
+                ],
+                'target_item' => 'Prepare Product Hunt Launch Kit',
+                'workspace' => 'Product Design & Marketing',
+                'board' => 'Q4 Marketing Launch',
+                'ip_address' => '203.135.42.10',
+                'device' => 'Edge / Windows 11',
+                'location' => 'Faisalabad, PK',
+                'timestamp' => '2026-08-09 15:10:00',
+                'time_ago' => '2 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'],
+                'details' => ['from_list' => 'Backlog', 'to_list' => 'In Progress']
+            ],
+            [
+                'id' => 'LOG-8929',
+                'user' => [
+                    'name' => 'Admin System',
+                    'email' => 'admin@richmondtech.com',
+                    'role' => 'Super Admin',
+                    'avatar' => asset('images/avatars/default-image.jpg')
+                ],
+                'action' => [
+                    'label' => 'Role Updated',
+                    'icon' => 'fa-solid fa-user-shield',
+                    'badge_class' => 'badge-action-amber',
+                    'category' => 'security'
+                ],
+                'target_item' => 'David Chen (Guest -> Growth Marketer)',
+                'workspace' => 'System Wide',
+                'board' => 'Admin Panel',
+                'ip_address' => '192.168.1.1',
+                'device' => 'Chrome / Windows 11',
+                'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-09 10:00:00',
+                'time_ago' => '2 days ago',
+                'severity' => ['label' => 'Warning', 'class' => 'severity-warning'],
+                'details' => ['old_role' => 'Guest', 'new_role' => 'Growth Marketer']
+            ],
+            [
+                'id' => 'LOG-8928',
+                'user' => ['name' => 'Sarah Connor', 'email' => 'sarah@richmondtech.com', 'role' => 'Product Designer', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Card Moved', 'icon' => 'fa-solid fa-arrows-left-right', 'badge_class' => 'badge-action-blue', 'category' => 'cards'],
+                'target_item' => 'Update Dark Mode Palette Contrast',
+                'workspace' => 'Product Design & Marketing', 'board' => 'Design System 2.0 Tokens',
+                'ip_address' => '192.168.1.45', 'device' => 'Chrome / Windows 11', 'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-08 17:30:00', 'time_ago' => '3 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['card_id' => 'card-201']
+            ],
+            [
+                'id' => 'LOG-8927',
+                'user' => ['name' => 'Chris Parker', 'email' => 'chris@richmondtech.com', 'role' => 'Senior Frontend Lead', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'File Attached', 'icon' => 'fa-solid fa-paperclip', 'badge_class' => 'badge-action-purple', 'category' => 'cards'],
+                'target_item' => 'landing_page_v3_mockup.png',
+                'workspace' => 'Product Design & Marketing', 'board' => 'Q4 Marketing Launch',
+                'ip_address' => '192.168.1.18', 'device' => 'Safari / macOS', 'location' => 'Karachi, PK',
+                'timestamp' => '2026-08-08 14:15:00', 'time_ago' => '3 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['file_size' => '4.1 MB']
+            ],
+            [
+                'id' => 'LOG-8926',
+                'user' => ['name' => 'Alex Johnson', 'email' => 'alex@richmondtech.com', 'role' => 'Backend Lead', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Card Deleted', 'icon' => 'fa-solid fa-trash-can', 'badge_class' => 'badge-action-rose', 'category' => 'cards'],
+                'target_item' => 'Remove Obsolete Redis Lock Task',
+                'workspace' => 'Engineering Team', 'board' => 'Sprint 24 Architecture',
+                'ip_address' => '10.0.0.12', 'device' => 'Firefox / Linux', 'location' => 'Islamabad, PK',
+                'timestamp' => '2026-08-08 11:20:00', 'time_ago' => '3 days ago',
+                'severity' => ['label' => 'Warning', 'class' => 'severity-warning'], 'details' => ['deleted_by' => 'Alex Johnson']
+            ],
+            [
+                'id' => 'LOG-8925',
+                'user' => ['name' => 'Elena Rostova', 'email' => 'elena@richmondtech.com', 'role' => 'QA Specialist', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Checklist Done', 'icon' => 'fa-solid fa-square-check', 'badge_class' => 'badge-action-green', 'category' => 'cards'],
+                'target_item' => 'Execute E2E Playwright Suite for OAuth',
+                'workspace' => 'Engineering Team', 'board' => 'Bug Triage & Hotfixes',
+                'ip_address' => '192.168.1.99', 'device' => 'Chrome / Windows 10', 'location' => 'Rawalpindi, PK',
+                'timestamp' => '2026-08-07 18:40:00', 'time_ago' => '4 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['checklist_items_done' => 8]
+            ],
+            [
+                'id' => 'LOG-8924',
+                'user' => ['name' => 'Admin System', 'email' => 'admin@richmondtech.com', 'role' => 'Super Admin', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Workspace Updated', 'icon' => 'fa-solid fa-sliders', 'badge_class' => 'badge-action-blue', 'category' => 'security'],
+                'target_item' => 'Product Design & Marketing (Member Invites Enabled)',
+                'workspace' => 'Product Design & Marketing', 'board' => 'Workspace Config',
+                'ip_address' => '192.168.1.1', 'device' => 'Chrome / Windows 11', 'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-07 14:00:00', 'time_ago' => '4 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['member_invites' => 'Enabled']
+            ],
+            [
+                'id' => 'LOG-8923',
+                'user' => ['name' => 'David Chen', 'email' => 'david@richmondtech.com', 'role' => 'Growth Marketer', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Card Moved', 'icon' => 'fa-solid fa-arrows-left-right', 'badge_class' => 'badge-action-blue', 'category' => 'cards'],
+                'target_item' => 'Publish Q3 Product Roadmap Medium Post',
+                'workspace' => 'Product Design & Marketing', 'board' => 'Q4 Marketing Launch',
+                'ip_address' => '203.135.42.10', 'device' => 'Edge / Windows 11', 'location' => 'Faisalabad, PK',
+                'timestamp' => '2026-08-07 10:15:00', 'time_ago' => '4 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['to_list' => 'Published']
+            ],
+            [
+                'id' => 'LOG-8922',
+                'user' => ['name' => 'Sarah Connor', 'email' => 'sarah@richmondtech.com', 'role' => 'Product Designer', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Board Created', 'icon' => 'fa-solid fa-plus', 'badge_class' => 'badge-action-green', 'category' => 'boards'],
+                'target_item' => 'User Feedback & Usability Tests',
+                'workspace' => 'Product Design & Marketing', 'board' => 'Usability Tests',
+                'ip_address' => '192.168.1.45', 'device' => 'Chrome / Windows 11', 'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-06 16:50:00', 'time_ago' => '5 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['board_color' => '#059669']
+            ],
+            [
+                'id' => 'LOG-8921',
+                'user' => ['name' => 'Chris Parker', 'email' => 'chris@richmondtech.com', 'role' => 'Senior Frontend Lead', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'File Attached', 'icon' => 'fa-solid fa-paperclip', 'badge_class' => 'badge-action-purple', 'category' => 'cards'],
+                'target_item' => 'dragdrop_physics_spec_v1.pdf',
+                'workspace' => 'Engineering Team', 'board' => 'Sprint 24 Architecture',
+                'ip_address' => '192.168.1.18', 'device' => 'Safari / macOS', 'location' => 'Karachi, PK',
+                'timestamp' => '2026-08-06 12:30:00', 'time_ago' => '5 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['file_size' => '3.2 MB']
+            ],
+            [
+                'id' => 'LOG-8920',
+                'user' => ['name' => 'Alex Johnson', 'email' => 'alex@richmondtech.com', 'role' => 'Backend Lead', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Card Moved', 'icon' => 'fa-solid fa-arrows-left-right', 'badge_class' => 'badge-action-blue', 'category' => 'cards'],
+                'target_item' => 'Migrate MySQL Schema to MariaDB 10.6',
+                'workspace' => 'Engineering Team', 'board' => 'API v3 Migration',
+                'ip_address' => '10.0.0.12', 'device' => 'Firefox / Linux', 'location' => 'Islamabad, PK',
+                'timestamp' => '2026-08-06 09:10:00', 'time_ago' => '5 days ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['to_list' => 'In Progress']
+            ],
+            [
+                'id' => 'LOG-8919',
+                'user' => ['name' => 'Elena Rostova', 'email' => 'elena@richmondtech.com', 'role' => 'QA Specialist', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Card Deleted', 'icon' => 'fa-solid fa-trash-can', 'badge_class' => 'badge-action-rose', 'category' => 'cards'],
+                'target_item' => 'Duplicate Safari 14 Flexbox Bug Task',
+                'workspace' => 'Engineering Team', 'board' => 'Bug Triage & Hotfixes',
+                'ip_address' => '192.168.1.99', 'device' => 'Chrome / Windows 10', 'location' => 'Rawalpindi, PK',
+                'timestamp' => '2026-08-05 17:00:00', 'time_ago' => '6 days ago',
+                'severity' => ['label' => 'Warning', 'class' => 'severity-warning'], 'details' => ['reason' => 'Duplicate item']
+            ],
+            [
+                'id' => 'LOG-8918',
+                'user' => ['name' => 'Admin System', 'email' => 'admin@richmondtech.com', 'role' => 'Super Admin', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Role Updated', 'icon' => 'fa-solid fa-user-shield', 'badge_class' => 'badge-action-amber', 'category' => 'security'],
+                'target_item' => 'Chris Parker (Frontend Lead -> Senior Lead)',
+                'workspace' => 'System Wide', 'board' => 'Admin Panel',
+                'ip_address' => '192.168.1.1', 'device' => 'Chrome / Windows 11', 'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-05 11:45:00', 'time_ago' => '6 days ago',
+                'severity' => ['label' => 'Warning', 'class' => 'severity-warning'], 'details' => ['role' => 'Senior Frontend Lead']
+            ],
+            [
+                'id' => 'LOG-8917',
+                'user' => ['name' => 'David Chen', 'email' => 'david@richmondtech.com', 'role' => 'Growth Marketer', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Checklist Done', 'icon' => 'fa-solid fa-square-check', 'badge_class' => 'badge-action-green', 'category' => 'cards'],
+                'target_item' => 'Set up Google Analytics 4 Event Triggers',
+                'workspace' => 'Product Design & Marketing', 'board' => 'Q4 Marketing Launch',
+                'ip_address' => '203.135.42.10', 'device' => 'Edge / Windows 11', 'location' => 'Faisalabad, PK',
+                'timestamp' => '2026-08-04 15:20:00', 'time_ago' => '1 week ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['items_completed' => 6]
+            ],
+            [
+                'id' => 'LOG-8916',
+                'user' => ['name' => 'Sarah Connor', 'email' => 'sarah@richmondtech.com', 'role' => 'Product Designer', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'File Attached', 'icon' => 'fa-solid fa-paperclip', 'badge_class' => 'badge-action-purple', 'category' => 'cards'],
+                'target_item' => 'icon_system_v2_svg_bundle.zip',
+                'workspace' => 'Product Design & Marketing', 'board' => 'Design System 2.0 Tokens',
+                'ip_address' => '192.168.1.45', 'device' => 'Chrome / Windows 11', 'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-04 10:10:00', 'time_ago' => '1 week ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['file_size' => '8.6 MB']
+            ],
+            [
+                'id' => 'LOG-8915',
+                'user' => ['name' => 'Admin System', 'email' => 'admin@richmondtech.com', 'role' => 'Super Admin', 'avatar' => asset('images/avatars/default-image.jpg')],
+                'action' => ['label' => 'Workspace Updated', 'icon' => 'fa-solid fa-sliders', 'badge_class' => 'badge-action-blue', 'category' => 'security'],
+                'target_item' => 'System Wide Security Audit Enabled',
+                'workspace' => 'System Wide', 'board' => 'Admin Panel',
+                'ip_address' => '192.168.1.1', 'device' => 'Chrome / Windows 11', 'location' => 'Lahore, PK',
+                'timestamp' => '2026-08-03 09:00:00', 'time_ago' => '1 week ago',
+                'severity' => ['label' => 'Info', 'class' => 'severity-info'], 'details' => ['audit_mode' => 'Verbose Logging']
+            ]
+        ];
+
+        $this->view('admin/activity_log', [
+            'pageTitle' => 'Audit & Activity Logs - Richmondtech Admin',
+            'page_js' => 'admin_activity_log.js',
+            'stats' => $stats,
+            'logs' => $logs
         ]);
     }
 }

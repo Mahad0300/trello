@@ -18,6 +18,10 @@
           <span class="sidebar-icon-well"><i class="fa-solid fa-briefcase sidebar-icon"></i></span>
           <span>Workspaces</span>
         </a>
+        <a href="<?= route('admin/activity-log') ?>" class="sidebar-nav-item <?= strpos($_SERVER['REQUEST_URI'] ?? '', 'admin/activity-log') !== false ? 'active' : '' ?>">
+          <span class="sidebar-icon-well"><i class="fa-solid fa-list-check sidebar-icon"></i></span>
+          <span>Activity Log</span>
+        </a>
       <?php endif; ?>
 
       <div class="sidebar-dropdown-wrapper mt-4">

@@ -20,14 +20,6 @@
           <option>Product Design & Marketing</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>Visibility</label>
-        <select class="form-control" name="board_visibility">
-          <option>Private (Only board members)</option>
-          <option selected>Workspace (Anyone in Engineering Team)</option>
-          <option>Public (Anyone with link)</option>
-        </select>
-      </div>
       <div class="modal-form-actions-lg">
         <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
         <button type="submit" class="btn btn-primary">Create Board</button>

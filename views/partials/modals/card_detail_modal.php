@@ -4,7 +4,7 @@
     <button type="button" class="modal-close-btn modal-close-glass" id="modal-close-btn" data-modal-close>&times;</button>
 
     <div id="modal-cover-banner" class="modal-cover-banner">
-      <img id="modal-cover-img" src="<?= asset('images/card_cover_design.png') ?>" class="modal-cover-img" alt="Card cover">
+      <img id="modal-cover-img" src="<?= asset('images/covers/card_cover_design.png') ?>" class="modal-cover-img" alt="Card cover">
       <div class="modal-cover-fade"></div>
     </div>
 
@@ -105,6 +105,9 @@
         </div>
 
         <aside class="modal-sidebar-column">
+          <button type="button" class="btn btn-primary btn-sm btn-start w-100 mb-12" data-modal-target="edit-card-modal" onclick="event.stopPropagation(); window.openModal('edit-card-modal', this);">
+            <i class="fa-solid fa-pen-to-square"></i> Edit Card Details
+          </button>
           <div class="modal-section-uppercase-title">Add to Card</div>
           <button type="button" class="btn btn-secondary btn-sm btn-start" data-modal-target="card-members-modal" onclick="event.stopPropagation(); window.openModal('card-members-modal', this);">
             <i class="fa-solid fa-users"></i> Members

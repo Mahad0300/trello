@@ -14,7 +14,7 @@
 
   <div class="auth-shell">
     <aside class="auth-visual" aria-hidden="false">
-      <div class="auth-visual-bg" style="background-image: url('<?= asset('images/login_bg_3d.png') ?>');"></div>
+      <div class="auth-visual-bg" style="background-image: url('<?= asset('images/auth/login_bg_3d.png') ?>');"></div>
       <div class="auth-visual-mesh"></div>
 
       <div class="auth-visual-content">

@@ -8,6 +8,7 @@
 <?php require_once VIEWS_PATH . '/partials/modals/delete_board_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/card_detail_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/add_card_modal.php'; ?>
+<?php require_once VIEWS_PATH . '/partials/modals/edit_card_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/add_list_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/share_board_modal.php'; ?>
 <?php require_once VIEWS_PATH . '/partials/modals/filter_board_modal.php'; ?>

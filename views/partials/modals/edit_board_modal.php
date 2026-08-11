@@ -13,6 +13,13 @@
         <label>Description</label>
         <textarea id="edit-board-description" class="form-control no-resize" name="board_description" rows="3" placeholder="Briefly describe what this board is about...">Core product architecture, API services, microservices, and database schemas.</textarea>
       </div>
+      <div class="form-group">
+        <label>Workspace</label>
+        <select id="edit-board-workspace" class="form-control" name="board_workspace">
+          <option value="Engineering Team" selected>Engineering Team</option>
+          <option value="Product Design & Marketing">Product Design & Marketing</option>
+        </select>
+      </div>
       <div class="modal-form-actions-lg">
         <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
         <button type="submit" class="btn btn-primary">Save Changes</button>

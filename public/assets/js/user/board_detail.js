@@ -389,15 +389,22 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const titleInput = document.getElementById('add-card-title-input');
       const descInput = document.getElementById('add-card-desc-input');
+      const prioritySelect = document.getElementById('add-card-priority-select');
       const title = titleInput ? titleInput.value.trim() : '';
       if (!title) return;
+
+      const priority = prioritySelect ? prioritySelect.value : 'Low Priority';
+      const badgeClass = priority.includes('High') ? 'badge-danger' : (priority.includes('Medium') ? 'badge-warning' : 'badge-info');
 
       const targetCardsStack = document.querySelector('.list-cards');
       if (targetCardsStack) {
         const cardId = 'card-' + Date.now();
         const newCardHtml = `
-          <div class="kanban-card" data-card-id="${cardId}" data-cover="${(window.BASE_URL || '')}/assets/images/card_cover_design.png" data-modal-target="card-detail-modal">
+          <div class="kanban-card" data-card-id="${cardId}" data-cover="${(window.BASE_URL || '')}/assets/images/covers/card_cover_design.png" data-modal-target="card-detail-modal">
             <div class="card-title-text">${window.escapeHtml ? window.escapeHtml(title) : title}</div>
+            <div class="card-badges-row mt-8">
+              <span class="badge ${badgeClass}">${priority}</span>
+            </div>
           </div>
         `;
         targetCardsStack.insertAdjacentHTML('beforeend', newCardHtml);
