@@ -193,7 +193,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
                     <span class="text-muted font-size-13"><?= sanitize($u['joined']) ?></span>
                   </td>
                   <td>
-                    <a href="<?= route('admin/profile') ?>?id=<?= (int)$u['id'] ?>" class="btn-table-action" title="View Profile">
+                    <a href="<?= route('admin/users') ?>" class="btn-table-action" title="User Accounts">
                       <i class="fa-regular fa-eye"></i>
                     </a>
                   </td>
@@ -222,14 +222,11 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <!-- Background Geometric Ring Shape (Top Right Only) -->
               <div class="dash-card-shape shape-bg-ring-top"></div>
 
-              <!-- Top Category Pill Tag & Options Button -->
+              <!-- Top Category Pill Tag -->
               <div class="dash-ref-card-top mb-12 position-relative z-2">
                 <span class="dash-ref-cat-pill" style="background: <?= sanitize($b['category_bg'] ?? '#FCE7F3') ?>; color: <?= sanitize($b['category_color'] ?? '#BE185D') ?>;">
                   <?= sanitize($b['category'] ?? 'Design') ?>
                 </span>
-                <button type="button" class="dash-ref-options-btn" title="Options">
-                  <i class="fa-solid fa-ellipsis"></i>
-                </button>
               </div>
 
               <!-- Card Title & Description -->
@@ -252,8 +249,23 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <!-- Bottom Row: Member Avatars & Meta Icons -->
               <div class="dash-ref-card-bottom pt-12 position-relative z-2">
                 <div class="avatar-group avatar-group-stack">
-                  <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar" title="Sarah Connor">
-                  <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar" title="Chris Parker">
+                  <?php 
+                    $boardMembers = $b['members'] ?? [
+                      ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                      ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                      ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')],
+                      ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg')],
+                      ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg')]
+                    ];
+                    $visibleBoardMembers = array_slice($boardMembers, 0, 3);
+                    $moreBoardMembers = count($boardMembers) - 3;
+                  ?>
+                  <?php foreach ($visibleBoardMembers as $m): ?>
+                    <img src="<?= $m['avatar'] ?>" class="avatar" title="<?= sanitize($m['name']) ?>">
+                  <?php endforeach; ?>
+                  <?php if ($moreBoardMembers > 0): ?>
+                    <span class="avatar-more-badge" title="<?= $moreBoardMembers ?> more members">+<?= $moreBoardMembers ?></span>
+                  <?php endif; ?>
                 </div>
 
                 <div class="dash-ref-meta-icons">

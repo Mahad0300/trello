@@ -144,7 +144,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
             <button type="button" class="time-pill-btn">Last Week</button>
           </div>
         </div>
-        <div class="chart-canvas-wrap" style="height: 250px;">
+        <div class="chart-canvas-wrap chart-canvas-250">
           <canvas id="userSprintChart"></canvas>
         </div>
       </div>
@@ -178,15 +178,12 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
               
               <div class="agenda-item-content">
                 <div class="agenda-item-title"><?= sanitize($item['title']) ?></div>
-                <div class="agenda-item-meta">
-                  <span class="agenda-board-tag"><i class="fa-regular fa-folder mr-4"></i><?= sanitize($item['board']) ?></span>
+                <div class="agenda-item-meta mt-2">
+                  <span class="text-muted font-size-12"><i class="fa-regular fa-clock mr-6"></i><?= sanitize($item['created_at'] ?? 'Aug 11, 2026') ?></span>
                 </div>
               </div>
 
               <div class="agenda-item-right">
-                <span class="agenda-date-added text-muted font-size-12">
-                  <i class="fa-regular fa-clock mr-4"></i><?= sanitize($item['created_at'] ?? 'Aug 11, 2026') ?>
-                </span>
                 <div class="agenda-action-btns">
                   <button type="button" class="btn-action-icon btn-action-edit agenda-edit-btn" title="Edit Note">
                     <i class="fa-regular fa-pen-to-square"></i>
@@ -244,6 +241,27 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
                 </div>
               </div>
 
+              <!-- Member Avatars Stack -->
+              <div class="avatar-group avatar-group-stack mb-12">
+                <?php 
+                  $boardMembers = $b['members'] ?? [
+                    ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                    ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                    ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')],
+                    ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg')],
+                    ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg')]
+                  ];
+                  $visibleBoardMembers = array_slice($boardMembers, 0, 3);
+                  $moreBoardMembers = count($boardMembers) - 3;
+                ?>
+                <?php foreach ($visibleBoardMembers as $m): ?>
+                  <img src="<?= $m['avatar'] ?>" class="avatar" title="<?= sanitize($m['name']) ?>">
+                <?php endforeach; ?>
+                <?php if ($moreBoardMembers > 0): ?>
+                  <span class="avatar-more-badge" title="<?= $moreBoardMembers ?> more members">+<?= $moreBoardMembers ?></span>
+                <?php endif; ?>
+              </div>
+
               <!-- Quick action footer -->
               <div class="project-hub-footer pt-10">
                 <span class="text-muted font-size-12"><i class="fa-regular fa-clock mr-4"></i><?= sanitize($b['updated']) ?></span>
@@ -272,7 +290,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           <h4 class="donut-box-title">Task Priority Allocation</h4>
           <p class="donut-box-subtitle">Assigned focus items by priority rating</p>
         </div>
-        <div style="height: 220px; position: relative;">
+        <div class="chart-canvas-220">
           <canvas id="userPriorityPolarChart"></canvas>
         </div>
       </div>
@@ -286,7 +304,7 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
           </div>
           <span class="badge-status-pill status-active"><i class="fa-solid fa-circle font-size-8"></i> Active</span>
         </div>
-        <div style="height: 180px; position: relative;" class="mt-12">
+        <div class="chart-canvas-180 mt-12">
           <canvas id="userWorkloadBarChart"></canvas>
         </div>
       </div>

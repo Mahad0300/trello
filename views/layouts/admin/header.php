@@ -44,13 +44,13 @@
         <span class="notification-dot"></span>
       </a>
 
-      <a href="<?= route('admin/profile') ?>" class="topbar-profile topbar-profile--link">
+      <div class="topbar-profile">
         <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="avatar topbar-avatar" alt="Admin System">
         <span class="topbar-profile-meta">
           <span class="topbar-profile-name">Admin System</span>
           <span class="topbar-profile-email">admin@richmondtech.com</span>
         </span>
-      </a>
+      </div>
     </div>
   </header>
 

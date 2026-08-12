@@ -112,7 +112,9 @@ class UserController extends Controller {
                 ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Owner'],
                 ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Admin'],
                 ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member'],
-                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member']
+                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member'],
+                ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member'],
+                ['name' => 'Jordan Vance', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member']
             ],
             'lists' => [
                 [
@@ -134,7 +136,10 @@ class UserController extends Controller {
                             'attachments_count' => 4,
                             'assignees' => [
                                 ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -151,7 +156,10 @@ class UserController extends Controller {
                             'attachments_count' => 4,
                             'assignees' => [
                                 ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Jordan Vance', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -168,7 +176,9 @@ class UserController extends Controller {
                             'attachments_count' => 4,
                             'assignees' => [
                                 ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]

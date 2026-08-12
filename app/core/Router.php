@@ -46,10 +46,10 @@ class Router {
 
         // 404 Not Found fallback page
         http_response_code(404);
-        echo "<div style='font-family: sans-serif; text-align: center; padding: 50px;'>";
+        echo "<div class='auth-shell'><div class='auth-card text-center p-24'>";
         echo "<h1>404 - Page Not Found</h1>";
         echo "<p>The requested route <code>/" . htmlspecialchars($uri) . "</code> does not exist.</p>";
-        echo "<a href='" . base_url('user/dashboard') . "'>Return to Dashboard</a>";
-        echo "</div>";
+        echo "<a href='" . base_url('user/dashboard') . "' class='btn btn-primary mt-14'>Return to Dashboard</a>";
+        echo "</div></div>";
     }
 }

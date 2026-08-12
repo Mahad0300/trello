@@ -378,53 +378,8 @@ class AdminController extends Controller {
     }
 
     public function profile() {
-        $users = $this->getSystemUsers();
-        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-        $selected = null;
-
-        if ($id > 0) {
-            foreach ($users as $row) {
-                if ((int) $row['id'] === $id) {
-                    $selected = $row;
-                    break;
-                }
-            }
-        }
-
-        if ($selected) {
-            $user = [
-                'id' => $selected['id'],
-                'name' => $selected['name'],
-                'email' => $selected['email'],
-                'role' => $selected['role_label'],
-                'department' => $selected['department'],
-                'avatar' => $selected['avatar'],
-                'joined' => $selected['joined_label'],
-                'status' => $selected['status'],
-                'status_label' => $selected['status_label'],
-                'is_own' => false,
-            ];
-            $pageTitle = $selected['name'] . ' - Profile';
-        } else {
-            $user = [
-                'id' => 0,
-                'name' => 'Admin System',
-                'email' => 'admin@richmondtech.com',
-                'role' => 'Platform Administrator',
-                'department' => 'Operations',
-                'avatar' => asset('images/avatars/default-image.jpg'),
-                'joined' => 'January 2026',
-                'status' => 'Active',
-                'status_label' => 'Super Admin',
-                'is_own' => true,
-            ];
-            $pageTitle = 'My Profile - Richmondtech';
-        }
-
-        $this->view('admin/profile', [
-            'pageTitle' => $pageTitle,
-            'user' => $user
-        ]);
+        header('Location: ' . route('admin/dashboard'));
+        exit;
     }
 
     public function boardDetail() {
@@ -440,7 +395,9 @@ class AdminController extends Controller {
                 ['id' => 2, 'name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Owner'],
                 ['id' => 3, 'name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Admin'],
                 ['id' => 4, 'name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member'],
-                ['id' => 5, 'name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member']
+                ['id' => 5, 'name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member'],
+                ['id' => 6, 'name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member'],
+                ['id' => 7, 'name' => 'Jordan Vance', 'avatar' => asset('images/avatars/default-image.jpg'), 'role' => 'Member']
             ],
             'lists' => [
                 [
@@ -462,7 +419,10 @@ class AdminController extends Controller {
                             'attachments_count' => 4,
                             'assignees' => [
                                 ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ],
                         [
@@ -479,7 +439,10 @@ class AdminController extends Controller {
                             'attachments_count' => 4,
                             'assignees' => [
                                 ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Jordan Vance', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]
@@ -501,7 +464,10 @@ class AdminController extends Controller {
                             'comments_count' => 5,
                             'attachments_count' => 2,
                             'assignees' => [
-                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')]
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Sarah Connor', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]
@@ -523,7 +489,10 @@ class AdminController extends Controller {
                             'comments_count' => 18,
                             'attachments_count' => 1,
                             'assignees' => [
-                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')]
+                                ['name' => 'Alex Johnson', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Chris Parker', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'David Chen', 'avatar' => asset('images/avatars/default-image.jpg')],
+                                ['name' => 'Elena Rostova', 'avatar' => asset('images/avatars/default-image.jpg')]
                             ]
                         ]
                     ]

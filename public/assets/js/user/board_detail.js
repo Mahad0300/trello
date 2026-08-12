@@ -276,13 +276,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (calHeaderRow) calHeaderRow.classList.add('is-mode-hidden');
       calGrid.classList.add('is-day-mode');
       calGrid.classList.remove('is-month-mode');
-      
+
       const cellEl = document.createElement('div');
       cellEl.className = 'cal-day-cell cal-day-cell-active-day is-day-focus';
 
-      let innerHtml = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px;">
-        <h4 style="margin:0; font-size:16px; font-weight:800; color:#0F172A;"><i class="fa-regular fa-calendar-day text-primary mr-6"></i> ${months[monthIdx]} 21, ${year} - Daily Agenda</h4>
-        <span class="badge badge-info" style="font-weight:700;">2 Active Tasks</span>
+      let innerHtml = `<div class="cal-agenda-header-row">
+        <h4 class="cal-agenda-title"><i class="fa-regular fa-calendar-day text-primary mr-6"></i> ${months[monthIdx]} 21, ${year} - Daily Agenda</h4>
+        <span class="badge badge-info cal-agenda-badge">2 Active Tasks</span>
       </div>`;
 
       const todayTasks = tasksMap[21] || [
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       todayTasks.forEach(t => {
         const iconHtml = t.icon ? `<span class="cal-icon-circle"><i class="fa-solid ${t.icon}"></i></span> ` : '';
-        innerHtml += `<div class="cal-event-pill ${t.cls}" style="padding: 12px 16px; font-size: 13.5px; margin-bottom: 10px; border-radius: 10px;" data-modal-target="card-detail-modal">${iconHtml}<strong>${t.text}</strong></div>`;
+        innerHtml += `<div class="cal-event-pill ${t.cls} cal-agenda-item" data-modal-target="card-detail-modal">${iconHtml}<strong>${t.text}</strong></div>`;
       });
 
       cellEl.innerHTML = innerHtml;
@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Global List Action Handlers
-window.editListTitle = function(btn) {
+window.editListTitle = function (btn) {
   const kanbanList = btn.closest('.kanban-list');
   const titleEl = kanbanList ? kanbanList.querySelector('.list-title-text span:not(.list-card-count-badge)') : null;
   if (titleEl) {
@@ -569,7 +569,7 @@ window.editListTitle = function(btn) {
   }
 };
 
-window.deleteList = function(btn) {
+window.deleteList = function (btn) {
   const kanbanList = btn.closest('.kanban-list');
   if (kanbanList) {
     window.activeDeleteListEl = kanbanList;
@@ -583,7 +583,7 @@ window.deleteList = function(btn) {
 
 window.archiveList = window.deleteList;
 
-window.confirmArchiveList = function() {
+window.confirmArchiveList = function () {
   const listEl = window.activeDeleteListEl;
   if (listEl) {
     const titleEl = listEl.querySelector('.list-title-text span:not(.list-card-count-badge)');
@@ -608,7 +608,7 @@ window.confirmArchiveList = function() {
   window.closeModal('archive-list-modal');
 };
 
-window.restoreList = function(btn, listTitle) {
+window.restoreList = function (btn, listTitle) {
   const cardItem = btn.closest('.archived-item-card');
   if (cardItem) cardItem.remove();
 
@@ -620,7 +620,7 @@ window.restoreList = function(btn, listTitle) {
   });
 };
 
-window.archiveCard = function(btn) {
+window.archiveCard = function (btn) {
   const cardEl = btn.closest('.kanban-card');
   if (cardEl) {
     window.activeArchiveCardEl = cardEl;
@@ -632,7 +632,7 @@ window.archiveCard = function(btn) {
   }
 };
 
-window.confirmArchiveCard = function() {
+window.confirmArchiveCard = function () {
   const cardEl = window.activeArchiveCardEl || document.querySelector('.kanban-card');
   if (cardEl) {
     const titleEl = cardEl.querySelector('.card-title-text');
@@ -657,7 +657,7 @@ window.confirmArchiveCard = function() {
   window.closeModal('archive-card-modal');
 };
 
-window.restoreCard = function(btn, cardTitle) {
+window.restoreCard = function (btn, cardTitle) {
   const cardItem = btn.closest('.archived-item-card');
   if (cardItem) cardItem.remove();
 
@@ -669,12 +669,12 @@ window.restoreCard = function(btn, cardTitle) {
   });
 };
 
-window.toggleArchivedDrawer = function() {
+window.toggleArchivedDrawer = function () {
   const drawer = document.getElementById('archived-items-drawer');
   if (drawer) drawer.classList.toggle('display-none');
 };
 
-window.switchArchivedTab = function(tab) {
+window.switchArchivedTab = function (tab) {
   const cardsContent = document.getElementById('archived-cards-tab-content');
   const listsContent = document.getElementById('archived-lists-tab-content');
   const cardsBtn = document.getElementById('arch-cards-tab-btn');

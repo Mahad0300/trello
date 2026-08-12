@@ -2,7 +2,8 @@
 $page_js = 'admin_users.js';
 require_once VIEWS_PATH . '/layouts/admin/header.php';
 ?>
-<script>window.routeAdminProfile = <?= json_encode(route('admin/profile')) ?>;</script>
+
+<script>window.routeUserProfile = <?= json_encode(route('user/profile')) ?>;</script>
 
 <div class="notif-center-wrapper users-hub">
   <!-- Header Toolbar (Consistent with User Panel) -->
@@ -53,7 +54,7 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
             <td class="text-center"><input type="checkbox" class="user-row-checkbox" onchange="onUserRowCheckboxChange();"></td>
             <td>
               <div class="users-user-cell">
-                <a href="<?= route('admin/profile') ?>?id=<?= (int) $user['id'] ?>" class="users-user-link">
+                <a href="<?= route('user/profile') ?>?id=<?= (int) $user['id'] ?>" class="users-user-link">
                   <img src="<?= $user['avatar'] ?>" class="avatar" alt="Avatar">
                   <div>
                     <div class="users-user-name"><?= sanitize($user['name']) ?></div>

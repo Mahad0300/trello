@@ -37,11 +37,19 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
 
     <!-- Board Member Avatars Stack -->
     <div class="avatar-group avatar-group-stack">
-      <?php foreach ($board['members'] as $m): ?>
-        <a href="<?= route('admin/profile') ?>?id=<?= (int) ($m['id'] ?? 0) ?>" class="board-member-avatar-link" title="<?= sanitize($m['name']) ?> (<?= sanitize($m['role']) ?>)">
+      <?php 
+        $members = $board['members'] ?? [];
+        $visibleMembers = array_slice($members, 0, 3);
+        $moreMembers = count($members) - 3;
+      ?>
+      <?php foreach ($visibleMembers as $m): ?>
+        <span class="board-member-avatar-link" title="<?= sanitize($m['name']) ?> (<?= sanitize($m['role']) ?>)">
           <img src="<?= $m['avatar'] ?>" class="avatar" alt="<?= sanitize($m['name']) ?>">
-        </a>
+        </span>
       <?php endforeach; ?>
+      <?php if ($moreMembers > 0): ?>
+        <span class="avatar-more-badge" title="<?= $moreMembers ?> more members">+<?= $moreMembers ?></span>
+      <?php endif; ?>
     </div>
   </div>
 </div>
@@ -130,9 +138,17 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <div class="card-footer-flex">
                 <!-- Assignee Avatars Stack -->
                 <div class="avatar-stack-group">
-                  <?php foreach ($card['assignees'] as $assignee): ?>
+                  <?php 
+                    $cardAssignees = $card['assignees'] ?? [];
+                    $visibleAssignees = array_slice($cardAssignees, 0, 3);
+                    $moreCardAssignees = count($cardAssignees) - 3;
+                  ?>
+                  <?php foreach ($visibleAssignees as $assignee): ?>
                     <img src="<?= $assignee['avatar'] ?>" alt="<?= sanitize($assignee['name']) ?>" title="<?= sanitize($assignee['name']) ?>">
                   <?php endforeach; ?>
+                  <?php if ($moreCardAssignees > 0): ?>
+                    <span class="avatar-more-badge" title="<?= $moreCardAssignees ?> more assignees">+<?= $moreCardAssignees ?></span>
+                  <?php endif; ?>
                 </div>
 
                 <!-- Card Metrics -->
@@ -223,6 +239,8 @@ require_once VIEWS_PATH . '/layouts/admin/header.php';
               <div class="assignees-avatar-flex">
                 <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar" title="Sarah Connor">
                 <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar table-user-avatar-overlap" title="Chris Parker">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar table-user-avatar-overlap" title="Alex Johnson">
+                <span class="avatar-more-badge" title="2 more assignees">+2</span>
               </div>
             </td>
             <td class="cell-priority">

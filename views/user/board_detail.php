@@ -37,9 +37,17 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
 
     <!-- Board Member Avatars Stack (Far Right Corner) -->
     <div class="avatar-group avatar-group-stack">
-      <?php foreach ($board['members'] as $m): ?>
+      <?php 
+        $members = $board['members'] ?? [];
+        $visibleMembers = array_slice($members, 0, 3);
+        $moreMembers = count($members) - 3;
+      ?>
+      <?php foreach ($visibleMembers as $m): ?>
         <img src="<?= $m['avatar'] ?>" class="avatar" title="<?= sanitize($m['name']) ?> (<?= $m['role'] ?>)">
       <?php endforeach; ?>
+      <?php if ($moreMembers > 0): ?>
+        <span class="avatar-more-badge" title="<?= $moreMembers ?> more members">+<?= $moreMembers ?></span>
+      <?php endif; ?>
     </div>
   </div>
 </div>
@@ -128,9 +136,17 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
               <div class="card-footer-flex">
                 <!-- Assignee Avatars Stack -->
                 <div class="avatar-stack-group">
-                  <?php foreach ($card['assignees'] as $assignee): ?>
+                  <?php 
+                    $cardAssignees = $card['assignees'] ?? [];
+                    $visibleAssignees = array_slice($cardAssignees, 0, 3);
+                    $moreCardAssignees = count($cardAssignees) - 3;
+                  ?>
+                  <?php foreach ($visibleAssignees as $assignee): ?>
                     <img src="<?= $assignee['avatar'] ?>" alt="<?= sanitize($assignee['name']) ?>" title="<?= sanitize($assignee['name']) ?>">
                   <?php endforeach; ?>
+                  <?php if ($moreCardAssignees > 0): ?>
+                    <span class="avatar-more-badge" title="<?= $moreCardAssignees ?> more assignees">+<?= $moreCardAssignees ?></span>
+                  <?php endif; ?>
                 </div>
 
                 <!-- Card Metrics -->
@@ -221,6 +237,8 @@ require_once VIEWS_PATH . '/layouts/user/header.php';
               <div class="assignees-avatar-flex">
                 <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar" title="Sarah Connor">
                 <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar table-user-avatar-overlap" title="Chris Parker">
+                <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="table-user-avatar table-user-avatar-overlap" title="Alex Johnson">
+                <span class="avatar-more-badge" title="2 more assignees">+2</span>
               </div>
             </td>
             <td class="cell-priority">

@@ -18,35 +18,35 @@
 
     <div id="ws-members-scroll-box" class="modal-members-scroll-box mt-16">
       <div class="member-list-item-row" data-email="chris@richmondtech.com">
-        <a href="<?= route('admin/profile') ?>?id=2" class="member-info-flex member-profile-link">
+        <div class="member-info-flex member-profile-link">
           <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="member-avatar" alt="Avatar">
           <div class="member-meta">
             <div class="member-name-text">Chris Parker</div>
             <div class="member-email-text">chris@richmondtech.com</div>
           </div>
-        </a>
+        </div>
         <button type="button" class="btn btn-danger btn-sm member-remove-btn" onclick="removeWsMember(this);"><i class="fa-regular fa-trash-can"></i> Remove</button>
       </div>
 
       <div class="member-list-item-row" data-email="sarah@richmondtech.com">
-        <a href="<?= route('admin/profile') ?>?id=3" class="member-info-flex member-profile-link">
+        <div class="member-info-flex member-profile-link">
           <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="member-avatar" alt="Avatar">
           <div class="member-meta">
             <div class="member-name-text">Sarah Connor</div>
             <div class="member-email-text">sarah@richmondtech.com</div>
           </div>
-        </a>
+        </div>
         <button type="button" class="btn btn-danger btn-sm member-remove-btn" onclick="removeWsMember(this);"><i class="fa-regular fa-trash-can"></i> Remove</button>
       </div>
 
       <div class="member-list-item-row" data-email="david@richmondtech.com">
-        <a href="<?= route('admin/profile') ?>?id=6" class="member-info-flex member-profile-link">
+        <div class="member-info-flex member-profile-link">
           <img src="<?= asset('images/avatars/default-image.jpg') ?>" class="member-avatar" alt="Avatar">
           <div class="member-meta">
             <div class="member-name-text">David Chen</div>
             <div class="member-email-text">david@richmondtech.com</div>
           </div>
-        </a>
+        </div>
         <button type="button" class="btn btn-danger btn-sm member-remove-btn" onclick="removeWsMember(this);"><i class="fa-regular fa-trash-can"></i> Remove</button>
       </div>
     </div>

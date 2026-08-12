@@ -228,14 +228,11 @@ document.addEventListener('DOMContentLoaded', function () {
         </label>
         <div class="agenda-item-content">
           <div class="agenda-item-title">${escapeHtml(text)}</div>
-          <div class="agenda-item-meta">
-            <span class="agenda-board-tag"><i class="fa-regular fa-folder mr-4"></i>Personal Focus Note</span>
+          <div class="agenda-item-meta mt-2">
+            <span class="text-muted font-size-12"><i class="fa-regular fa-clock mr-6"></i>${todayStr}</span>
           </div>
         </div>
         <div class="agenda-item-right">
-          <span class="agenda-date-added text-muted font-size-12">
-            <i class="fa-regular fa-clock mr-4"></i>${todayStr}
-          </span>
           <div class="agenda-action-btns">
             <button type="button" class="btn-action-icon btn-action-edit agenda-edit-btn" title="Edit Note">
               <i class="fa-regular fa-pen-to-square"></i>
@@ -255,17 +252,35 @@ document.addEventListener('DOMContentLoaded', function () {
   // Edit & Delete Agenda Note Event Delegation
   if (agendaContainer) {
     agendaContainer.addEventListener('click', function (e) {
-      // Edit Button Handler
+      // Edit Button Handler (Inline Editing - No Browser Alert Prompt)
       const editBtn = e.target.closest('.agenda-edit-btn');
       if (editBtn) {
         const itemBox = editBtn.closest('.user-agenda-item');
         const titleEl = itemBox ? itemBox.querySelector('.agenda-item-title') : null;
         if (titleEl) {
-          const currentText = titleEl.innerText;
-          const newText = prompt('Edit your focus note:', currentText);
-          if (newText !== null && newText.trim() !== '') {
-            titleEl.innerText = newText.trim();
-          }
+          titleEl.contentEditable = 'true';
+          titleEl.classList.add('inline-title-editing');
+          titleEl.focus();
+
+          const finishEditing = function () {
+            titleEl.contentEditable = 'false';
+            titleEl.classList.remove('inline-title-editing');
+            if (!titleEl.innerText.trim()) {
+              titleEl.innerText = 'Focus item note...';
+            }
+            titleEl.removeEventListener('blur', finishEditing);
+            titleEl.removeEventListener('keydown', onKeyDown);
+          };
+
+          const onKeyDown = function (evt) {
+            if (evt.key === 'Enter') {
+              evt.preventDefault();
+              finishEditing();
+            }
+          };
+
+          titleEl.addEventListener('blur', finishEditing);
+          titleEl.addEventListener('keydown', onKeyDown);
         }
         return;
       }

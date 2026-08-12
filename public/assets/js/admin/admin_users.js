@@ -92,9 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const avatar = avatarSrc ? avatarSrc.getAttribute('src') : '';
 
       const tbody = document.querySelector('table.data-table tbody');
-      const profileBase = (typeof window.routeAdminProfile === 'string')
-        ? window.routeAdminProfile
-        : (window.location.pathname.replace(/\/admin\/.*$/, '/admin/profile'));
+      const profileBase = (typeof window.routeUserProfile === 'string')
+        ? window.routeUserProfile
+        : (window.location.pathname.replace(/\/admin\/.*$/, '/user/profile'));
       if (tbody) {
         tbody.insertAdjacentHTML('afterbegin', `
           <tr>
